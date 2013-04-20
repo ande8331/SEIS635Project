@@ -685,6 +685,67 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="eventsJoinedVendorsTableAdapter" GeneratorDataComponentClassName="eventsJoinedVendorsTableAdapter" Name="eventsJoinedVendors" UserDataComponentName="eventsJoinedVendorsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="eventPlannerAccessDBConnectionString (Settings)" DbObjectName="eventsJoinedVendors" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT vendor_ID, eventToVendorAssociation_ID, eventFK, vendorFK, vendorName, vendorRole FROM eventsJoinedVendors</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="vendor_ID" DataSetColumn="vendor_ID" />
+              <Mapping SourceColumn="eventToVendorAssociation_ID" DataSetColumn="eventToVendorAssociation_ID" />
+              <Mapping SourceColumn="eventFK" DataSetColumn="eventFK" />
+              <Mapping SourceColumn="vendorFK" DataSetColumn="vendorFK" />
+              <Mapping SourceColumn="vendorName" DataSetColumn="vendorName" />
+              <Mapping SourceColumn="vendorRole" DataSetColumn="vendorRole" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ownedEventQueryTableAdapter" GeneratorDataComponentClassName="ownedEventQueryTableAdapter" Name="ownedEventQuery" UserDataComponentName="ownedEventQueryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="eventPlannerAccessDBConnectionString (Settings)" DbObjectName="ownedEventQuery" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT eventName, start, [end] FROM ownedEventQuery</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="eventName" DataSetColumn="eventName" />
+              <Mapping SourceColumn="start" DataSetColumn="start" />
+              <Mapping SourceColumn="end" DataSetColumn="end" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="eventsJoinedLocationsTableAdapter" GeneratorDataComponentClassName="eventsJoinedLocationsTableAdapter" Name="eventsJoinedLocations" UserDataComponentName="eventsJoinedLocationsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="eventPlannerAccessDBConnectionString (Settings)" DbObjectName="eventsJoinedLocations" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT event_ID, eventToLocationAssociation_ID, eventFK, locationFK, location_ID, locationName, locationAddress FROM eventsJoinedLocations</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="event_ID" DataSetColumn="event_ID" />
+              <Mapping SourceColumn="eventToLocationAssociation_ID" DataSetColumn="eventToLocationAssociation_ID" />
+              <Mapping SourceColumn="eventFK" DataSetColumn="eventFK" />
+              <Mapping SourceColumn="locationFK" DataSetColumn="locationFK" />
+              <Mapping SourceColumn="location_ID" DataSetColumn="location_ID" />
+              <Mapping SourceColumn="locationName" DataSetColumn="locationName" />
+              <Mapping SourceColumn="locationAddress" DataSetColumn="locationAddress" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -693,7 +754,7 @@
   <xs:element name="eventPlannerAccessDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="eventPlannerAccessDBDataSet" msprop:Generator_UserDSName="eventPlannerAccessDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="event" msprop:Generator_TableClassName="eventDataTable" msprop:Generator_TableVarName="tableevent" msprop:Generator_RowChangedName="eventRowChanged" msprop:Generator_TablePropName="_event" msprop:Generator_RowDeletingName="eventRowDeleting" msprop:Generator_RowChangingName="eventRowChanging" msprop:Generator_RowEvHandlerName="eventRowChangeEventHandler" msprop:Generator_RowDeletedName="eventRowDeleted" msprop:Generator_RowClassName="eventRow" msprop:Generator_UserTableName="event" msprop:Generator_RowEvArgName="eventRowChangeEvent">
+        <xs:element name="event" msprop:Generator_TableClassName="eventDataTable" msprop:Generator_TableVarName="tableevent" msprop:Generator_TablePropName="_event" msprop:Generator_RowDeletingName="eventRowDeleting" msprop:Generator_RowChangingName="eventRowChanging" msprop:Generator_RowEvHandlerName="eventRowChangeEventHandler" msprop:Generator_RowDeletedName="eventRowDeleted" msprop:Generator_UserTableName="event" msprop:Generator_RowChangedName="eventRowChanged" msprop:Generator_RowEvArgName="eventRowChangeEvent" msprop:Generator_RowClassName="eventRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -710,7 +771,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="invitation" msprop:Generator_TableClassName="invitationDataTable" msprop:Generator_TableVarName="tableinvitation" msprop:Generator_RowChangedName="invitationRowChanged" msprop:Generator_TablePropName="invitation" msprop:Generator_RowDeletingName="invitationRowDeleting" msprop:Generator_RowChangingName="invitationRowChanging" msprop:Generator_RowEvHandlerName="invitationRowChangeEventHandler" msprop:Generator_RowDeletedName="invitationRowDeleted" msprop:Generator_RowClassName="invitationRow" msprop:Generator_UserTableName="invitation" msprop:Generator_RowEvArgName="invitationRowChangeEvent">
+        <xs:element name="invitation" msprop:Generator_TableClassName="invitationDataTable" msprop:Generator_TableVarName="tableinvitation" msprop:Generator_TablePropName="invitation" msprop:Generator_RowDeletingName="invitationRowDeleting" msprop:Generator_RowChangingName="invitationRowChanging" msprop:Generator_RowEvHandlerName="invitationRowChangeEventHandler" msprop:Generator_RowDeletedName="invitationRowDeleted" msprop:Generator_UserTableName="invitation" msprop:Generator_RowChangedName="invitationRowChanged" msprop:Generator_RowEvArgName="invitationRowChangeEvent" msprop:Generator_RowClassName="invitationRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -719,7 +780,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="user" msprop:Generator_TableClassName="userDataTable" msprop:Generator_TableVarName="tableuser" msprop:Generator_RowChangedName="userRowChanged" msprop:Generator_TablePropName="user" msprop:Generator_RowDeletingName="userRowDeleting" msprop:Generator_RowChangingName="userRowChanging" msprop:Generator_RowEvHandlerName="userRowChangeEventHandler" msprop:Generator_RowDeletedName="userRowDeleted" msprop:Generator_RowClassName="userRow" msprop:Generator_UserTableName="user" msprop:Generator_RowEvArgName="userRowChangeEvent">
+        <xs:element name="user" msprop:Generator_TableClassName="userDataTable" msprop:Generator_TableVarName="tableuser" msprop:Generator_TablePropName="user" msprop:Generator_RowDeletingName="userRowDeleting" msprop:Generator_RowChangingName="userRowChanging" msprop:Generator_RowEvHandlerName="userRowChangeEventHandler" msprop:Generator_RowDeletedName="userRowDeleted" msprop:Generator_UserTableName="user" msprop:Generator_RowChangedName="userRowChanged" msprop:Generator_RowEvArgName="userRowChangeEvent" msprop:Generator_RowClassName="userRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -747,7 +808,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="eventToLocationAssociation" msprop:Generator_TableClassName="eventToLocationAssociationDataTable" msprop:Generator_TableVarName="tableeventToLocationAssociation" msprop:Generator_TablePropName="eventToLocationAssociation" msprop:Generator_RowDeletingName="eventToLocationAssociationRowDeleting" msprop:Generator_RowChangingName="eventToLocationAssociationRowChanging" msprop:Generator_RowEvHandlerName="eventToLocationAssociationRowChangeEventHandler" msprop:Generator_RowDeletedName="eventToLocationAssociationRowDeleted" msprop:Generator_UserTableName="eventToLocationAssociation" msprop:Generator_RowChangedName="eventToLocationAssociationRowChanged" msprop:Generator_RowEvArgName="eventToLocationAssociationRowChangeEvent" msprop:Generator_RowClassName="eventToLocationAssociationRow">
+        <xs:element name="eventToLocationAssociation" msprop:Generator_TableClassName="eventToLocationAssociationDataTable" msprop:Generator_TableVarName="tableeventToLocationAssociation" msprop:Generator_RowChangedName="eventToLocationAssociationRowChanged" msprop:Generator_TablePropName="eventToLocationAssociation" msprop:Generator_RowDeletingName="eventToLocationAssociationRowDeleting" msprop:Generator_RowChangingName="eventToLocationAssociationRowChanging" msprop:Generator_RowEvHandlerName="eventToLocationAssociationRowChangeEventHandler" msprop:Generator_RowDeletedName="eventToLocationAssociationRowDeleted" msprop:Generator_RowClassName="eventToLocationAssociationRow" msprop:Generator_UserTableName="eventToLocationAssociation" msprop:Generator_RowEvArgName="eventToLocationAssociationRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -756,7 +817,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="eventToVendorAssociation" msprop:Generator_TableClassName="eventToVendorAssociationDataTable" msprop:Generator_TableVarName="tableeventToVendorAssociation" msprop:Generator_TablePropName="eventToVendorAssociation" msprop:Generator_RowDeletingName="eventToVendorAssociationRowDeleting" msprop:Generator_RowChangingName="eventToVendorAssociationRowChanging" msprop:Generator_RowEvHandlerName="eventToVendorAssociationRowChangeEventHandler" msprop:Generator_RowDeletedName="eventToVendorAssociationRowDeleted" msprop:Generator_UserTableName="eventToVendorAssociation" msprop:Generator_RowChangedName="eventToVendorAssociationRowChanged" msprop:Generator_RowEvArgName="eventToVendorAssociationRowChangeEvent" msprop:Generator_RowClassName="eventToVendorAssociationRow">
+        <xs:element name="eventToVendorAssociation" msprop:Generator_TableClassName="eventToVendorAssociationDataTable" msprop:Generator_TableVarName="tableeventToVendorAssociation" msprop:Generator_RowChangedName="eventToVendorAssociationRowChanged" msprop:Generator_TablePropName="eventToVendorAssociation" msprop:Generator_RowDeletingName="eventToVendorAssociationRowDeleting" msprop:Generator_RowChangingName="eventToVendorAssociationRowChanging" msprop:Generator_RowEvHandlerName="eventToVendorAssociationRowChangeEventHandler" msprop:Generator_RowDeletedName="eventToVendorAssociationRowDeleted" msprop:Generator_RowClassName="eventToVendorAssociationRow" msprop:Generator_UserTableName="eventToVendorAssociation" msprop:Generator_RowEvArgName="eventToVendorAssociationRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -765,7 +826,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="item" msprop:Generator_TableClassName="itemDataTable" msprop:Generator_TableVarName="tableitem" msprop:Generator_TablePropName="item" msprop:Generator_RowDeletingName="itemRowDeleting" msprop:Generator_RowChangingName="itemRowChanging" msprop:Generator_RowEvHandlerName="itemRowChangeEventHandler" msprop:Generator_RowDeletedName="itemRowDeleted" msprop:Generator_UserTableName="item" msprop:Generator_RowChangedName="itemRowChanged" msprop:Generator_RowEvArgName="itemRowChangeEvent" msprop:Generator_RowClassName="itemRow">
+        <xs:element name="item" msprop:Generator_TableClassName="itemDataTable" msprop:Generator_TableVarName="tableitem" msprop:Generator_RowChangedName="itemRowChanged" msprop:Generator_TablePropName="item" msprop:Generator_RowDeletingName="itemRowDeleting" msprop:Generator_RowChangingName="itemRowChanging" msprop:Generator_RowEvHandlerName="itemRowChangeEventHandler" msprop:Generator_RowDeletedName="itemRowDeleted" msprop:Generator_RowClassName="itemRow" msprop:Generator_UserTableName="item" msprop:Generator_RowEvArgName="itemRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -787,7 +848,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="itemToRetailAssociation" msprop:Generator_TableClassName="itemToRetailAssociationDataTable" msprop:Generator_TableVarName="tableitemToRetailAssociation" msprop:Generator_TablePropName="itemToRetailAssociation" msprop:Generator_RowDeletingName="itemToRetailAssociationRowDeleting" msprop:Generator_RowChangingName="itemToRetailAssociationRowChanging" msprop:Generator_RowEvHandlerName="itemToRetailAssociationRowChangeEventHandler" msprop:Generator_RowDeletedName="itemToRetailAssociationRowDeleted" msprop:Generator_UserTableName="itemToRetailAssociation" msprop:Generator_RowChangedName="itemToRetailAssociationRowChanged" msprop:Generator_RowEvArgName="itemToRetailAssociationRowChangeEvent" msprop:Generator_RowClassName="itemToRetailAssociationRow">
+        <xs:element name="itemToRetailAssociation" msprop:Generator_TableClassName="itemToRetailAssociationDataTable" msprop:Generator_TableVarName="tableitemToRetailAssociation" msprop:Generator_RowChangedName="itemToRetailAssociationRowChanged" msprop:Generator_TablePropName="itemToRetailAssociation" msprop:Generator_RowDeletingName="itemToRetailAssociationRowDeleting" msprop:Generator_RowChangingName="itemToRetailAssociationRowChanging" msprop:Generator_RowEvHandlerName="itemToRetailAssociationRowChangeEventHandler" msprop:Generator_RowDeletedName="itemToRetailAssociationRowDeleted" msprop:Generator_RowClassName="itemToRetailAssociationRow" msprop:Generator_UserTableName="itemToRetailAssociation" msprop:Generator_RowEvArgName="itemToRetailAssociationRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -796,7 +857,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="location" msprop:Generator_TableClassName="locationDataTable" msprop:Generator_TableVarName="tablelocation" msprop:Generator_TablePropName="location" msprop:Generator_RowDeletingName="locationRowDeleting" msprop:Generator_RowChangingName="locationRowChanging" msprop:Generator_RowEvHandlerName="locationRowChangeEventHandler" msprop:Generator_RowDeletedName="locationRowDeleted" msprop:Generator_UserTableName="location" msprop:Generator_RowChangedName="locationRowChanged" msprop:Generator_RowEvArgName="locationRowChangeEvent" msprop:Generator_RowClassName="locationRow">
+        <xs:element name="location" msprop:Generator_TableClassName="locationDataTable" msprop:Generator_TableVarName="tablelocation" msprop:Generator_RowChangedName="locationRowChanged" msprop:Generator_TablePropName="location" msprop:Generator_RowDeletingName="locationRowDeleting" msprop:Generator_RowChangingName="locationRowChanging" msprop:Generator_RowEvHandlerName="locationRowChangeEventHandler" msprop:Generator_RowDeletedName="locationRowDeleted" msprop:Generator_RowClassName="locationRow" msprop:Generator_UserTableName="location" msprop:Generator_RowEvArgName="locationRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -817,7 +878,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="retailLocation" msprop:Generator_TableClassName="retailLocationDataTable" msprop:Generator_TableVarName="tableretailLocation" msprop:Generator_TablePropName="retailLocation" msprop:Generator_RowDeletingName="retailLocationRowDeleting" msprop:Generator_RowChangingName="retailLocationRowChanging" msprop:Generator_RowEvHandlerName="retailLocationRowChangeEventHandler" msprop:Generator_RowDeletedName="retailLocationRowDeleted" msprop:Generator_UserTableName="retailLocation" msprop:Generator_RowChangedName="retailLocationRowChanged" msprop:Generator_RowEvArgName="retailLocationRowChangeEvent" msprop:Generator_RowClassName="retailLocationRow">
+        <xs:element name="retailLocation" msprop:Generator_TableClassName="retailLocationDataTable" msprop:Generator_TableVarName="tableretailLocation" msprop:Generator_RowChangedName="retailLocationRowChanged" msprop:Generator_TablePropName="retailLocation" msprop:Generator_RowDeletingName="retailLocationRowDeleting" msprop:Generator_RowChangingName="retailLocationRowChanging" msprop:Generator_RowEvHandlerName="retailLocationRowChangeEventHandler" msprop:Generator_RowDeletedName="retailLocationRowDeleted" msprop:Generator_RowClassName="retailLocationRow" msprop:Generator_UserTableName="retailLocation" msprop:Generator_RowEvArgName="retailLocationRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -838,7 +899,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vendor" msprop:Generator_TableClassName="vendorDataTable" msprop:Generator_TableVarName="tablevendor" msprop:Generator_TablePropName="vendor" msprop:Generator_RowDeletingName="vendorRowDeleting" msprop:Generator_RowChangingName="vendorRowChanging" msprop:Generator_RowEvHandlerName="vendorRowChangeEventHandler" msprop:Generator_RowDeletedName="vendorRowDeleted" msprop:Generator_UserTableName="vendor" msprop:Generator_RowChangedName="vendorRowChanged" msprop:Generator_RowEvArgName="vendorRowChangeEvent" msprop:Generator_RowClassName="vendorRow">
+        <xs:element name="vendor" msprop:Generator_TableClassName="vendorDataTable" msprop:Generator_TableVarName="tablevendor" msprop:Generator_RowChangedName="vendorRowChanged" msprop:Generator_TablePropName="vendor" msprop:Generator_RowDeletingName="vendorRowDeleting" msprop:Generator_RowChangingName="vendorRowChanging" msprop:Generator_RowEvHandlerName="vendorRowChangeEventHandler" msprop:Generator_RowDeletedName="vendorRowDeleted" msprop:Generator_RowClassName="vendorRow" msprop:Generator_UserTableName="vendor" msprop:Generator_RowEvArgName="vendorRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -859,7 +920,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="wishlist" msprop:Generator_TableClassName="wishlistDataTable" msprop:Generator_TableVarName="tablewishlist" msprop:Generator_TablePropName="wishlist" msprop:Generator_RowDeletingName="wishlistRowDeleting" msprop:Generator_RowChangingName="wishlistRowChanging" msprop:Generator_RowEvHandlerName="wishlistRowChangeEventHandler" msprop:Generator_RowDeletedName="wishlistRowDeleted" msprop:Generator_UserTableName="wishlist" msprop:Generator_RowChangedName="wishlistRowChanged" msprop:Generator_RowEvArgName="wishlistRowChangeEvent" msprop:Generator_RowClassName="wishlistRow">
+        <xs:element name="wishlist" msprop:Generator_TableClassName="wishlistDataTable" msprop:Generator_TableVarName="tablewishlist" msprop:Generator_RowChangedName="wishlistRowChanged" msprop:Generator_TablePropName="wishlist" msprop:Generator_RowDeletingName="wishlistRowDeleting" msprop:Generator_RowChangingName="wishlistRowChanging" msprop:Generator_RowEvHandlerName="wishlistRowChangeEventHandler" msprop:Generator_RowDeletedName="wishlistRowDeleted" msprop:Generator_RowClassName="wishlistRow" msprop:Generator_UserTableName="wishlist" msprop:Generator_RowEvArgName="wishlistRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -874,7 +935,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="wishlistToItemAssociation" msprop:Generator_TableClassName="wishlistToItemAssociationDataTable" msprop:Generator_TableVarName="tablewishlistToItemAssociation" msprop:Generator_TablePropName="wishlistToItemAssociation" msprop:Generator_RowDeletingName="wishlistToItemAssociationRowDeleting" msprop:Generator_RowChangingName="wishlistToItemAssociationRowChanging" msprop:Generator_RowEvHandlerName="wishlistToItemAssociationRowChangeEventHandler" msprop:Generator_RowDeletedName="wishlistToItemAssociationRowDeleted" msprop:Generator_UserTableName="wishlistToItemAssociation" msprop:Generator_RowChangedName="wishlistToItemAssociationRowChanged" msprop:Generator_RowEvArgName="wishlistToItemAssociationRowChangeEvent" msprop:Generator_RowClassName="wishlistToItemAssociationRow">
+        <xs:element name="wishlistToItemAssociation" msprop:Generator_TableClassName="wishlistToItemAssociationDataTable" msprop:Generator_TableVarName="tablewishlistToItemAssociation" msprop:Generator_RowChangedName="wishlistToItemAssociationRowChanged" msprop:Generator_TablePropName="wishlistToItemAssociation" msprop:Generator_RowDeletingName="wishlistToItemAssociationRowDeleting" msprop:Generator_RowChangingName="wishlistToItemAssociationRowChanging" msprop:Generator_RowEvHandlerName="wishlistToItemAssociationRowChangeEventHandler" msprop:Generator_RowDeletedName="wishlistToItemAssociationRowDeleted" msprop:Generator_RowClassName="wishlistToItemAssociationRow" msprop:Generator_UserTableName="wishlistToItemAssociation" msprop:Generator_RowEvArgName="wishlistToItemAssociationRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -882,6 +943,70 @@
               <xs:element name="itemFK" msprop:Generator_ColumnVarNameInTable="columnitemFK" msprop:Generator_ColumnPropNameInRow="itemFK" msprop:Generator_ColumnPropNameInTable="itemFKColumn" msprop:Generator_UserColumnName="itemFK" type="xs:int" minOccurs="0" />
               <xs:element name="requestedQty" msprop:Generator_ColumnVarNameInTable="columnrequestedQty" msprop:Generator_ColumnPropNameInRow="requestedQty" msprop:Generator_ColumnPropNameInTable="requestedQtyColumn" msprop:Generator_UserColumnName="requestedQty" type="xs:int" minOccurs="0" />
               <xs:element name="purchasedQty" msprop:Generator_ColumnVarNameInTable="columnpurchasedQty" msprop:Generator_ColumnPropNameInRow="purchasedQty" msprop:Generator_ColumnPropNameInTable="purchasedQtyColumn" msprop:Generator_UserColumnName="purchasedQty" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="eventsJoinedVendors" msprop:Generator_TableClassName="eventsJoinedVendorsDataTable" msprop:Generator_TableVarName="tableeventsJoinedVendors" msprop:Generator_TablePropName="eventsJoinedVendors" msprop:Generator_RowDeletingName="eventsJoinedVendorsRowDeleting" msprop:Generator_RowChangingName="eventsJoinedVendorsRowChanging" msprop:Generator_RowEvHandlerName="eventsJoinedVendorsRowChangeEventHandler" msprop:Generator_RowDeletedName="eventsJoinedVendorsRowDeleted" msprop:Generator_UserTableName="eventsJoinedVendors" msprop:Generator_RowChangedName="eventsJoinedVendorsRowChanged" msprop:Generator_RowEvArgName="eventsJoinedVendorsRowChangeEvent" msprop:Generator_RowClassName="eventsJoinedVendorsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vendor_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnvendor_ID" msprop:Generator_ColumnPropNameInRow="vendor_ID" msprop:Generator_ColumnPropNameInTable="vendor_IDColumn" msprop:Generator_UserColumnName="vendor_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="eventToVendorAssociation_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columneventToVendorAssociation_ID" msprop:Generator_ColumnPropNameInRow="eventToVendorAssociation_ID" msprop:Generator_ColumnPropNameInTable="eventToVendorAssociation_IDColumn" msprop:Generator_UserColumnName="eventToVendorAssociation_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="eventFK" msprop:Generator_ColumnVarNameInTable="columneventFK" msprop:Generator_ColumnPropNameInRow="eventFK" msprop:Generator_ColumnPropNameInTable="eventFKColumn" msprop:Generator_UserColumnName="eventFK" type="xs:int" minOccurs="0" />
+              <xs:element name="vendorFK" msprop:Generator_ColumnVarNameInTable="columnvendorFK" msprop:Generator_ColumnPropNameInRow="vendorFK" msprop:Generator_ColumnPropNameInTable="vendorFKColumn" msprop:Generator_UserColumnName="vendorFK" type="xs:int" minOccurs="0" />
+              <xs:element name="vendorName" msprop:Generator_ColumnVarNameInTable="columnvendorName" msprop:Generator_ColumnPropNameInRow="vendorName" msprop:Generator_ColumnPropNameInTable="vendorNameColumn" msprop:Generator_UserColumnName="vendorName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vendorRole" msprop:Generator_ColumnVarNameInTable="columnvendorRole" msprop:Generator_ColumnPropNameInRow="vendorRole" msprop:Generator_ColumnPropNameInTable="vendorRoleColumn" msprop:Generator_UserColumnName="vendorRole" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ownedEventQuery" msprop:Generator_TableClassName="ownedEventQueryDataTable" msprop:Generator_TableVarName="tableownedEventQuery" msprop:Generator_TablePropName="ownedEventQuery" msprop:Generator_RowDeletingName="ownedEventQueryRowDeleting" msprop:Generator_RowChangingName="ownedEventQueryRowChanging" msprop:Generator_RowEvHandlerName="ownedEventQueryRowChangeEventHandler" msprop:Generator_RowDeletedName="ownedEventQueryRowDeleted" msprop:Generator_UserTableName="ownedEventQuery" msprop:Generator_RowChangedName="ownedEventQueryRowChanged" msprop:Generator_RowEvArgName="ownedEventQueryRowChangeEvent" msprop:Generator_RowClassName="ownedEventQueryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="eventName" msprop:Generator_ColumnVarNameInTable="columneventName" msprop:Generator_ColumnPropNameInRow="eventName" msprop:Generator_ColumnPropNameInTable="eventNameColumn" msprop:Generator_UserColumnName="eventName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="start" msprop:Generator_ColumnVarNameInTable="columnstart" msprop:Generator_ColumnPropNameInRow="start" msprop:Generator_ColumnPropNameInTable="startColumn" msprop:Generator_UserColumnName="start" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="end" msprop:Generator_ColumnVarNameInTable="columnend" msprop:Generator_ColumnPropNameInRow="end" msprop:Generator_ColumnPropNameInTable="endColumn" msprop:Generator_UserColumnName="end" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="eventsJoinedLocations" msprop:Generator_TableClassName="eventsJoinedLocationsDataTable" msprop:Generator_TableVarName="tableeventsJoinedLocations" msprop:Generator_TablePropName="eventsJoinedLocations" msprop:Generator_RowDeletingName="eventsJoinedLocationsRowDeleting" msprop:Generator_RowChangingName="eventsJoinedLocationsRowChanging" msprop:Generator_RowEvHandlerName="eventsJoinedLocationsRowChangeEventHandler" msprop:Generator_RowDeletedName="eventsJoinedLocationsRowDeleted" msprop:Generator_UserTableName="eventsJoinedLocations" msprop:Generator_RowChangedName="eventsJoinedLocationsRowChanged" msprop:Generator_RowEvArgName="eventsJoinedLocationsRowChangeEvent" msprop:Generator_RowClassName="eventsJoinedLocationsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="event_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnevent_ID" msprop:Generator_ColumnPropNameInRow="event_ID" msprop:Generator_ColumnPropNameInTable="event_IDColumn" msprop:Generator_UserColumnName="event_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="eventToLocationAssociation_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columneventToLocationAssociation_ID" msprop:Generator_ColumnPropNameInRow="eventToLocationAssociation_ID" msprop:Generator_ColumnPropNameInTable="eventToLocationAssociation_IDColumn" msprop:Generator_UserColumnName="eventToLocationAssociation_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="eventFK" msprop:Generator_ColumnVarNameInTable="columneventFK" msprop:Generator_ColumnPropNameInRow="eventFK" msprop:Generator_ColumnPropNameInTable="eventFKColumn" msprop:Generator_UserColumnName="eventFK" type="xs:int" minOccurs="0" />
+              <xs:element name="locationFK" msprop:Generator_ColumnVarNameInTable="columnlocationFK" msprop:Generator_ColumnPropNameInRow="locationFK" msprop:Generator_ColumnPropNameInTable="locationFKColumn" msprop:Generator_UserColumnName="locationFK" type="xs:int" minOccurs="0" />
+              <xs:element name="location_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnlocation_ID" msprop:Generator_ColumnPropNameInRow="location_ID" msprop:Generator_ColumnPropNameInTable="location_IDColumn" msprop:Generator_UserColumnName="location_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="locationName" msprop:Generator_ColumnVarNameInTable="columnlocationName" msprop:Generator_ColumnPropNameInRow="locationName" msprop:Generator_ColumnPropNameInTable="locationNameColumn" msprop:Generator_UserColumnName="locationName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="locationAddress" msprop:Generator_ColumnVarNameInTable="columnlocationAddress" msprop:Generator_ColumnPropNameInRow="locationAddress" msprop:Generator_ColumnPropNameInTable="locationAddressColumn" msprop:Generator_UserColumnName="locationAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -938,18 +1063,18 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="userevent" msdata:parent="user" msdata:child="event" msdata:parentkey="ID" msdata:childkey="owner" msprop:Generator_UserChildTable="event" msprop:Generator_ChildPropName="GeteventRows" msprop:Generator_UserRelationName="userevent" msprop:Generator_ParentPropName="userRow" msprop:Generator_RelationVarName="relationuserevent" msprop:Generator_UserParentTable="user" />
-      <msdata:Relationship name="eventinvitation" msdata:parent="event" msdata:child="invitation" msdata:parentkey="ID" msdata:childkey="eventFK" msprop:Generator_UserChildTable="invitation" msprop:Generator_ChildPropName="GetinvitationRows" msprop:Generator_UserRelationName="eventinvitation" msprop:Generator_RelationVarName="relationeventinvitation" msprop:Generator_UserParentTable="event" msprop:Generator_ParentPropName="eventRow" />
-      <msdata:Relationship name="userinvitation" msdata:parent="user" msdata:child="invitation" msdata:parentkey="ID" msdata:childkey="inviteeFK" msprop:Generator_UserChildTable="invitation" msprop:Generator_ChildPropName="GetinvitationRows" msprop:Generator_UserRelationName="userinvitation" msprop:Generator_ParentPropName="userRow" msprop:Generator_RelationVarName="relationuserinvitation" msprop:Generator_UserParentTable="user" />
-      <msdata:Relationship name="eventTable11" msdata:parent="event" msdata:child="eventToLocationAssociation" msdata:parentkey="ID" msdata:childkey="eventFK" msprop:Generator_UserChildTable="eventToLocationAssociation" msprop:Generator_ChildPropName="GeteventToLocationAssociationRows" msprop:Generator_UserRelationName="eventTable11" msprop:Generator_ParentPropName="eventRow" msprop:Generator_RelationVarName="relationeventTable11" msprop:Generator_UserParentTable="event" />
-      <msdata:Relationship name="locationeventToLocationAssociation" msdata:parent="location" msdata:child="eventToLocationAssociation" msdata:parentkey="ID" msdata:childkey="locationFK" msprop:Generator_UserChildTable="eventToLocationAssociation" msprop:Generator_ChildPropName="GeteventToLocationAssociationRows" msprop:Generator_UserRelationName="locationeventToLocationAssociation" msprop:Generator_RelationVarName="relationlocationeventToLocationAssociation" msprop:Generator_UserParentTable="location" msprop:Generator_ParentPropName="locationRow" />
-      <msdata:Relationship name="eventTable1" msdata:parent="event" msdata:child="eventToVendorAssociation" msdata:parentkey="ID" msdata:childkey="eventFK" msprop:Generator_UserChildTable="eventToVendorAssociation" msprop:Generator_ChildPropName="GeteventToVendorAssociationRows" msprop:Generator_UserRelationName="eventTable1" msprop:Generator_ParentPropName="eventRow" msprop:Generator_RelationVarName="relationeventTable1" msprop:Generator_UserParentTable="event" />
-      <msdata:Relationship name="vendoreventToVendorAssociation" msdata:parent="vendor" msdata:child="eventToVendorAssociation" msdata:parentkey="ID" msdata:childkey="vendorFK" msprop:Generator_UserChildTable="eventToVendorAssociation" msprop:Generator_ChildPropName="GeteventToVendorAssociationRows" msprop:Generator_UserRelationName="vendoreventToVendorAssociation" msprop:Generator_RelationVarName="relationvendoreventToVendorAssociation" msprop:Generator_UserParentTable="vendor" msprop:Generator_ParentPropName="vendorRow" />
-      <msdata:Relationship name="itemTable1" msdata:parent="item" msdata:child="itemToRetailAssociation" msdata:parentkey="ID" msdata:childkey="itemFK" msprop:Generator_UserChildTable="itemToRetailAssociation" msprop:Generator_ChildPropName="GetitemToRetailAssociationRows" msprop:Generator_UserRelationName="itemTable1" msprop:Generator_ParentPropName="itemRow" msprop:Generator_RelationVarName="relationitemTable1" msprop:Generator_UserParentTable="item" />
-      <msdata:Relationship name="retailLocationitemToRetailAssociation" msdata:parent="retailLocation" msdata:child="itemToRetailAssociation" msdata:parentkey="ID" msdata:childkey="retailFK" msprop:Generator_UserChildTable="itemToRetailAssociation" msprop:Generator_ChildPropName="GetitemToRetailAssociationRows" msprop:Generator_UserRelationName="retailLocationitemToRetailAssociation" msprop:Generator_RelationVarName="relationretailLocationitemToRetailAssociation" msprop:Generator_UserParentTable="retailLocation" msprop:Generator_ParentPropName="retailLocationRow" />
-      <msdata:Relationship name="userTable1" msdata:parent="user" msdata:child="wishlist" msdata:parentkey="ID" msdata:childkey="userFK" msprop:Generator_UserChildTable="wishlist" msprop:Generator_ChildPropName="GetwishlistRows" msprop:Generator_UserRelationName="userTable1" msprop:Generator_ParentPropName="userRow" msprop:Generator_RelationVarName="relationuserTable1" msprop:Generator_UserParentTable="user" />
-      <msdata:Relationship name="Table1wishlistToItemAssociation" msdata:parent="item" msdata:child="wishlistToItemAssociation" msdata:parentkey="ID" msdata:childkey="itemFK" msprop:Generator_UserChildTable="wishlistToItemAssociation" msprop:Generator_ChildPropName="GetwishlistToItemAssociationRows" msprop:Generator_UserRelationName="Table1wishlistToItemAssociation" msprop:Generator_ParentPropName="itemRow" msprop:Generator_RelationVarName="relationTable1wishlistToItemAssociation" msprop:Generator_UserParentTable="item" />
-      <msdata:Relationship name="wishlistTable2" msdata:parent="wishlist" msdata:child="wishlistToItemAssociation" msdata:parentkey="ID" msdata:childkey="wishlistFK" msprop:Generator_UserChildTable="wishlistToItemAssociation" msprop:Generator_ChildPropName="GetwishlistToItemAssociationRows" msprop:Generator_UserRelationName="wishlistTable2" msprop:Generator_ParentPropName="wishlistRow" msprop:Generator_RelationVarName="relationwishlistTable2" msprop:Generator_UserParentTable="wishlist" />
+      <msdata:Relationship name="userevent" msdata:parent="user" msdata:child="event" msdata:parentkey="ID" msdata:childkey="owner" msprop:Generator_UserChildTable="event" msprop:Generator_ChildPropName="GeteventRows" msprop:Generator_UserRelationName="userevent" msprop:Generator_RelationVarName="relationuserevent" msprop:Generator_UserParentTable="user" msprop:Generator_ParentPropName="userRow" />
+      <msdata:Relationship name="eventinvitation" msdata:parent="event" msdata:child="invitation" msdata:parentkey="ID" msdata:childkey="eventFK" msprop:Generator_UserChildTable="invitation" msprop:Generator_ChildPropName="GetinvitationRows" msprop:Generator_UserRelationName="eventinvitation" msprop:Generator_ParentPropName="eventRow" msprop:Generator_RelationVarName="relationeventinvitation" msprop:Generator_UserParentTable="event" />
+      <msdata:Relationship name="userinvitation" msdata:parent="user" msdata:child="invitation" msdata:parentkey="ID" msdata:childkey="inviteeFK" msprop:Generator_UserChildTable="invitation" msprop:Generator_ChildPropName="GetinvitationRows" msprop:Generator_UserRelationName="userinvitation" msprop:Generator_RelationVarName="relationuserinvitation" msprop:Generator_UserParentTable="user" msprop:Generator_ParentPropName="userRow" />
+      <msdata:Relationship name="eventTable11" msdata:parent="event" msdata:child="eventToLocationAssociation" msdata:parentkey="ID" msdata:childkey="eventFK" msprop:Generator_UserChildTable="eventToLocationAssociation" msprop:Generator_ChildPropName="GeteventToLocationAssociationRows" msprop:Generator_UserRelationName="eventTable11" msprop:Generator_RelationVarName="relationeventTable11" msprop:Generator_UserParentTable="event" msprop:Generator_ParentPropName="eventRow" />
+      <msdata:Relationship name="locationeventToLocationAssociation" msdata:parent="location" msdata:child="eventToLocationAssociation" msdata:parentkey="ID" msdata:childkey="locationFK" msprop:Generator_UserChildTable="eventToLocationAssociation" msprop:Generator_ChildPropName="GeteventToLocationAssociationRows" msprop:Generator_UserRelationName="locationeventToLocationAssociation" msprop:Generator_ParentPropName="locationRow" msprop:Generator_RelationVarName="relationlocationeventToLocationAssociation" msprop:Generator_UserParentTable="location" />
+      <msdata:Relationship name="eventTable1" msdata:parent="event" msdata:child="eventToVendorAssociation" msdata:parentkey="ID" msdata:childkey="eventFK" msprop:Generator_UserChildTable="eventToVendorAssociation" msprop:Generator_ChildPropName="GeteventToVendorAssociationRows" msprop:Generator_UserRelationName="eventTable1" msprop:Generator_RelationVarName="relationeventTable1" msprop:Generator_UserParentTable="event" msprop:Generator_ParentPropName="eventRow" />
+      <msdata:Relationship name="vendoreventToVendorAssociation" msdata:parent="vendor" msdata:child="eventToVendorAssociation" msdata:parentkey="ID" msdata:childkey="vendorFK" msprop:Generator_UserChildTable="eventToVendorAssociation" msprop:Generator_ChildPropName="GeteventToVendorAssociationRows" msprop:Generator_UserRelationName="vendoreventToVendorAssociation" msprop:Generator_ParentPropName="vendorRow" msprop:Generator_RelationVarName="relationvendoreventToVendorAssociation" msprop:Generator_UserParentTable="vendor" />
+      <msdata:Relationship name="itemTable1" msdata:parent="item" msdata:child="itemToRetailAssociation" msdata:parentkey="ID" msdata:childkey="itemFK" msprop:Generator_UserChildTable="itemToRetailAssociation" msprop:Generator_ChildPropName="GetitemToRetailAssociationRows" msprop:Generator_UserRelationName="itemTable1" msprop:Generator_RelationVarName="relationitemTable1" msprop:Generator_UserParentTable="item" msprop:Generator_ParentPropName="itemRow" />
+      <msdata:Relationship name="retailLocationitemToRetailAssociation" msdata:parent="retailLocation" msdata:child="itemToRetailAssociation" msdata:parentkey="ID" msdata:childkey="retailFK" msprop:Generator_UserChildTable="itemToRetailAssociation" msprop:Generator_ChildPropName="GetitemToRetailAssociationRows" msprop:Generator_UserRelationName="retailLocationitemToRetailAssociation" msprop:Generator_ParentPropName="retailLocationRow" msprop:Generator_RelationVarName="relationretailLocationitemToRetailAssociation" msprop:Generator_UserParentTable="retailLocation" />
+      <msdata:Relationship name="userTable1" msdata:parent="user" msdata:child="wishlist" msdata:parentkey="ID" msdata:childkey="userFK" msprop:Generator_UserChildTable="wishlist" msprop:Generator_ChildPropName="GetwishlistRows" msprop:Generator_UserRelationName="userTable1" msprop:Generator_RelationVarName="relationuserTable1" msprop:Generator_UserParentTable="user" msprop:Generator_ParentPropName="userRow" />
+      <msdata:Relationship name="Table1wishlistToItemAssociation" msdata:parent="item" msdata:child="wishlistToItemAssociation" msdata:parentkey="ID" msdata:childkey="itemFK" msprop:Generator_UserChildTable="wishlistToItemAssociation" msprop:Generator_ChildPropName="GetwishlistToItemAssociationRows" msprop:Generator_UserRelationName="Table1wishlistToItemAssociation" msprop:Generator_RelationVarName="relationTable1wishlistToItemAssociation" msprop:Generator_UserParentTable="item" msprop:Generator_ParentPropName="itemRow" />
+      <msdata:Relationship name="wishlistTable2" msdata:parent="wishlist" msdata:child="wishlistToItemAssociation" msdata:parentkey="ID" msdata:childkey="wishlistFK" msprop:Generator_UserChildTable="wishlistToItemAssociation" msprop:Generator_ChildPropName="GetwishlistToItemAssociationRows" msprop:Generator_UserRelationName="wishlistTable2" msprop:Generator_RelationVarName="relationwishlistTable2" msprop:Generator_UserParentTable="wishlist" msprop:Generator_ParentPropName="wishlistRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
