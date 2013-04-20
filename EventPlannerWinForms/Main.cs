@@ -28,6 +28,9 @@ namespace EventPlannerWinForms
             ownedEventDataGrid.Columns.Clear();
             ownedEventDataGrid.AllowUserToAddRows = false;
             ownedEventDataGrid.AllowUserToDeleteRows = false;
+            ownedEventDataGrid.ShowEditingIcon = false;
+            
+
             ownedEventDataGrid.Columns.Add("PK", "PK");
             ownedEventDataGrid.Columns[0].Visible = false;
             ownedEventDataGrid.Columns.Add("", "");
@@ -40,20 +43,32 @@ namespace EventPlannerWinForms
             eventPlannerAccessDBDataSet.eventDataTable data = new eventPlannerAccessDBDataSet.eventDataTable();
             myadapter.Fill(data);
             
+            DataGridViewCellStyle myStyle = new DataGridViewCellStyle();            
+            
+
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 if (data.Rows[i]["owner"].Equals(1))
                 {
                     // Create Rows
                     ownedEventDataGrid.Rows.Add(data.Rows[i]["ID"], "Edit", data.Rows[i]["eventName"], data.Rows[i]["start"], data.Rows[i]["end"]);
+                    ownedEventDataGrid[1, i].Style.ForeColor = Color.Blue;
+                    Font myFont = new Font(ownedEventDataGrid[2, i].Style.Font, FontStyle.Underline);
                 }
             }
+
+            ownedEventDataGrid.ClearSelection();
         }
 
         private void ownedEventDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Event popUpWindow = new Event(Convert.ToInt32(ownedEventDataGrid[0, e.RowIndex].Value));
             popUpWindow.Show();
+        }
+
+        private void ownedEventDataGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            ownedEventDataGrid.CurrentRow.Selected = false;
         }
     }
 }
