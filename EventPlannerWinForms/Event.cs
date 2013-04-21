@@ -36,6 +36,8 @@ namespace EventPlannerWinForms
             myRow.start = eventStartDateTimePicker.Value;
             myRow.end = eventEndDateTimePicker.Value;
             myadapter.Update(myRow);
+            
+
         }
 
         private void Event_Load(object sender, EventArgs e)
