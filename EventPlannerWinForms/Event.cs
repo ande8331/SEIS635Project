@@ -1,136 +1,79 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace EventPlannerWinForms
 {
-    public partial class Event : Form
+    class Events
     {
-        private int _eventPK;
 
-        public Event(int eventPK)
-        {
-            _eventPK = eventPK;
-            InitializeComponent();
-        }
+    }
 
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+    class Event
+    {
+        public DateTime eventStart { get; set; }
+        public DateTime eventEnd { get; set; }
+        public String eventName { get; set; }
+        public int eventPK { get; private set; }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        public static List<Event> getEventsBelongingToOwner(int ownerPK)
         {
+            List<Event> returnVar = new List<Event>();
+
             eventPlannerAccessDBDataSetTableAdapters.eventTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.eventTableAdapter();
             eventPlannerAccessDBDataSet.eventDataTable data = new eventPlannerAccessDBDataSet.eventDataTable();
             myadapter.Fill(data);
 
-            eventPlannerAccessDBDataSet.eventRow myRow = data.FindByID(_eventPK);
-            myRow.eventName = eventNameTextBox.Text;
-            myRow.start = eventStartDateTimePicker.Value;
-            myRow.end = eventEndDateTimePicker.Value;
-            myadapter.Update(myRow);
-            
-
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                if (data.Rows[i]["owner"].Equals(ownerPK))
+                {
+                    Event myEvent = new Event((eventPlannerAccessDBDataSet.eventRow) data.Rows[i]);
+                    returnVar.Add(myEvent);
+                }
+            }
+            return returnVar;
         }
 
-        private void Event_Load(object sender, EventArgs e)
+        public Event(eventPlannerAccessDBDataSet.eventRow row)
         {
-            eventStartDateTimePicker.Format = DateTimePickerFormat.Custom;
-            eventStartDateTimePicker.CustomFormat = "ddddd, MMMM dd, yyyy hh:mm ttt";
-            eventEndDateTimePicker.Format = DateTimePickerFormat.Custom;
-            eventEndDateTimePicker.CustomFormat = "ddddd, MMMM dd, yyyy hh:mm ttt"; 
+            eventPK = Convert.ToInt32(row["ID"]);
+            eventName = Convert.ToString(row["eventName"]);
+            eventStart = Convert.ToDateTime(row["start"]);
+            eventEnd = Convert.ToDateTime(row["end"]);
+        }
 
+        public Event(int _eventPK)
+        {
             eventPlannerAccessDBDataSetTableAdapters.eventTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.eventTableAdapter();
             eventPlannerAccessDBDataSet.eventDataTable data = new eventPlannerAccessDBDataSet.eventDataTable();
             myadapter.Fill(data);
-            eventPlannerAccessDBDataSet.eventRow myRow = data.FindByID(_eventPK);
-            eventNameTextBox.Text = myRow.eventName;
-            eventStartDateTimePicker.Value = myRow.start;
-            eventEndDateTimePicker.Value = myRow.end;
-
-            clearAndFillVendorsDataGridView();
-            clearAndFillLocationsDataGridView();
-        }
-
-        private void clearAndFillLocationsDataGridView()
-        {
-            eventPlannerAccessDBDataSetTableAdapters.eventsJoinedLocationsTableAdapter locationsAdapter = new eventPlannerAccessDBDataSetTableAdapters.eventsJoinedLocationsTableAdapter();
-            eventPlannerAccessDBDataSet.eventsJoinedLocationsDataTable locations = new eventPlannerAccessDBDataSet.eventsJoinedLocationsDataTable();
-            locationsAdapter.Fill(locations);
-
-            locationsDataGridView.Rows.Clear();
-            locationsDataGridView.Columns.Clear();
-            locationsDataGridView.AllowUserToAddRows = false;
-            locationsDataGridView.AllowUserToDeleteRows = false;
-            locationsDataGridView.ShowEditingIcon = false;
-            locationsDataGridView.RowHeadersVisible = false;
-
-            locationsDataGridView.Columns.Add("PK", "PK");
-            locationsDataGridView.Columns[0].Visible = false;
-            locationsDataGridView.Columns.Add("", "");
-            locationsDataGridView.Columns.Add("Location Name", "Location Name");
-            locationsDataGridView.Columns.Add("Address", "Address");
-            for (int i = 0; i < locations.Rows.Count; i++)
+            eventPlannerAccessDBDataSet.eventRow row = data.FindByID(_eventPK);
+            if (row != null)
             {
-                if (locations.Rows[i]["eventFK"].Equals(_eventPK))
-                {
-                    locationsDataGridView.Rows.Add(locations.Rows[i]["eventToLocationAssociation_ID"], "Remove", locations.Rows[i]["locationName"], locations.Rows[i]["locationAddress"]);
-                }
+                eventPK = Convert.ToInt32(row["ID"]);
+                eventName = Convert.ToString(row["eventName"]);
+                eventStart = Convert.ToDateTime(row["start"]);
+                eventEnd = Convert.ToDateTime(row["end"]);
             }
         }
 
-        private void clearAndFillVendorsDataGridView()
+        public void saveEvent()
         {
-            eventPlannerAccessDBDataSetTableAdapters.eventsJoinedVendorsTableAdapter vendorsAdapter = new eventPlannerAccessDBDataSetTableAdapters.eventsJoinedVendorsTableAdapter();
-            eventPlannerAccessDBDataSet.eventsJoinedVendorsDataTable vendors = new eventPlannerAccessDBDataSet.eventsJoinedVendorsDataTable();
-            vendorsAdapter.Fill(vendors);
-
-            vendorsDataGridView.Rows.Clear();
-            vendorsDataGridView.Columns.Clear();
-            vendorsDataGridView.AllowUserToAddRows = false;
-            vendorsDataGridView.AllowUserToDeleteRows = false;
-            vendorsDataGridView.ShowEditingIcon = false;
-            vendorsDataGridView.RowHeadersVisible = false;
-
-            vendorsDataGridView.Columns.Add("PK", "PK");
-            vendorsDataGridView.Columns[0].Visible = false;
-            vendorsDataGridView.Columns.Add("", "");
-            vendorsDataGridView.Columns.Add("Vendor Name", "Vendor Name");
-            vendorsDataGridView.Columns.Add("Service Provided", "Service Provided");
-            for (int i = 0; i < vendors.Rows.Count; i++)
+            eventPlannerAccessDBDataSetTableAdapters.eventTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.eventTableAdapter();
+            eventPlannerAccessDBDataSet.eventDataTable data = new eventPlannerAccessDBDataSet.eventDataTable();
+            myadapter.Fill(data);
+            eventPlannerAccessDBDataSet.eventRow myRow = data.FindByID(eventPK);
+            if (myRow != null)
             {
-                if (vendors.Rows[i]["eventFK"].Equals(_eventPK))
-                {
-                    vendorsDataGridView.Rows.Add(vendors.Rows[i]["vendor_ID"], "Remove", vendors.Rows[i]["vendorName"], vendors.Rows[i]["vendorRole"]);
-                }
+                myRow.eventName = eventName;
+                myRow.start = eventStart;
+                myRow.end = eventEnd;
+                myadapter.Update(myRow);
             }
         }
 
-        private void addNewVendorLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            // TODO
-        }
-
-        private void addNewLocationLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            // TODO
-        }
-
-        private void locationsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // TODO
-        }
-
-        private void vendorsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // TODO
-        }
     }
 }

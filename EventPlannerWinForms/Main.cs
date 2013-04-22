@@ -48,16 +48,13 @@ namespace EventPlannerWinForms
             myadapter.Fill(data);
             
             DataGridViewCellStyle myStyle = new DataGridViewCellStyle();            
-            
-            for (int i = 0; i < data.Rows.Count; i++)
+            List<Event> myEvents = Event.getEventsBelongingToOwner(1);
+
+            foreach (Event myEvent in myEvents)
             {
-                if (data.Rows[i]["owner"].Equals(1))
-                {
-                    // Create Rows
-                    int rowNumber = ownedEventDataGrid.Rows.Add(data.Rows[i]["ID"], "Edit", data.Rows[i]["eventName"], data.Rows[i]["start"], data.Rows[i]["end"]);
-                    ownedEventDataGrid["Edit", rowNumber].Style.ForeColor = Color.Blue;
-                    Font myFont = new Font(ownedEventDataGrid.DefaultCellStyle.Font, FontStyle.Underline);
-                }
+                int rowNumber = ownedEventDataGrid.Rows.Add(myEvent.eventPK, "Edit", myEvent.eventName, myEvent.eventStart, myEvent.eventEnd);
+                ownedEventDataGrid["Edit", rowNumber].Style.ForeColor = Color.Blue;
+                Font myFont = new Font(ownedEventDataGrid.DefaultCellStyle.Font, FontStyle.Underline);                
             }
 
             ownedEventDataGrid.ClearSelection();
@@ -65,16 +62,20 @@ namespace EventPlannerWinForms
 
         private void ownedEventDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 1)
-            {
-                //Event popUpWindow = new Event(Convert.ToInt32(ownedEventDataGrid[0, e.RowIndex].Value));
-                //popUpWindow.ShowDialog();
-                //clearAndLoadEventsIOwn();
-                populateEventPanel(Convert.ToInt32(ownedEventDataGrid[0, e.RowIndex].Value));
-            }
+            changeDisplayedEvent(e.RowIndex);
+        }
+        private void ownedEventDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            changeDisplayedEvent(e.RowIndex);
+        }
+        private void changeDisplayedEvent(int rowIndex)
+        {
+            displayedOwnedEvent = new Event(Convert.ToInt32(ownedEventDataGrid[0, rowIndex].Value));
+            populateEventPanel();
         }
 
-        private void populateEventPanel(int _eventPK)
+
+        private void populateEventPanel()
         {
             eventsOwnedTabControl.Visible = true;
             eventStartDateTimePicker.Format = DateTimePickerFormat.Custom;
@@ -82,16 +83,12 @@ namespace EventPlannerWinForms
             eventEndDateTimePicker.Format = DateTimePickerFormat.Custom;
             eventEndDateTimePicker.CustomFormat = "ddddd, MMMM dd, yyyy hh:mm ttt";
 
-            eventPlannerAccessDBDataSetTableAdapters.eventTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.eventTableAdapter();
-            eventPlannerAccessDBDataSet.eventDataTable data = new eventPlannerAccessDBDataSet.eventDataTable();
-            myadapter.Fill(data);
-            eventPlannerAccessDBDataSet.eventRow myRow = data.FindByID(_eventPK);
-            eventNameTextBox.Text = myRow.eventName;
-            eventStartDateTimePicker.Value = myRow.start;
-            eventEndDateTimePicker.Value = myRow.end;
+            eventNameTextBox.Text = displayedOwnedEvent.eventName;
+            eventStartDateTimePicker.Value = displayedOwnedEvent.eventStart;
+            eventEndDateTimePicker.Value = displayedOwnedEvent.eventEnd;
 
-            clearAndFillownedEventVendorsDataGridView(_eventPK);
-            clearAndFillownedEventLocationsDataGridView(_eventPK);
+            clearAndFillownedEventVendorsDataGridView(displayedOwnedEvent.eventPK);
+            clearAndFillownedEventLocationsDataGridView(displayedOwnedEvent.eventPK);
 
         }
         private void clearAndFillownedEventLocationsDataGridView(int _eventPK)
@@ -112,12 +109,12 @@ namespace EventPlannerWinForms
             ownedEventLocationsDataGridView.Columns.Add("", "");
             ownedEventLocationsDataGridView.Columns.Add("Location Name", "Location Name");
             ownedEventLocationsDataGridView.Columns.Add("Address", "Address");
-            for (int i = 0; i < locations.Rows.Count; i++)
+
+            List<EventLocation> myLocations = EventLocation.getLocationsBelongingToEvent(displayedOwnedEvent.eventPK);
+
+            foreach (EventLocation myLocation in myLocations)
             {
-                if (locations.Rows[i]["eventFK"].Equals(_eventPK))
-                {
-                    ownedEventLocationsDataGridView.Rows.Add(locations.Rows[i]["eventToLocationAssociation_ID"], "Remove", locations.Rows[i]["locationName"], locations.Rows[i]["locationAddress"]);
-                }
+                ownedEventLocationsDataGridView.Rows.Add(myLocation.locationPK, "Remove", myLocation.locationName, myLocation.locationAddress);
             }
         }
 
@@ -139,12 +136,12 @@ namespace EventPlannerWinForms
             ownedEventVendorsDataGridView.Columns.Add("", "");
             ownedEventVendorsDataGridView.Columns.Add("Vendor Name", "Vendor Name");
             ownedEventVendorsDataGridView.Columns.Add("Service Provided", "Service Provided");
-            for (int i = 0; i < vendors.Rows.Count; i++)
+
+            List<Vendor> myVendors = Vendor.getEventsBelongingToEvent(displayedOwnedEvent.eventPK);
+
+            foreach (Vendor myVendor in myVendors)
             {
-                if (vendors.Rows[i]["eventFK"].Equals(_eventPK))
-                {
-                    ownedEventVendorsDataGridView.Rows.Add(vendors.Rows[i]["vendor_ID"], "Remove", vendors.Rows[i]["vendorName"], vendors.Rows[i]["vendorRole"]);
-                }
+                ownedEventVendorsDataGridView.Rows.Add(myVendor.vendorPK, "Remove", myVendor.vendorName, myVendor.vendorRole);
             }
         }
 
@@ -158,5 +155,58 @@ namespace EventPlannerWinForms
         {
             eventsOwnedTabControl.Visible = false;
         }
+
+        private Event displayedOwnedEvent;
+        private void saveOwnedEventDetailButton_Click(object sender, EventArgs e)
+        {
+            displayedOwnedEvent.saveEvent();
+            clearAndLoadEventsIOwn();
+        }
+
+        private void eventNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (displayedOwnedEvent != null)
+            {
+                displayedOwnedEvent.eventName = eventNameTextBox.Text;
+            }
+        }
+
+        private void eventStartDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (displayedOwnedEvent != null)
+            {
+                displayedOwnedEvent.eventStart = eventStartDateTimePicker.Value;
+            }
+        }
+
+        private void eventEndDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (displayedOwnedEvent != null)
+            {
+                displayedOwnedEvent.eventEnd = eventEndDateTimePicker.Value;
+            }
+        }
+
+        private void addNewVendorLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void addNewWishListItemLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void addNewInvitationLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void addNewLocationLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+
     }
 }

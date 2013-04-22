@@ -746,6 +746,30 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="eventsJoinedInvitationAndUserTableAdapter" GeneratorDataComponentClassName="eventsJoinedInvitationAndUserTableAdapter" Name="eventsJoinedInvitationAndUser" UserDataComponentName="eventsJoinedInvitationAndUserTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="eventPlannerAccessDBConnectionString (Settings)" DbObjectName="eventsJoinedInvitationAndUser" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT eventFK, invitation_ID, user_ID, firstName, lastName, email, userName, inviteeFK, invitationText FROM eventsJoinedInvitationAndUser</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="eventFK" DataSetColumn="eventFK" />
+              <Mapping SourceColumn="invitation_ID" DataSetColumn="invitation_ID" />
+              <Mapping SourceColumn="user_ID" DataSetColumn="user_ID" />
+              <Mapping SourceColumn="firstName" DataSetColumn="firstName" />
+              <Mapping SourceColumn="lastName" DataSetColumn="lastName" />
+              <Mapping SourceColumn="email" DataSetColumn="email" />
+              <Mapping SourceColumn="userName" DataSetColumn="userName" />
+              <Mapping SourceColumn="inviteeFK" DataSetColumn="inviteeFK" />
+              <Mapping SourceColumn="invitationText" DataSetColumn="invitationText" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1001,6 +1025,51 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="locationAddress" msprop:Generator_ColumnVarNameInTable="columnlocationAddress" msprop:Generator_ColumnPropNameInRow="locationAddress" msprop:Generator_ColumnPropNameInTable="locationAddressColumn" msprop:Generator_UserColumnName="locationAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="eventsJoinedInvitationAndUser" msprop:Generator_TableClassName="eventsJoinedInvitationAndUserDataTable" msprop:Generator_TableVarName="tableeventsJoinedInvitationAndUser" msprop:Generator_TablePropName="eventsJoinedInvitationAndUser" msprop:Generator_RowDeletingName="eventsJoinedInvitationAndUserRowDeleting" msprop:Generator_RowChangingName="eventsJoinedInvitationAndUserRowChanging" msprop:Generator_RowEvHandlerName="eventsJoinedInvitationAndUserRowChangeEventHandler" msprop:Generator_RowDeletedName="eventsJoinedInvitationAndUserRowDeleted" msprop:Generator_UserTableName="eventsJoinedInvitationAndUser" msprop:Generator_RowChangedName="eventsJoinedInvitationAndUserRowChanged" msprop:Generator_RowEvArgName="eventsJoinedInvitationAndUserRowChangeEvent" msprop:Generator_RowClassName="eventsJoinedInvitationAndUserRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="eventFK" msprop:Generator_ColumnVarNameInTable="columneventFK" msprop:Generator_ColumnPropNameInRow="eventFK" msprop:Generator_ColumnPropNameInTable="eventFKColumn" msprop:Generator_UserColumnName="eventFK" type="xs:int" minOccurs="0" />
+              <xs:element name="invitation_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columninvitation_ID" msprop:Generator_ColumnPropNameInRow="invitation_ID" msprop:Generator_ColumnPropNameInTable="invitation_IDColumn" msprop:Generator_UserColumnName="invitation_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="user_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnuser_ID" msprop:Generator_ColumnPropNameInRow="user_ID" msprop:Generator_ColumnPropNameInTable="user_IDColumn" msprop:Generator_UserColumnName="user_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="firstName" msprop:Generator_ColumnVarNameInTable="columnfirstName" msprop:Generator_ColumnPropNameInRow="firstName" msprop:Generator_ColumnPropNameInTable="firstNameColumn" msprop:Generator_UserColumnName="firstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lastName" msprop:Generator_ColumnVarNameInTable="columnlastName" msprop:Generator_ColumnPropNameInRow="lastName" msprop:Generator_ColumnPropNameInTable="lastNameColumn" msprop:Generator_UserColumnName="lastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="userName" msprop:Generator_ColumnVarNameInTable="columnuserName" msprop:Generator_ColumnPropNameInRow="userName" msprop:Generator_ColumnPropNameInTable="userNameColumn" msprop:Generator_UserColumnName="userName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="inviteeFK" msprop:Generator_ColumnVarNameInTable="columninviteeFK" msprop:Generator_ColumnPropNameInRow="inviteeFK" msprop:Generator_ColumnPropNameInTable="inviteeFKColumn" msprop:Generator_UserColumnName="inviteeFK" type="xs:int" minOccurs="0" />
+              <xs:element name="invitationText" msprop:Generator_ColumnVarNameInTable="columninvitationText" msprop:Generator_ColumnPropNameInRow="invitationText" msprop:Generator_ColumnPropNameInTable="invitationTextColumn" msprop:Generator_UserColumnName="invitationText" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />

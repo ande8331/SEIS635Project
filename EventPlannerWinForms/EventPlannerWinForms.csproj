@@ -44,17 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Event.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Event.Designer.cs">
-      <DependentUpon>Event.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Event.cs" />
     <Compile Include="eventPlannerAccessDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>eventPlannerAccessDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GiftItem.cs" />
+    <Compile Include="Invitation.cs" />
+    <Compile Include="EventLocation.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,9 +61,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Event.resx">
-      <DependentUpon>Event.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="RetailLocation.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="Vendor.cs" />
+    <Compile Include="WishList.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
