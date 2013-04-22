@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ownedEventDataGrid = new System.Windows.Forms.DataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.eventsIOwnPage = new System.Windows.Forms.TabPage();
@@ -47,9 +47,7 @@
             this.ownedEventVendorsPage = new System.Windows.Forms.TabPage();
             this.ownedEventLocationsPage = new System.Windows.Forms.TabPage();
             this.ownedEventInvitationsPage = new System.Windows.Forms.TabPage();
-            this.ownedEventWishListPage = new System.Windows.Forms.TabPage();
             this.ownedEventInvitationsDataGridView = new System.Windows.Forms.DataGridView();
-            this.ownedEventWishListDataGridView = new System.Windows.Forms.DataGridView();
             this.saveOwnedEventDetailButton = new System.Windows.Forms.Button();
             this.eventsInvitedToDataGridView = new System.Windows.Forms.DataGridView();
             this.eventsInvitedToDetailPanel = new System.Windows.Forms.Panel();
@@ -58,7 +56,12 @@
             this.addNewVendorLinkLabel = new System.Windows.Forms.LinkLabel();
             this.addNewLocationLinkLabel = new System.Windows.Forms.LinkLabel();
             this.addNewInvitationLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.addNewWishListItemLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.wishlistPage = new System.Windows.Forms.TabPage();
+            this.myWishListDataGridView = new System.Windows.Forms.DataGridView();
+            this.addNewWishlistLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.wishListItemsDataGridView = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.addNewWishlistItemLinkLabel = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventDataGrid)).BeginInit();
             this.tabControl.SuspendLayout();
             this.eventsIOwnPage.SuspendLayout();
@@ -70,29 +73,31 @@
             this.ownedEventVendorsPage.SuspendLayout();
             this.ownedEventLocationsPage.SuspendLayout();
             this.ownedEventInvitationsPage.SuspendLayout();
-            this.ownedEventWishListPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventInvitationsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ownedEventWishListDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsInvitedToDataGridView)).BeginInit();
             this.eventsInvitedToDetailPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventsInvitedToWishListDataGridView)).BeginInit();
+            this.wishlistPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.myWishListDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wishListItemsDataGridView)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ownedEventDataGrid
             // 
             this.ownedEventDataGrid.AllowUserToAddRows = false;
             this.ownedEventDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.ownedEventDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.ownedEventDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.ownedEventDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ownedEventDataGrid.Location = new System.Drawing.Point(6, 15);
             this.ownedEventDataGrid.MultiSelect = false;
@@ -108,6 +113,7 @@
             // 
             this.tabControl.Controls.Add(this.eventsIOwnPage);
             this.tabControl.Controls.Add(this.eventInvitedToPage);
+            this.tabControl.Controls.Add(this.wishlistPage);
             this.tabControl.Location = new System.Drawing.Point(2, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -212,7 +218,6 @@
             this.eventsOwnedTabControl.Controls.Add(this.ownedEventVendorsPage);
             this.eventsOwnedTabControl.Controls.Add(this.ownedEventLocationsPage);
             this.eventsOwnedTabControl.Controls.Add(this.ownedEventInvitationsPage);
-            this.eventsOwnedTabControl.Controls.Add(this.ownedEventWishListPage);
             this.eventsOwnedTabControl.Location = new System.Drawing.Point(7, 172);
             this.eventsOwnedTabControl.Name = "eventsOwnedTabControl";
             this.eventsOwnedTabControl.SelectedIndex = 0;
@@ -271,17 +276,6 @@
             this.ownedEventInvitationsPage.Text = "Invitations";
             this.ownedEventInvitationsPage.UseVisualStyleBackColor = true;
             // 
-            // ownedEventWishListPage
-            // 
-            this.ownedEventWishListPage.Controls.Add(this.addNewWishListItemLinkLabel);
-            this.ownedEventWishListPage.Controls.Add(this.ownedEventWishListDataGridView);
-            this.ownedEventWishListPage.Location = new System.Drawing.Point(4, 22);
-            this.ownedEventWishListPage.Name = "ownedEventWishListPage";
-            this.ownedEventWishListPage.Size = new System.Drawing.Size(686, 435);
-            this.ownedEventWishListPage.TabIndex = 4;
-            this.ownedEventWishListPage.Text = "Wish List";
-            this.ownedEventWishListPage.UseVisualStyleBackColor = true;
-            // 
             // ownedEventInvitationsDataGridView
             // 
             this.ownedEventInvitationsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -289,14 +283,6 @@
             this.ownedEventInvitationsDataGridView.Name = "ownedEventInvitationsDataGridView";
             this.ownedEventInvitationsDataGridView.Size = new System.Drawing.Size(657, 150);
             this.ownedEventInvitationsDataGridView.TabIndex = 0;
-            // 
-            // ownedEventWishListDataGridView
-            // 
-            this.ownedEventWishListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ownedEventWishListDataGridView.Location = new System.Drawing.Point(15, 16);
-            this.ownedEventWishListDataGridView.Name = "ownedEventWishListDataGridView";
-            this.ownedEventWishListDataGridView.Size = new System.Drawing.Size(623, 150);
-            this.ownedEventWishListDataGridView.TabIndex = 0;
             // 
             // saveOwnedEventDetailButton
             // 
@@ -373,16 +359,67 @@
             this.addNewInvitationLinkLabel.Text = "Add New";
             this.addNewInvitationLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addNewInvitationLinkLabel_LinkClicked);
             // 
-            // addNewWishListItemLinkLabel
+            // wishlistPage
             // 
-            this.addNewWishListItemLinkLabel.AutoSize = true;
-            this.addNewWishListItemLinkLabel.Location = new System.Drawing.Point(318, 211);
-            this.addNewWishListItemLinkLabel.Name = "addNewWishListItemLinkLabel";
-            this.addNewWishListItemLinkLabel.Size = new System.Drawing.Size(51, 13);
-            this.addNewWishListItemLinkLabel.TabIndex = 8;
-            this.addNewWishListItemLinkLabel.TabStop = true;
-            this.addNewWishListItemLinkLabel.Text = "Add New";
-            this.addNewWishListItemLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addNewWishListItemLinkLabel_LinkClicked);
+            this.wishlistPage.Controls.Add(this.panel1);
+            this.wishlistPage.Controls.Add(this.addNewWishlistLinkLabel);
+            this.wishlistPage.Controls.Add(this.myWishListDataGridView);
+            this.wishlistPage.Location = new System.Drawing.Point(4, 22);
+            this.wishlistPage.Name = "wishlistPage";
+            this.wishlistPage.Size = new System.Drawing.Size(765, 709);
+            this.wishlistPage.TabIndex = 2;
+            this.wishlistPage.Text = "My Wishlists";
+            this.wishlistPage.UseVisualStyleBackColor = true;
+            this.wishlistPage.Click += new System.EventHandler(this.wishlistPage_Click);
+            // 
+            // myWishListDataGridView
+            // 
+            this.myWishListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.myWishListDataGridView.Location = new System.Drawing.Point(48, 25);
+            this.myWishListDataGridView.Name = "myWishListDataGridView";
+            this.myWishListDataGridView.Size = new System.Drawing.Size(623, 150);
+            this.myWishListDataGridView.TabIndex = 1;
+            this.myWishListDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myWishListDataGridView_CellClick);
+            this.myWishListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myWishListDataGridView_CellContentClick);
+            // 
+            // addNewWishlistLinkLabel
+            // 
+            this.addNewWishlistLinkLabel.AutoSize = true;
+            this.addNewWishlistLinkLabel.Location = new System.Drawing.Point(346, 187);
+            this.addNewWishlistLinkLabel.Name = "addNewWishlistLinkLabel";
+            this.addNewWishlistLinkLabel.Size = new System.Drawing.Size(51, 13);
+            this.addNewWishlistLinkLabel.TabIndex = 9;
+            this.addNewWishlistLinkLabel.TabStop = true;
+            this.addNewWishlistLinkLabel.Text = "Add New";
+            this.addNewWishlistLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addNewWishlistLinkLabel_LinkClicked);
+            // 
+            // wishListItemsDataGridView
+            // 
+            this.wishListItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.wishListItemsDataGridView.Location = new System.Drawing.Point(51, 31);
+            this.wishListItemsDataGridView.Name = "wishListItemsDataGridView";
+            this.wishListItemsDataGridView.Size = new System.Drawing.Size(240, 150);
+            this.wishListItemsDataGridView.TabIndex = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.addNewWishlistItemLinkLabel);
+            this.panel1.Controls.Add(this.wishListItemsDataGridView);
+            this.panel1.Location = new System.Drawing.Point(69, 385);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(666, 225);
+            this.panel1.TabIndex = 11;
+            // 
+            // addNewWishlistItemLinkLabel
+            // 
+            this.addNewWishlistItemLinkLabel.AutoSize = true;
+            this.addNewWishlistItemLinkLabel.Location = new System.Drawing.Point(308, 106);
+            this.addNewWishlistItemLinkLabel.Name = "addNewWishlistItemLinkLabel";
+            this.addNewWishlistItemLinkLabel.Size = new System.Drawing.Size(51, 13);
+            this.addNewWishlistItemLinkLabel.TabIndex = 11;
+            this.addNewWishlistItemLinkLabel.TabStop = true;
+            this.addNewWishlistItemLinkLabel.Text = "Add New";
+            this.addNewWishlistItemLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addNewWishlistItemLinkLabel_LinkClicked_1);
             // 
             // Main
             // 
@@ -409,13 +446,16 @@
             this.ownedEventLocationsPage.PerformLayout();
             this.ownedEventInvitationsPage.ResumeLayout(false);
             this.ownedEventInvitationsPage.PerformLayout();
-            this.ownedEventWishListPage.ResumeLayout(false);
-            this.ownedEventWishListPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventInvitationsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ownedEventWishListDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsInvitedToDataGridView)).EndInit();
             this.eventsInvitedToDetailPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.eventsInvitedToWishListDataGridView)).EndInit();
+            this.wishlistPage.ResumeLayout(false);
+            this.wishlistPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.myWishListDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wishListItemsDataGridView)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -440,8 +480,6 @@
         private System.Windows.Forms.TabPage ownedEventLocationsPage;
         private System.Windows.Forms.TabPage ownedEventInvitationsPage;
         private System.Windows.Forms.DataGridView ownedEventInvitationsDataGridView;
-        private System.Windows.Forms.TabPage ownedEventWishListPage;
-        private System.Windows.Forms.DataGridView ownedEventWishListDataGridView;
         private System.Windows.Forms.Button saveOwnedEventDetailButton;
         private System.Windows.Forms.Panel eventsInvitedToDetailPanel;
         private System.Windows.Forms.DataGridView eventsInvitedToWishListDataGridView;
@@ -450,7 +488,12 @@
         private System.Windows.Forms.LinkLabel addNewVendorLinkLabel;
         private System.Windows.Forms.LinkLabel addNewLocationLinkLabel;
         private System.Windows.Forms.LinkLabel addNewInvitationLinkLabel;
-        private System.Windows.Forms.LinkLabel addNewWishListItemLinkLabel;
+        private System.Windows.Forms.TabPage wishlistPage;
+        private System.Windows.Forms.DataGridView myWishListDataGridView;
+        private System.Windows.Forms.LinkLabel addNewWishlistLinkLabel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.LinkLabel addNewWishlistItemLinkLabel;
+        private System.Windows.Forms.DataGridView wishListItemsDataGridView;
     }
 }
 

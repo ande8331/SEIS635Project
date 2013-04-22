@@ -56,6 +56,8 @@ namespace EventPlannerWinForms {
         
         private eventsJoinedInvitationAndUserDataTable tableeventsJoinedInvitationAndUser;
         
+        private eventsJoinedWishlistDataTable tableeventsJoinedWishlist;
+        
         private global::System.Data.DataRelation relationuserevent;
         
         private global::System.Data.DataRelation relationeventinvitation;
@@ -155,6 +157,9 @@ namespace EventPlannerWinForms {
                 }
                 if ((ds.Tables["eventsJoinedInvitationAndUser"] != null)) {
                     base.Tables.Add(new eventsJoinedInvitationAndUserDataTable(ds.Tables["eventsJoinedInvitationAndUser"]));
+                }
+                if ((ds.Tables["eventsJoinedWishlist"] != null)) {
+                    base.Tables.Add(new eventsJoinedWishlistDataTable(ds.Tables["eventsJoinedWishlist"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -336,6 +341,16 @@ namespace EventPlannerWinForms {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public eventsJoinedWishlistDataTable eventsJoinedWishlist {
+            get {
+                return this.tableeventsJoinedWishlist;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -448,6 +463,9 @@ namespace EventPlannerWinForms {
                 }
                 if ((ds.Tables["eventsJoinedInvitationAndUser"] != null)) {
                     base.Tables.Add(new eventsJoinedInvitationAndUserDataTable(ds.Tables["eventsJoinedInvitationAndUser"]));
+                }
+                if ((ds.Tables["eventsJoinedWishlist"] != null)) {
+                    base.Tables.Add(new eventsJoinedWishlistDataTable(ds.Tables["eventsJoinedWishlist"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -578,6 +596,12 @@ namespace EventPlannerWinForms {
                     this.tableeventsJoinedInvitationAndUser.InitVars();
                 }
             }
+            this.tableeventsJoinedWishlist = ((eventsJoinedWishlistDataTable)(base.Tables["eventsJoinedWishlist"]));
+            if ((initTable == true)) {
+                if ((this.tableeventsJoinedWishlist != null)) {
+                    this.tableeventsJoinedWishlist.InitVars();
+                }
+            }
             this.relationuserevent = this.Relations["userevent"];
             this.relationeventinvitation = this.Relations["eventinvitation"];
             this.relationuserinvitation = this.Relations["userinvitation"];
@@ -632,6 +656,8 @@ namespace EventPlannerWinForms {
             base.Tables.Add(this.tableeventsJoinedLocations);
             this.tableeventsJoinedInvitationAndUser = new eventsJoinedInvitationAndUserDataTable();
             base.Tables.Add(this.tableeventsJoinedInvitationAndUser);
+            this.tableeventsJoinedWishlist = new eventsJoinedWishlistDataTable();
+            base.Tables.Add(this.tableeventsJoinedWishlist);
             this.relationuserevent = new global::System.Data.DataRelation("userevent", new global::System.Data.DataColumn[] {
                         this.tableuser.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableevent.ownerColumn}, false);
@@ -780,6 +806,12 @@ namespace EventPlannerWinForms {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeeventsJoinedWishlist() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -880,6 +912,9 @@ namespace EventPlannerWinForms {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void eventsJoinedInvitationAndUserRowChangeEventHandler(object sender, eventsJoinedInvitationAndUserRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void eventsJoinedWishlistRowChangeEventHandler(object sender, eventsJoinedWishlistRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -5802,6 +5837,302 @@ namespace EventPlannerWinForms {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class eventsJoinedWishlistDataTable : global::System.Data.TypedTableBase<eventsJoinedWishlistRow> {
+            
+            private global::System.Data.DataColumn columnevent_ID;
+            
+            private global::System.Data.DataColumn columnwishlist_ID;
+            
+            private global::System.Data.DataColumn columnuserFK;
+            
+            private global::System.Data.DataColumn columnwishlistName;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public eventsJoinedWishlistDataTable() {
+                this.TableName = "eventsJoinedWishlist";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal eventsJoinedWishlistDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected eventsJoinedWishlistDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn event_IDColumn {
+                get {
+                    return this.columnevent_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn wishlist_IDColumn {
+                get {
+                    return this.columnwishlist_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn userFKColumn {
+                get {
+                    return this.columnuserFK;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn wishlistNameColumn {
+                get {
+                    return this.columnwishlistName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public eventsJoinedWishlistRow this[int index] {
+                get {
+                    return ((eventsJoinedWishlistRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event eventsJoinedWishlistRowChangeEventHandler eventsJoinedWishlistRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event eventsJoinedWishlistRowChangeEventHandler eventsJoinedWishlistRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event eventsJoinedWishlistRowChangeEventHandler eventsJoinedWishlistRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event eventsJoinedWishlistRowChangeEventHandler eventsJoinedWishlistRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddeventsJoinedWishlistRow(eventsJoinedWishlistRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public eventsJoinedWishlistRow AddeventsJoinedWishlistRow(int userFK, string wishlistName) {
+                eventsJoinedWishlistRow roweventsJoinedWishlistRow = ((eventsJoinedWishlistRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        userFK,
+                        wishlistName};
+                roweventsJoinedWishlistRow.ItemArray = columnValuesArray;
+                this.Rows.Add(roweventsJoinedWishlistRow);
+                return roweventsJoinedWishlistRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                eventsJoinedWishlistDataTable cln = ((eventsJoinedWishlistDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new eventsJoinedWishlistDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnevent_ID = base.Columns["event_ID"];
+                this.columnwishlist_ID = base.Columns["wishlist_ID"];
+                this.columnuserFK = base.Columns["userFK"];
+                this.columnwishlistName = base.Columns["wishlistName"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnevent_ID = new global::System.Data.DataColumn("event_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnevent_ID);
+                this.columnwishlist_ID = new global::System.Data.DataColumn("wishlist_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwishlist_ID);
+                this.columnuserFK = new global::System.Data.DataColumn("userFK", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnuserFK);
+                this.columnwishlistName = new global::System.Data.DataColumn("wishlistName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwishlistName);
+                this.columnevent_ID.AutoIncrement = true;
+                this.columnevent_ID.AutoIncrementSeed = -1;
+                this.columnevent_ID.AutoIncrementStep = -1;
+                this.columnwishlist_ID.AutoIncrement = true;
+                this.columnwishlist_ID.AutoIncrementSeed = -1;
+                this.columnwishlist_ID.AutoIncrementStep = -1;
+                this.columnwishlistName.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public eventsJoinedWishlistRow NeweventsJoinedWishlistRow() {
+                return ((eventsJoinedWishlistRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new eventsJoinedWishlistRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(eventsJoinedWishlistRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.eventsJoinedWishlistRowChanged != null)) {
+                    this.eventsJoinedWishlistRowChanged(this, new eventsJoinedWishlistRowChangeEvent(((eventsJoinedWishlistRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.eventsJoinedWishlistRowChanging != null)) {
+                    this.eventsJoinedWishlistRowChanging(this, new eventsJoinedWishlistRowChangeEvent(((eventsJoinedWishlistRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.eventsJoinedWishlistRowDeleted != null)) {
+                    this.eventsJoinedWishlistRowDeleted(this, new eventsJoinedWishlistRowChangeEvent(((eventsJoinedWishlistRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.eventsJoinedWishlistRowDeleting != null)) {
+                    this.eventsJoinedWishlistRowDeleting(this, new eventsJoinedWishlistRowChangeEvent(((eventsJoinedWishlistRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveeventsJoinedWishlistRow(eventsJoinedWishlistRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                eventPlannerAccessDBDataSet ds = new eventPlannerAccessDBDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "eventsJoinedWishlistDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class eventRow : global::System.Data.DataRow {
@@ -7993,6 +8324,133 @@ namespace EventPlannerWinForms {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class eventsJoinedWishlistRow : global::System.Data.DataRow {
+            
+            private eventsJoinedWishlistDataTable tableeventsJoinedWishlist;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal eventsJoinedWishlistRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableeventsJoinedWishlist = ((eventsJoinedWishlistDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int event_ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableeventsJoinedWishlist.event_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'event_ID\' in table \'eventsJoinedWishlist\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableeventsJoinedWishlist.event_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int wishlist_ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableeventsJoinedWishlist.wishlist_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'wishlist_ID\' in table \'eventsJoinedWishlist\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableeventsJoinedWishlist.wishlist_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int userFK {
+                get {
+                    try {
+                        return ((int)(this[this.tableeventsJoinedWishlist.userFKColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'userFK\' in table \'eventsJoinedWishlist\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableeventsJoinedWishlist.userFKColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string wishlistName {
+                get {
+                    try {
+                        return ((string)(this[this.tableeventsJoinedWishlist.wishlistNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'wishlistName\' in table \'eventsJoinedWishlist\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableeventsJoinedWishlist.wishlistNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isevent_IDNull() {
+                return this.IsNull(this.tableeventsJoinedWishlist.event_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setevent_IDNull() {
+                this[this.tableeventsJoinedWishlist.event_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iswishlist_IDNull() {
+                return this.IsNull(this.tableeventsJoinedWishlist.wishlist_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setwishlist_IDNull() {
+                this[this.tableeventsJoinedWishlist.wishlist_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsuserFKNull() {
+                return this.IsNull(this.tableeventsJoinedWishlist.userFKColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetuserFKNull() {
+                this[this.tableeventsJoinedWishlist.userFKColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IswishlistNameNull() {
+                return this.IsNull(this.tableeventsJoinedWishlist.wishlistNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetwishlistNameNull() {
+                this[this.tableeventsJoinedWishlist.wishlistNameColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -8522,6 +8980,40 @@ namespace EventPlannerWinForms {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public eventsJoinedInvitationAndUserRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class eventsJoinedWishlistRowChangeEvent : global::System.EventArgs {
+            
+            private eventsJoinedWishlistRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public eventsJoinedWishlistRowChangeEvent(eventsJoinedWishlistRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public eventsJoinedWishlistRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -13628,6 +14120,176 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class eventsJoinedWishlistTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public eventsJoinedWishlistTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "eventsJoinedWishlist";
+            tableMapping.ColumnMappings.Add("event_ID", "event_ID");
+            tableMapping.ColumnMappings.Add("wishlist_ID", "wishlist_ID");
+            tableMapping.ColumnMappings.Add("userFK", "userFK");
+            tableMapping.ColumnMappings.Add("wishlistName", "wishlistName");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::EventPlannerWinForms.Properties.Settings.Default.eventPlannerAccessDBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT event_ID, wishlist_ID, userFK, wishlistName FROM eventsJoinedWishlist";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(eventPlannerAccessDBDataSet.eventsJoinedWishlistDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual eventPlannerAccessDBDataSet.eventsJoinedWishlistDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            eventPlannerAccessDBDataSet.eventsJoinedWishlistDataTable dataTable = new eventPlannerAccessDBDataSet.eventsJoinedWishlistDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -13991,12 +14653,21 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._itemTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.item.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._wishlistTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.wishlist.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._itemTableAdapter.Update(updatedRows));
+                    result = (result + this._wishlistTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._vendorTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.vendor.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._vendorTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -14018,39 +14689,21 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._vendorTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.vendor.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._itemTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.item.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._vendorTableAdapter.Update(updatedRows));
+                    result = (result + this._itemTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._wishlistTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.wishlist.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._itemToRetailAssociationTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.itemToRetailAssociation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._wishlistTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._invitationTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.invitation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._invitationTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._eventToLocationAssociationTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.eventToLocationAssociation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._eventToLocationAssociationTableAdapter.Update(updatedRows));
+                    result = (result + this._itemToRetailAssociationTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -14063,12 +14716,21 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._itemToRetailAssociationTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.itemToRetailAssociation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._eventToLocationAssociationTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.eventToLocationAssociation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._itemToRetailAssociationTableAdapter.Update(updatedRows));
+                    result = (result + this._eventToLocationAssociationTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._invitationTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.invitation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._invitationTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -14107,11 +14769,19 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._itemTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.item.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._wishlistTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.wishlist.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._itemTableAdapter.Update(addedRows));
+                    result = (result + this._wishlistTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._vendorTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.vendor.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._vendorTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -14131,35 +14801,19 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._vendorTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.vendor.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._itemTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.item.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._vendorTableAdapter.Update(addedRows));
+                    result = (result + this._itemTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._wishlistTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.wishlist.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._itemToRetailAssociationTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.itemToRetailAssociation.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._wishlistTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._invitationTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.invitation.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._invitationTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._eventToLocationAssociationTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.eventToLocationAssociation.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._eventToLocationAssociationTableAdapter.Update(addedRows));
+                    result = (result + this._itemToRetailAssociationTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -14171,11 +14825,19 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._itemToRetailAssociationTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.itemToRetailAssociation.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._eventToLocationAssociationTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.eventToLocationAssociation.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._itemToRetailAssociationTableAdapter.Update(addedRows));
+                    result = (result + this._eventToLocationAssociationTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._invitationTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.invitation.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._invitationTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -14205,19 +14867,11 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._itemToRetailAssociationTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.itemToRetailAssociation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._invitationTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.invitation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._itemToRetailAssociationTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._eventToVendorAssociationTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.eventToVendorAssociation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._eventToVendorAssociationTableAdapter.Update(deletedRows));
+                    result = (result + this._invitationTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -14229,27 +14883,27 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._invitationTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.invitation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._eventToVendorAssociationTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.eventToVendorAssociation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._invitationTableAdapter.Update(deletedRows));
+                    result = (result + this._eventToVendorAssociationTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._wishlistTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.wishlist.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._itemToRetailAssociationTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.itemToRetailAssociation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._wishlistTableAdapter.Update(deletedRows));
+                    result = (result + this._itemToRetailAssociationTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._vendorTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.vendor.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._itemTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.item.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._vendorTableAdapter.Update(deletedRows));
+                    result = (result + this._itemTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -14269,11 +14923,19 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._itemTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.item.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._vendorTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.vendor.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._itemTableAdapter.Update(deletedRows));
+                    result = (result + this._vendorTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._wishlistTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.wishlist.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._wishlistTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

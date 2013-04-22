@@ -770,6 +770,25 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="eventsJoinedWishlistTableAdapter" GeneratorDataComponentClassName="eventsJoinedWishlistTableAdapter" Name="eventsJoinedWishlist" UserDataComponentName="eventsJoinedWishlistTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="eventPlannerAccessDBConnectionString (Settings)" DbObjectName="eventsJoinedWishlist" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT event_ID, wishlist_ID, userFK, wishlistName FROM eventsJoinedWishlist</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="event_ID" DataSetColumn="event_ID" />
+              <Mapping SourceColumn="wishlist_ID" DataSetColumn="wishlist_ID" />
+              <Mapping SourceColumn="userFK" DataSetColumn="userFK" />
+              <Mapping SourceColumn="wishlistName" DataSetColumn="wishlistName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1070,6 +1089,22 @@
               </xs:element>
               <xs:element name="inviteeFK" msprop:Generator_ColumnVarNameInTable="columninviteeFK" msprop:Generator_ColumnPropNameInRow="inviteeFK" msprop:Generator_ColumnPropNameInTable="inviteeFKColumn" msprop:Generator_UserColumnName="inviteeFK" type="xs:int" minOccurs="0" />
               <xs:element name="invitationText" msprop:Generator_ColumnVarNameInTable="columninvitationText" msprop:Generator_ColumnPropNameInRow="invitationText" msprop:Generator_ColumnPropNameInTable="invitationTextColumn" msprop:Generator_UserColumnName="invitationText" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="eventsJoinedWishlist" msprop:Generator_TableClassName="eventsJoinedWishlistDataTable" msprop:Generator_TableVarName="tableeventsJoinedWishlist" msprop:Generator_TablePropName="eventsJoinedWishlist" msprop:Generator_RowDeletingName="eventsJoinedWishlistRowDeleting" msprop:Generator_RowChangingName="eventsJoinedWishlistRowChanging" msprop:Generator_RowEvHandlerName="eventsJoinedWishlistRowChangeEventHandler" msprop:Generator_RowDeletedName="eventsJoinedWishlistRowDeleted" msprop:Generator_UserTableName="eventsJoinedWishlist" msprop:Generator_RowChangedName="eventsJoinedWishlistRowChanged" msprop:Generator_RowEvArgName="eventsJoinedWishlistRowChangeEvent" msprop:Generator_RowClassName="eventsJoinedWishlistRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="event_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnevent_ID" msprop:Generator_ColumnPropNameInRow="event_ID" msprop:Generator_ColumnPropNameInTable="event_IDColumn" msprop:Generator_UserColumnName="event_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="wishlist_ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnwishlist_ID" msprop:Generator_ColumnPropNameInRow="wishlist_ID" msprop:Generator_ColumnPropNameInTable="wishlist_IDColumn" msprop:Generator_UserColumnName="wishlist_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="userFK" msprop:Generator_ColumnVarNameInTable="columnuserFK" msprop:Generator_ColumnPropNameInRow="userFK" msprop:Generator_ColumnPropNameInTable="userFKColumn" msprop:Generator_UserColumnName="userFK" type="xs:int" minOccurs="0" />
+              <xs:element name="wishlistName" msprop:Generator_ColumnVarNameInTable="columnwishlistName" msprop:Generator_ColumnPropNameInRow="wishlistName" msprop:Generator_ColumnPropNameInTable="wishlistNameColumn" msprop:Generator_UserColumnName="wishlistName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />

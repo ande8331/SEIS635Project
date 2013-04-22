@@ -12,6 +12,9 @@ namespace EventPlannerWinForms
 {
     public partial class Main : Form
     {
+        private Event displayedOwnedEvent;
+        private int ownerPK = 1;
+
         public Main()
         {
             InitializeComponent();
@@ -20,6 +23,7 @@ namespace EventPlannerWinForms
         private void Form1_Load(object sender, EventArgs e)
         {            
             clearAndLoadEventsIOwn();
+            clearAndLoadMyWishlists();
         }
 
         private void clearAndLoadEventsIOwn()
@@ -47,8 +51,8 @@ namespace EventPlannerWinForms
             eventPlannerAccessDBDataSet.eventDataTable data = new eventPlannerAccessDBDataSet.eventDataTable();
             myadapter.Fill(data);
             
-            DataGridViewCellStyle myStyle = new DataGridViewCellStyle();            
-            List<Event> myEvents = Event.getEventsBelongingToOwner(1);
+            DataGridViewCellStyle myStyle = new DataGridViewCellStyle();
+            List<Event> myEvents = Event.getEventsBelongingToOwner(ownerPK);
 
             foreach (Event myEvent in myEvents)
             {
@@ -58,6 +62,32 @@ namespace EventPlannerWinForms
             }
 
             ownedEventDataGrid.ClearSelection();
+        }
+
+        private void clearAndLoadMyWishlists()
+        {
+            myWishListDataGridView.Rows.Clear();
+            myWishListDataGridView.Columns.Clear();
+            myWishListDataGridView.AllowUserToAddRows = false;
+            myWishListDataGridView.AllowUserToDeleteRows = false;
+            myWishListDataGridView.ShowEditingIcon = false;
+            //myWishListDataGridView.RowHeadersVisible = false;
+            myWishListDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            myWishListDataGridView.Columns.Add("PK", "PK");
+            myWishListDataGridView.Columns[0].Visible = false;
+            myWishListDataGridView.Columns.Add("Edit", "");
+            myWishListDataGridView.Columns.Add("Wishlist Name", "Wishlist Name");
+            myWishListDataGridView.Columns["Wishlist Name"].Width = 150;
+
+            List<WishList> myWishlists = WishList.getWishlistsForOwner(ownerPK);
+
+            foreach (WishList myWishlist in myWishlists)
+            {
+                int rowNumber = myWishListDataGridView.Rows.Add(myWishlist.wishlistPK, "Edit", myWishlist.wishlistName);
+                myWishListDataGridView["Edit", rowNumber].Style.ForeColor = Color.Blue;
+                Font myFont = new Font(myWishListDataGridView.DefaultCellStyle.Font, FontStyle.Underline);                                
+            }
         }
 
         private void ownedEventDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -155,8 +185,7 @@ namespace EventPlannerWinForms
         {
             eventsOwnedTabControl.Visible = false;
         }
-
-        private Event displayedOwnedEvent;
+        
         private void saveOwnedEventDetailButton_Click(object sender, EventArgs e)
         {
             displayedOwnedEvent.saveEvent();
@@ -207,6 +236,34 @@ namespace EventPlannerWinForms
 
         }
 
+        private void addNewWishlistLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
 
+        }
+
+        private void addNewWishlistItemLinkLabel_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void wishlistPage_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void myWishListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            changeDisplayedWishlist();
+        }
+
+        private void myWishListDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            changeDisplayedWishlist();
+        }
+
+        private void changeDisplayedWishlist()
+        {
+            //TODO
+        }
     }
 }
