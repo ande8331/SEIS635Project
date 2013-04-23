@@ -75,5 +75,10 @@ namespace EventPlannerWinForms
             }
         }
 
+        public void addVendor(int vendorPK)
+        {
+
+        }
+
     }
 }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ownedEventDataGrid = new System.Windows.Forms.DataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.eventsIOwnPage = new System.Windows.Forms.TabPage();
@@ -62,6 +62,15 @@
             this.wishListItemsDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.addNewWishlistItemLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.addNewVendorPanel = new System.Windows.Forms.Panel();
+            this.availableVendorsDataGridView = new System.Windows.Forms.DataGridView();
+            this.addVendorButton = new System.Windows.Forms.Button();
+            this.createNewVendorButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.vendorNameTextBox = new System.Windows.Forms.TextBox();
+            this.vendorRoleTextBox = new System.Windows.Forms.TextBox();
+            this.vendorDetailPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventDataGrid)).BeginInit();
             this.tabControl.SuspendLayout();
             this.eventsIOwnPage.SuspendLayout();
@@ -81,23 +90,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.myWishListDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wishListItemsDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
+            this.addNewVendorPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.availableVendorsDataGridView)).BeginInit();
+            this.vendorDetailPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ownedEventDataGrid
             // 
             this.ownedEventDataGrid.AllowUserToAddRows = false;
             this.ownedEventDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            this.ownedEventDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            this.ownedEventDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.ownedEventDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ownedEventDataGrid.Location = new System.Drawing.Point(6, 15);
             this.ownedEventDataGrid.MultiSelect = false;
@@ -201,7 +213,7 @@
             this.ownedEventVendorsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ownedEventVendorsDataGridView.Location = new System.Drawing.Point(6, 6);
             this.ownedEventVendorsDataGridView.Name = "ownedEventVendorsDataGridView";
-            this.ownedEventVendorsDataGridView.Size = new System.Drawing.Size(316, 150);
+            this.ownedEventVendorsDataGridView.Size = new System.Drawing.Size(674, 150);
             this.ownedEventVendorsDataGridView.TabIndex = 6;
             // 
             // ownedEventLocationsDataGridView
@@ -224,6 +236,7 @@
             this.eventsOwnedTabControl.Size = new System.Drawing.Size(694, 461);
             this.eventsOwnedTabControl.TabIndex = 2;
             this.eventsOwnedTabControl.Visible = false;
+            this.eventsOwnedTabControl.SelectedIndexChanged += new System.EventHandler(this.eventsOwnedTabControl_SelectedIndexChanged);
             // 
             // ownedEventDetailsPage
             // 
@@ -244,6 +257,7 @@
             // 
             // ownedEventVendorsPage
             // 
+            this.ownedEventVendorsPage.Controls.Add(this.addNewVendorPanel);
             this.ownedEventVendorsPage.Controls.Add(this.addNewVendorLinkLabel);
             this.ownedEventVendorsPage.Controls.Add(this.ownedEventVendorsDataGridView);
             this.ownedEventVendorsPage.Location = new System.Drawing.Point(4, 22);
@@ -329,7 +343,7 @@
             // addNewVendorLinkLabel
             // 
             this.addNewVendorLinkLabel.AutoSize = true;
-            this.addNewVendorLinkLabel.Location = new System.Drawing.Point(172, 198);
+            this.addNewVendorLinkLabel.Location = new System.Drawing.Point(6, 159);
             this.addNewVendorLinkLabel.Name = "addNewVendorLinkLabel";
             this.addNewVendorLinkLabel.Size = new System.Drawing.Size(51, 13);
             this.addNewVendorLinkLabel.TabIndex = 7;
@@ -421,6 +435,90 @@
             this.addNewWishlistItemLinkLabel.Text = "Add New";
             this.addNewWishlistItemLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addNewWishlistItemLinkLabel_LinkClicked_1);
             // 
+            // addNewVendorPanel
+            // 
+            this.addNewVendorPanel.Controls.Add(this.vendorDetailPanel);
+            this.addNewVendorPanel.Controls.Add(this.availableVendorsDataGridView);
+            this.addNewVendorPanel.Location = new System.Drawing.Point(9, 176);
+            this.addNewVendorPanel.Name = "addNewVendorPanel";
+            this.addNewVendorPanel.Size = new System.Drawing.Size(671, 253);
+            this.addNewVendorPanel.TabIndex = 8;
+            // 
+            // availableVendorsDataGridView
+            // 
+            this.availableVendorsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.availableVendorsDataGridView.Location = new System.Drawing.Point(13, 15);
+            this.availableVendorsDataGridView.Name = "availableVendorsDataGridView";
+            this.availableVendorsDataGridView.Size = new System.Drawing.Size(324, 207);
+            this.availableVendorsDataGridView.TabIndex = 0;
+            this.availableVendorsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.availableVendorsDataGridView_CellClick);
+            this.availableVendorsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // addVendorButton
+            // 
+            this.addVendorButton.Location = new System.Drawing.Point(3, 168);
+            this.addVendorButton.Name = "addVendorButton";
+            this.addVendorButton.Size = new System.Drawing.Size(75, 23);
+            this.addVendorButton.TabIndex = 1;
+            this.addVendorButton.Text = "Add";
+            this.addVendorButton.UseVisualStyleBackColor = true;
+            this.addVendorButton.Click += new System.EventHandler(this.addVendorButton_Click);
+            // 
+            // createNewVendorButton
+            // 
+            this.createNewVendorButton.Location = new System.Drawing.Point(94, 168);
+            this.createNewVendorButton.Name = "createNewVendorButton";
+            this.createNewVendorButton.Size = new System.Drawing.Size(75, 23);
+            this.createNewVendorButton.TabIndex = 2;
+            this.createNewVendorButton.Text = "Create New";
+            this.createNewVendorButton.UseVisualStyleBackColor = true;
+            this.createNewVendorButton.Click += new System.EventHandler(this.createNewVendorButton_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Vendor Name:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Vendor Role:";
+            // 
+            // vendorNameTextBox
+            // 
+            this.vendorNameTextBox.Location = new System.Drawing.Point(84, 8);
+            this.vendorNameTextBox.Name = "vendorNameTextBox";
+            this.vendorNameTextBox.Size = new System.Drawing.Size(235, 20);
+            this.vendorNameTextBox.TabIndex = 5;
+            // 
+            // vendorRoleTextBox
+            // 
+            this.vendorRoleTextBox.Location = new System.Drawing.Point(84, 34);
+            this.vendorRoleTextBox.Name = "vendorRoleTextBox";
+            this.vendorRoleTextBox.Size = new System.Drawing.Size(235, 20);
+            this.vendorRoleTextBox.TabIndex = 6;
+            // 
+            // vendorDetailPanel
+            // 
+            this.vendorDetailPanel.Controls.Add(this.label4);
+            this.vendorDetailPanel.Controls.Add(this.createNewVendorButton);
+            this.vendorDetailPanel.Controls.Add(this.vendorRoleTextBox);
+            this.vendorDetailPanel.Controls.Add(this.addVendorButton);
+            this.vendorDetailPanel.Controls.Add(this.vendorNameTextBox);
+            this.vendorDetailPanel.Controls.Add(this.label5);
+            this.vendorDetailPanel.Location = new System.Drawing.Point(346, 15);
+            this.vendorDetailPanel.Name = "vendorDetailPanel";
+            this.vendorDetailPanel.Size = new System.Drawing.Size(322, 208);
+            this.vendorDetailPanel.TabIndex = 7;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,6 +554,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.wishListItemsDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.addNewVendorPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.availableVendorsDataGridView)).EndInit();
+            this.vendorDetailPanel.ResumeLayout(false);
+            this.vendorDetailPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -494,6 +596,15 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.LinkLabel addNewWishlistItemLinkLabel;
         private System.Windows.Forms.DataGridView wishListItemsDataGridView;
+        private System.Windows.Forms.Panel addNewVendorPanel;
+        private System.Windows.Forms.Button addVendorButton;
+        private System.Windows.Forms.DataGridView availableVendorsDataGridView;
+        private System.Windows.Forms.Button createNewVendorButton;
+        private System.Windows.Forms.TextBox vendorRoleTextBox;
+        private System.Windows.Forms.TextBox vendorNameTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel vendorDetailPanel;
     }
 }
 
