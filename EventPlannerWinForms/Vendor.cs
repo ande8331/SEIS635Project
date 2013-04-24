@@ -33,8 +33,17 @@ namespace EventPlannerWinForms
 
         public static List<Vendor> getVendorsNotBelongingToEvent(int eventPK)
         {
-            // TODO, this isn't correct, needs to change.
             List<Vendor> returnVar = new List<Vendor>();
+
+            eventPlannerAccessDBDataSetTableAdapters.vendorTableAdapter vendorAdapter = new eventPlannerAccessDBDataSetTableAdapters.vendorTableAdapter();
+            eventPlannerAccessDBDataSet.vendorDataTable vendorData = new eventPlannerAccessDBDataSet.vendorDataTable();
+            vendorAdapter.Fill(vendorData);
+
+            for (int i = 0; i < vendorData.Rows.Count; i++)
+            {
+                Vendor myVendor = new Vendor(Convert.ToInt32(vendorData.Rows[i]["ID"]));
+                returnVar.Add(myVendor);
+            }
 
             eventPlannerAccessDBDataSetTableAdapters.eventsJoinedVendorsTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.eventsJoinedVendorsTableAdapter();
             eventPlannerAccessDBDataSet.eventsJoinedVendorsDataTable data = new eventPlannerAccessDBDataSet.eventsJoinedVendorsDataTable();
@@ -42,12 +51,20 @@ namespace EventPlannerWinForms
 
             for (int i = 0; i < data.Rows.Count; i++)
             {
-                if (!data.Rows[i]["eventFK"].Equals(eventPK))
+                if (data.Rows[i]["eventFK"].Equals(eventPK))
                 {
-                    Vendor myVendor = new Vendor(Convert.ToInt32(data.Rows[i]["vendorFK"]));
-                    returnVar.Add(myVendor);
+                    for (int j = 0; j < returnVar.Count; j++)
+                    {
+                        if (returnVar[j].vendorPK == Convert.ToInt32(data.Rows[i]["vendorFK"]))
+                        {
+                            returnVar.RemoveAt(j);
+                            break;
+                        }
+                    }
                 }
             }
+
+
             return returnVar;
         }
 

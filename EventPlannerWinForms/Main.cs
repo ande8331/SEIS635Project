@@ -201,7 +201,9 @@ namespace EventPlannerWinForms
             ownedEventVendorsDataGridView.Columns[0].Visible = false;
             ownedEventVendorsDataGridView.Columns.Add("", "");
             ownedEventVendorsDataGridView.Columns.Add("Vendor Name", "Vendor Name");
+            ownedEventVendorsDataGridView.Columns[2].Width = 200;
             ownedEventVendorsDataGridView.Columns.Add("Service Provided", "Service Provided");
+            ownedEventVendorsDataGridView.Columns[3].Width = 200;
 
             List<Vendor> myVendors = Vendor.getVendorsBelongingToEvent(displayedOwnedEvent.eventPK);
 
