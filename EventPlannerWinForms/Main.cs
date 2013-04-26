@@ -33,9 +33,12 @@ namespace EventPlannerWinForms
         private void changeDisplayedEvent(int rowIndex)
         {
             displayedOwnedEvent = new Event(Convert.ToInt32(ownedEventDataGrid[0, rowIndex].Value));
-            populateEventPanel();
+            /*populateEventPanel();
             refreshVendorTab();
             refreshLocationTab();
+            refreshOwnedInvitationTab();
+             */
+            eventsOwnedTabControl_SelectedIndexChanged(this, EventArgs.Empty);
         }
 
         private void clearAndLoadEventsIOwn()
@@ -279,6 +282,41 @@ namespace EventPlannerWinForms
             refreshVendorTab();
         }
 
+        /*
+         * Events I Own - Invitations Stuff
+         */
+        private void refreshOwnedInvitationTab()
+        {
+            clearAndFillOwnedEventInvitationDataGridView();
+        }
+
+        private void clearAndFillOwnedEventInvitationDataGridView()
+        {           
+            ownedEventInvitationsDataGridView.Rows.Clear();
+            ownedEventInvitationsDataGridView.Columns.Clear();
+            ownedEventInvitationsDataGridView.AllowUserToAddRows = false;
+            ownedEventInvitationsDataGridView.AllowUserToDeleteRows = false;
+            ownedEventInvitationsDataGridView.ShowEditingIcon = false;
+            ownedEventInvitationsDataGridView.RowHeadersVisible = false;
+
+            ownedEventInvitationsDataGridView.Columns.Add("PK", "PK");
+            ownedEventInvitationsDataGridView.Columns[0].Visible = false;
+            ownedEventInvitationsDataGridView.Columns.Add("", "");
+            ownedEventInvitationsDataGridView.Columns.Add("Invitee Name", "Invitee Name");
+            ownedEventInvitationsDataGridView.Columns[2].Width = 200;
+            ownedEventInvitationsDataGridView.Columns.Add("Message", "Message");
+            ownedEventInvitationsDataGridView.Columns[3].Width = 200;
+
+            List<Invitation> myInvitations = Invitation.getInvitationsBelongingToEvent(displayedOwnedEvent.eventPK);
+
+            foreach (Invitation myInvitation in myInvitations)
+            {
+                User myUser = new User(myInvitation.userFK);
+                ownedEventInvitationsDataGridView.Rows.Add(myInvitation.invitationPK, "Remove", myUser.lastName + ", " + myUser.firstName, myInvitation.invitationText);
+            }
+
+        }
+
 
         /*
          * Wishlist Tab Stuff
@@ -367,9 +405,27 @@ namespace EventPlannerWinForms
 
         private void eventsOwnedTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            refreshLocationTab();
-            displayedVendor = null;
-            refreshVendorTab();
+            if (eventsOwnedTabControl.SelectedIndex == 0)
+            {
+                populateEventPanel();
+            }
+
+            if (eventsOwnedTabControl.SelectedIndex == 1)
+            {
+                displayedVendor = null;
+                refreshVendorTab();
+            }
+
+            if (eventsOwnedTabControl.SelectedIndex == 2)
+            {
+                refreshLocationTab();
+            }
+
+            if (eventsOwnedTabControl.SelectedIndex == 3)
+            {
+                refreshOwnedInvitationTab();
+            }
+            
         }
 
  

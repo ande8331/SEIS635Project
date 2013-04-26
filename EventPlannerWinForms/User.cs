@@ -8,5 +8,12 @@ namespace EventPlannerWinForms
 {
     class User
     {
+        public String firstName { get; set; }
+        public String lastName { get; set; }
+
+        public User(int _userPK)
+        {
+
+        }
     }
 }

@@ -58,11 +58,11 @@ namespace EventPlannerWinForms {
         
         private eventsJoinedWishlistDataTable tableeventsJoinedWishlist;
         
+        private itemJoinedToRetailDataTable tableitemJoinedToRetail;
+        
         private global::System.Data.DataRelation relationuserevent;
         
         private global::System.Data.DataRelation relationeventinvitation;
-        
-        private global::System.Data.DataRelation relationuserinvitation;
         
         private global::System.Data.DataRelation relationeventTable11;
         
@@ -81,6 +81,8 @@ namespace EventPlannerWinForms {
         private global::System.Data.DataRelation relationTable1wishlistToItemAssociation;
         
         private global::System.Data.DataRelation relationwishlistTable2;
+        
+        private global::System.Data.DataRelation relationuserinvitation;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -160,6 +162,9 @@ namespace EventPlannerWinForms {
                 }
                 if ((ds.Tables["eventsJoinedWishlist"] != null)) {
                     base.Tables.Add(new eventsJoinedWishlistDataTable(ds.Tables["eventsJoinedWishlist"]));
+                }
+                if ((ds.Tables["itemJoinedToRetail"] != null)) {
+                    base.Tables.Add(new itemJoinedToRetailDataTable(ds.Tables["itemJoinedToRetail"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -351,6 +356,16 @@ namespace EventPlannerWinForms {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public itemJoinedToRetailDataTable itemJoinedToRetail {
+            get {
+                return this.tableitemJoinedToRetail;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -466,6 +481,9 @@ namespace EventPlannerWinForms {
                 }
                 if ((ds.Tables["eventsJoinedWishlist"] != null)) {
                     base.Tables.Add(new eventsJoinedWishlistDataTable(ds.Tables["eventsJoinedWishlist"]));
+                }
+                if ((ds.Tables["itemJoinedToRetail"] != null)) {
+                    base.Tables.Add(new itemJoinedToRetailDataTable(ds.Tables["itemJoinedToRetail"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -602,9 +620,14 @@ namespace EventPlannerWinForms {
                     this.tableeventsJoinedWishlist.InitVars();
                 }
             }
+            this.tableitemJoinedToRetail = ((itemJoinedToRetailDataTable)(base.Tables["itemJoinedToRetail"]));
+            if ((initTable == true)) {
+                if ((this.tableitemJoinedToRetail != null)) {
+                    this.tableitemJoinedToRetail.InitVars();
+                }
+            }
             this.relationuserevent = this.Relations["userevent"];
             this.relationeventinvitation = this.Relations["eventinvitation"];
-            this.relationuserinvitation = this.Relations["userinvitation"];
             this.relationeventTable11 = this.Relations["eventTable11"];
             this.relationlocationeventToLocationAssociation = this.Relations["locationeventToLocationAssociation"];
             this.relationeventTable1 = this.Relations["eventTable1"];
@@ -614,6 +637,7 @@ namespace EventPlannerWinForms {
             this.relationuserTable1 = this.Relations["userTable1"];
             this.relationTable1wishlistToItemAssociation = this.Relations["Table1wishlistToItemAssociation"];
             this.relationwishlistTable2 = this.Relations["wishlistTable2"];
+            this.relationuserinvitation = this.Relations["userinvitation"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -658,6 +682,8 @@ namespace EventPlannerWinForms {
             base.Tables.Add(this.tableeventsJoinedInvitationAndUser);
             this.tableeventsJoinedWishlist = new eventsJoinedWishlistDataTable();
             base.Tables.Add(this.tableeventsJoinedWishlist);
+            this.tableitemJoinedToRetail = new itemJoinedToRetailDataTable();
+            base.Tables.Add(this.tableitemJoinedToRetail);
             this.relationuserevent = new global::System.Data.DataRelation("userevent", new global::System.Data.DataColumn[] {
                         this.tableuser.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableevent.ownerColumn}, false);
@@ -666,10 +692,6 @@ namespace EventPlannerWinForms {
                         this.tableevent.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableinvitation.eventFKColumn}, false);
             this.Relations.Add(this.relationeventinvitation);
-            this.relationuserinvitation = new global::System.Data.DataRelation("userinvitation", new global::System.Data.DataColumn[] {
-                        this.tableuser.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableinvitation.inviteeFKColumn}, false);
-            this.Relations.Add(this.relationuserinvitation);
             this.relationeventTable11 = new global::System.Data.DataRelation("eventTable11", new global::System.Data.DataColumn[] {
                         this.tableevent.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableeventToLocationAssociation.eventFKColumn}, false);
@@ -706,6 +728,10 @@ namespace EventPlannerWinForms {
                         this.tablewishlist.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tablewishlistToItemAssociation.wishlistFKColumn}, false);
             this.Relations.Add(this.relationwishlistTable2);
+            this.relationuserinvitation = new global::System.Data.DataRelation("userinvitation", new global::System.Data.DataColumn[] {
+                        this.tableuser.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableinvitation.userFKColumn}, false);
+            this.Relations.Add(this.relationuserinvitation);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -807,6 +833,12 @@ namespace EventPlannerWinForms {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeeventsJoinedWishlist() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeitemJoinedToRetail() {
             return false;
         }
         
@@ -915,6 +947,9 @@ namespace EventPlannerWinForms {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void eventsJoinedWishlistRowChangeEventHandler(object sender, eventsJoinedWishlistRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void itemJoinedToRetailRowChangeEventHandler(object sender, itemJoinedToRetailRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1254,7 +1289,9 @@ namespace EventPlannerWinForms {
             
             private global::System.Data.DataColumn columneventFK;
             
-            private global::System.Data.DataColumn columninviteeFK;
+            private global::System.Data.DataColumn columnuserFK;
+            
+            private global::System.Data.DataColumn columninvitationText;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1307,9 +1344,17 @@ namespace EventPlannerWinForms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn inviteeFKColumn {
+            public global::System.Data.DataColumn userFKColumn {
                 get {
-                    return this.columninviteeFK;
+                    return this.columnuserFK;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn invitationTextColumn {
+                get {
+                    return this.columninvitationText;
                 }
             }
             
@@ -1350,12 +1395,13 @@ namespace EventPlannerWinForms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public invitationRow AddinvitationRow(eventRow parenteventRowByeventinvitation, userRow parentuserRowByuserinvitation) {
+            public invitationRow AddinvitationRow(eventRow parenteventRowByeventinvitation, userRow parentuserRowByuserinvitation, string invitationText) {
                 invitationRow rowinvitationRow = ((invitationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        null};
+                        null,
+                        invitationText};
                 if ((parenteventRowByeventinvitation != null)) {
                     columnValuesArray[1] = parenteventRowByeventinvitation[0];
                 }
@@ -1393,7 +1439,8 @@ namespace EventPlannerWinForms {
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
                 this.columneventFK = base.Columns["eventFK"];
-                this.columninviteeFK = base.Columns["inviteeFK"];
+                this.columnuserFK = base.Columns["userFK"];
+                this.columninvitationText = base.Columns["invitationText"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1403,8 +1450,10 @@ namespace EventPlannerWinForms {
                 base.Columns.Add(this.columnID);
                 this.columneventFK = new global::System.Data.DataColumn("eventFK", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columneventFK);
-                this.columninviteeFK = new global::System.Data.DataColumn("inviteeFK", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninviteeFK);
+                this.columnuserFK = new global::System.Data.DataColumn("userFK", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnuserFK);
+                this.columninvitationText = new global::System.Data.DataColumn("invitationText", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninvitationText);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -1412,6 +1461,7 @@ namespace EventPlannerWinForms {
                 this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
+                this.columninvitationText.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5487,8 +5537,6 @@ namespace EventPlannerWinForms {
             
             private global::System.Data.DataColumn columnuserName;
             
-            private global::System.Data.DataColumn columninviteeFK;
-            
             private global::System.Data.DataColumn columninvitationText;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5582,14 +5630,6 @@ namespace EventPlannerWinForms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn inviteeFKColumn {
-                get {
-                    return this.columninviteeFK;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn invitationTextColumn {
                 get {
                     return this.columninvitationText;
@@ -5633,7 +5673,7 @@ namespace EventPlannerWinForms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public eventsJoinedInvitationAndUserRow AddeventsJoinedInvitationAndUserRow(int eventFK, string firstName, string lastName, string email, string userName, int inviteeFK, string invitationText) {
+            public eventsJoinedInvitationAndUserRow AddeventsJoinedInvitationAndUserRow(int eventFK, string firstName, string lastName, string email, string userName, string invitationText) {
                 eventsJoinedInvitationAndUserRow roweventsJoinedInvitationAndUserRow = ((eventsJoinedInvitationAndUserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         eventFK,
@@ -5643,7 +5683,6 @@ namespace EventPlannerWinForms {
                         lastName,
                         email,
                         userName,
-                        inviteeFK,
                         invitationText};
                 roweventsJoinedInvitationAndUserRow.ItemArray = columnValuesArray;
                 this.Rows.Add(roweventsJoinedInvitationAndUserRow);
@@ -5674,7 +5713,6 @@ namespace EventPlannerWinForms {
                 this.columnlastName = base.Columns["lastName"];
                 this.columnemail = base.Columns["email"];
                 this.columnuserName = base.Columns["userName"];
-                this.columninviteeFK = base.Columns["inviteeFK"];
                 this.columninvitationText = base.Columns["invitationText"];
             }
             
@@ -5695,8 +5733,6 @@ namespace EventPlannerWinForms {
                 base.Columns.Add(this.columnemail);
                 this.columnuserName = new global::System.Data.DataColumn("userName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnuserName);
-                this.columninviteeFK = new global::System.Data.DataColumn("inviteeFK", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninviteeFK);
                 this.columninvitationText = new global::System.Data.DataColumn("invitationText", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columninvitationText);
                 this.columninvitation_ID.AutoIncrement = true;
@@ -6133,6 +6169,331 @@ namespace EventPlannerWinForms {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class itemJoinedToRetailDataTable : global::System.Data.TypedTableBase<itemJoinedToRetailRow> {
+            
+            private global::System.Data.DataColumn columnitemToRetailAssociation_ID;
+            
+            private global::System.Data.DataColumn columnitemFK;
+            
+            private global::System.Data.DataColumn columnretailFK;
+            
+            private global::System.Data.DataColumn columnretailLocation_ID;
+            
+            private global::System.Data.DataColumn columnretailName;
+            
+            private global::System.Data.DataColumn columnretailAddress;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public itemJoinedToRetailDataTable() {
+                this.TableName = "itemJoinedToRetail";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal itemJoinedToRetailDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected itemJoinedToRetailDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn itemToRetailAssociation_IDColumn {
+                get {
+                    return this.columnitemToRetailAssociation_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn itemFKColumn {
+                get {
+                    return this.columnitemFK;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn retailFKColumn {
+                get {
+                    return this.columnretailFK;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn retailLocation_IDColumn {
+                get {
+                    return this.columnretailLocation_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn retailNameColumn {
+                get {
+                    return this.columnretailName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn retailAddressColumn {
+                get {
+                    return this.columnretailAddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public itemJoinedToRetailRow this[int index] {
+                get {
+                    return ((itemJoinedToRetailRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event itemJoinedToRetailRowChangeEventHandler itemJoinedToRetailRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event itemJoinedToRetailRowChangeEventHandler itemJoinedToRetailRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event itemJoinedToRetailRowChangeEventHandler itemJoinedToRetailRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event itemJoinedToRetailRowChangeEventHandler itemJoinedToRetailRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AdditemJoinedToRetailRow(itemJoinedToRetailRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public itemJoinedToRetailRow AdditemJoinedToRetailRow(int itemFK, int retailFK, string retailName, string retailAddress) {
+                itemJoinedToRetailRow rowitemJoinedToRetailRow = ((itemJoinedToRetailRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        itemFK,
+                        retailFK,
+                        null,
+                        retailName,
+                        retailAddress};
+                rowitemJoinedToRetailRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowitemJoinedToRetailRow);
+                return rowitemJoinedToRetailRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                itemJoinedToRetailDataTable cln = ((itemJoinedToRetailDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new itemJoinedToRetailDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnitemToRetailAssociation_ID = base.Columns["itemToRetailAssociation_ID"];
+                this.columnitemFK = base.Columns["itemFK"];
+                this.columnretailFK = base.Columns["retailFK"];
+                this.columnretailLocation_ID = base.Columns["retailLocation_ID"];
+                this.columnretailName = base.Columns["retailName"];
+                this.columnretailAddress = base.Columns["retailAddress"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnitemToRetailAssociation_ID = new global::System.Data.DataColumn("itemToRetailAssociation_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnitemToRetailAssociation_ID);
+                this.columnitemFK = new global::System.Data.DataColumn("itemFK", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnitemFK);
+                this.columnretailFK = new global::System.Data.DataColumn("retailFK", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnretailFK);
+                this.columnretailLocation_ID = new global::System.Data.DataColumn("retailLocation_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnretailLocation_ID);
+                this.columnretailName = new global::System.Data.DataColumn("retailName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnretailName);
+                this.columnretailAddress = new global::System.Data.DataColumn("retailAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnretailAddress);
+                this.columnitemToRetailAssociation_ID.AutoIncrement = true;
+                this.columnitemToRetailAssociation_ID.AutoIncrementSeed = -1;
+                this.columnitemToRetailAssociation_ID.AutoIncrementStep = -1;
+                this.columnretailLocation_ID.AutoIncrement = true;
+                this.columnretailLocation_ID.AutoIncrementSeed = -1;
+                this.columnretailLocation_ID.AutoIncrementStep = -1;
+                this.columnretailName.MaxLength = 255;
+                this.columnretailAddress.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public itemJoinedToRetailRow NewitemJoinedToRetailRow() {
+                return ((itemJoinedToRetailRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new itemJoinedToRetailRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(itemJoinedToRetailRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.itemJoinedToRetailRowChanged != null)) {
+                    this.itemJoinedToRetailRowChanged(this, new itemJoinedToRetailRowChangeEvent(((itemJoinedToRetailRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.itemJoinedToRetailRowChanging != null)) {
+                    this.itemJoinedToRetailRowChanging(this, new itemJoinedToRetailRowChangeEvent(((itemJoinedToRetailRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.itemJoinedToRetailRowDeleted != null)) {
+                    this.itemJoinedToRetailRowDeleted(this, new itemJoinedToRetailRowChangeEvent(((itemJoinedToRetailRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.itemJoinedToRetailRowDeleting != null)) {
+                    this.itemJoinedToRetailRowDeleting(this, new itemJoinedToRetailRowChangeEvent(((itemJoinedToRetailRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveitemJoinedToRetailRow(itemJoinedToRetailRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                eventPlannerAccessDBDataSet ds = new eventPlannerAccessDBDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "itemJoinedToRetailDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class eventRow : global::System.Data.DataRow {
@@ -6357,17 +6718,33 @@ namespace EventPlannerWinForms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int inviteeFK {
+            public int userFK {
                 get {
                     try {
-                        return ((int)(this[this.tableinvitation.inviteeFKColumn]));
+                        return ((int)(this[this.tableinvitation.userFKColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'inviteeFK\' in table \'invitation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'userFK\' in table \'invitation\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableinvitation.inviteeFKColumn] = value;
+                    this[this.tableinvitation.userFKColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string invitationText {
+                get {
+                    try {
+                        return ((string)(this[this.tableinvitation.invitationTextColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'invitationText\' in table \'invitation\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableinvitation.invitationTextColumn] = value;
                 }
             }
             
@@ -6407,14 +6784,26 @@ namespace EventPlannerWinForms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsinviteeFKNull() {
-                return this.IsNull(this.tableinvitation.inviteeFKColumn);
+            public bool IsuserFKNull() {
+                return this.IsNull(this.tableinvitation.userFKColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetinviteeFKNull() {
-                this[this.tableinvitation.inviteeFKColumn] = global::System.Convert.DBNull;
+            public void SetuserFKNull() {
+                this[this.tableinvitation.userFKColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsinvitationTextNull() {
+                return this.IsNull(this.tableinvitation.invitationTextColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetinvitationTextNull() {
+                this[this.tableinvitation.invitationTextColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6540,23 +6929,23 @@ namespace EventPlannerWinForms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public invitationRow[] GetinvitationRows() {
-                if ((this.Table.ChildRelations["userinvitation"] == null)) {
-                    return new invitationRow[0];
-                }
-                else {
-                    return ((invitationRow[])(base.GetChildRows(this.Table.ChildRelations["userinvitation"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public wishlistRow[] GetwishlistRows() {
                 if ((this.Table.ChildRelations["userTable1"] == null)) {
                     return new wishlistRow[0];
                 }
                 else {
                     return ((wishlistRow[])(base.GetChildRows(this.Table.ChildRelations["userTable1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public invitationRow[] GetinvitationRows() {
+                if ((this.Table.ChildRelations["userinvitation"] == null)) {
+                    return new invitationRow[0];
+                }
+                else {
+                    return ((invitationRow[])(base.GetChildRows(this.Table.ChildRelations["userinvitation"])));
                 }
             }
         }
@@ -8182,23 +8571,6 @@ namespace EventPlannerWinForms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int inviteeFK {
-                get {
-                    try {
-                        return ((int)(this[this.tableeventsJoinedInvitationAndUser.inviteeFKColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'inviteeFK\' in table \'eventsJoinedInvitationAndUser\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableeventsJoinedInvitationAndUser.inviteeFKColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string invitationText {
                 get {
                     try {
@@ -8296,18 +8668,6 @@ namespace EventPlannerWinForms {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetuserNameNull() {
                 this[this.tableeventsJoinedInvitationAndUser.userNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsinviteeFKNull() {
-                return this.IsNull(this.tableeventsJoinedInvitationAndUser.inviteeFKColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetinviteeFKNull() {
-                this[this.tableeventsJoinedInvitationAndUser.inviteeFKColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8447,6 +8807,191 @@ namespace EventPlannerWinForms {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetwishlistNameNull() {
                 this[this.tableeventsJoinedWishlist.wishlistNameColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class itemJoinedToRetailRow : global::System.Data.DataRow {
+            
+            private itemJoinedToRetailDataTable tableitemJoinedToRetail;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal itemJoinedToRetailRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableitemJoinedToRetail = ((itemJoinedToRetailDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int itemToRetailAssociation_ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableitemJoinedToRetail.itemToRetailAssociation_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'itemToRetailAssociation_ID\' in table \'itemJoinedToRetail\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableitemJoinedToRetail.itemToRetailAssociation_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int itemFK {
+                get {
+                    try {
+                        return ((int)(this[this.tableitemJoinedToRetail.itemFKColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'itemFK\' in table \'itemJoinedToRetail\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableitemJoinedToRetail.itemFKColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int retailFK {
+                get {
+                    try {
+                        return ((int)(this[this.tableitemJoinedToRetail.retailFKColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'retailFK\' in table \'itemJoinedToRetail\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableitemJoinedToRetail.retailFKColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int retailLocation_ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableitemJoinedToRetail.retailLocation_IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'retailLocation_ID\' in table \'itemJoinedToRetail\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableitemJoinedToRetail.retailLocation_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string retailName {
+                get {
+                    try {
+                        return ((string)(this[this.tableitemJoinedToRetail.retailNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'retailName\' in table \'itemJoinedToRetail\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableitemJoinedToRetail.retailNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string retailAddress {
+                get {
+                    try {
+                        return ((string)(this[this.tableitemJoinedToRetail.retailAddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'retailAddress\' in table \'itemJoinedToRetail\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableitemJoinedToRetail.retailAddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsitemToRetailAssociation_IDNull() {
+                return this.IsNull(this.tableitemJoinedToRetail.itemToRetailAssociation_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetitemToRetailAssociation_IDNull() {
+                this[this.tableitemJoinedToRetail.itemToRetailAssociation_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsitemFKNull() {
+                return this.IsNull(this.tableitemJoinedToRetail.itemFKColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetitemFKNull() {
+                this[this.tableitemJoinedToRetail.itemFKColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsretailFKNull() {
+                return this.IsNull(this.tableitemJoinedToRetail.retailFKColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetretailFKNull() {
+                this[this.tableitemJoinedToRetail.retailFKColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsretailLocation_IDNull() {
+                return this.IsNull(this.tableitemJoinedToRetail.retailLocation_IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetretailLocation_IDNull() {
+                this[this.tableitemJoinedToRetail.retailLocation_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsretailNameNull() {
+                return this.IsNull(this.tableitemJoinedToRetail.retailNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetretailNameNull() {
+                this[this.tableitemJoinedToRetail.retailNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsretailAddressNull() {
+                return this.IsNull(this.tableitemJoinedToRetail.retailAddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetretailAddressNull() {
+                this[this.tableitemJoinedToRetail.retailAddressColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9027,6 +9572,40 @@ namespace EventPlannerWinForms {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class itemJoinedToRetailRowChangeEvent : global::System.EventArgs {
+            
+            private itemJoinedToRetailRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public itemJoinedToRetailRowChangeEvent(itemJoinedToRetailRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public itemJoinedToRetailRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
@@ -9573,37 +10152,44 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
             tableMapping.DataSetTable = "invitation";
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("eventFK", "eventFK");
-            tableMapping.ColumnMappings.Add("inviteeFK", "inviteeFK");
+            tableMapping.ColumnMappings.Add("userFK", "userFK");
+            tableMapping.ColumnMappings.Add("invitationText", "invitationText");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM `invitation` WHERE ((`ID` = ?) AND ((? = 1 AND `eventFK` IS NULL) OR " +
-                "(`eventFK` = ?)) AND ((? = 1 AND `inviteeFK` IS NULL) OR (`inviteeFK` = ?)))";
+                "(`eventFK` = ?)) AND ((? = 1 AND `invitationText` IS NULL) OR (`invitationText` " +
+                "= ?)) AND ((? = 1 AND `userFK` IS NULL) OR (`userFK` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_eventFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "eventFK", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_eventFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "eventFK", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_inviteeFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "inviteeFK", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_inviteeFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "inviteeFK", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_invitationText", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "invitationText", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_invitationText", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "invitationText", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_userFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "userFK", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_userFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "userFK", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `invitation` (`eventFK`, `inviteeFK`) VALUES (?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `invitation` (`eventFK`, `invitationText`, `userFK`) VALUES (?, ?, ?)" +
+                "";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("eventFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "eventFK", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("inviteeFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "inviteeFK", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("invitationText", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "invitationText", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("userFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "userFK", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `invitation` SET `eventFK` = ?, `inviteeFK` = ? WHERE ((`ID` = ?) AND ((? " +
-                "= 1 AND `eventFK` IS NULL) OR (`eventFK` = ?)) AND ((? = 1 AND `inviteeFK` IS NU" +
-                "LL) OR (`inviteeFK` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `invitation` SET `eventFK` = ?, `invitationText` = ?, `userFK` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `eventFK` IS NULL) OR (`eventFK` = ?)) AND ((? = 1 AND `invitationText` IS NULL) OR (`invitationText` = ?)) AND ((? = 1 AND `userFK` IS NULL) OR (`userFK` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("eventFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "eventFK", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("inviteeFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "inviteeFK", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("invitationText", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "invitationText", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("userFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "userFK", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_eventFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "eventFK", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_eventFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "eventFK", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_inviteeFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "inviteeFK", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_inviteeFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "inviteeFK", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_invitationText", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "invitationText", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_invitationText", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "invitationText", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_userFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "userFK", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_userFK", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "userFK", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9619,7 +10205,7 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, eventFK, inviteeFK FROM invitation";
+            this._commandCollection[0].CommandText = "SELECT ID, eventFK, invitationText, userFK FROM invitation";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9680,7 +10266,7 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, global::System.Nullable<int> Original_eventFK, global::System.Nullable<int> Original_inviteeFK) {
+        public virtual int Delete(int Original_ID, global::System.Nullable<int> Original_eventFK, string Original_invitationText, global::System.Nullable<int> Original_userFK) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_eventFK.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -9690,13 +10276,21 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Original_inviteeFK.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_inviteeFK.Value));
-            }
-            else {
+            if ((Original_invitationText == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_invitationText));
+            }
+            if ((Original_userFK.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_userFK.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9718,18 +10312,24 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> eventFK, global::System.Nullable<int> inviteeFK) {
+        public virtual int Insert(global::System.Nullable<int> eventFK, string invitationText, global::System.Nullable<int> userFK) {
             if ((eventFK.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(eventFK.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((inviteeFK.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(inviteeFK.Value));
+            if ((invitationText == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(invitationText));
+            }
+            if ((userFK.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(userFK.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9751,35 +10351,49 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> eventFK, global::System.Nullable<int> inviteeFK, int Original_ID, global::System.Nullable<int> Original_eventFK, global::System.Nullable<int> Original_inviteeFK) {
+        public virtual int Update(global::System.Nullable<int> eventFK, string invitationText, global::System.Nullable<int> userFK, int Original_ID, global::System.Nullable<int> Original_eventFK, string Original_invitationText, global::System.Nullable<int> Original_userFK) {
             if ((eventFK.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(eventFK.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((inviteeFK.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(inviteeFK.Value));
-            }
-            else {
+            if ((invitationText == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ID));
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(invitationText));
+            }
+            if ((userFK.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(userFK.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID));
             if ((Original_eventFK.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_eventFK.Value));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_eventFK.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Original_inviteeFK.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_inviteeFK.Value));
+            if ((Original_invitationText == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_invitationText));
+            }
+            if ((Original_userFK.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_userFK.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -14071,7 +14685,6 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("lastName", "lastName");
             tableMapping.ColumnMappings.Add("email", "email");
             tableMapping.ColumnMappings.Add("userName", "userName");
-            tableMapping.ColumnMappings.Add("inviteeFK", "inviteeFK");
             tableMapping.ColumnMappings.Add("invitationText", "invitationText");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -14090,7 +14703,7 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT eventFK, invitation_ID, user_ID, firstName, lastName, email, userName, inv" +
-                "iteeFK, invitationText FROM eventsJoinedInvitationAndUser";
+                "itationText FROM eventsJoinedInvitationAndUser";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -14284,6 +14897,179 @@ namespace EventPlannerWinForms.eventPlannerAccessDBDataSetTableAdapters {
         public virtual eventPlannerAccessDBDataSet.eventsJoinedWishlistDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             eventPlannerAccessDBDataSet.eventsJoinedWishlistDataTable dataTable = new eventPlannerAccessDBDataSet.eventsJoinedWishlistDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class itemJoinedToRetailTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public itemJoinedToRetailTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "itemJoinedToRetail";
+            tableMapping.ColumnMappings.Add("itemToRetailAssociation_ID", "itemToRetailAssociation_ID");
+            tableMapping.ColumnMappings.Add("itemFK", "itemFK");
+            tableMapping.ColumnMappings.Add("retailFK", "retailFK");
+            tableMapping.ColumnMappings.Add("retailLocation_ID", "retailLocation_ID");
+            tableMapping.ColumnMappings.Add("retailName", "retailName");
+            tableMapping.ColumnMappings.Add("retailAddress", "retailAddress");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::EventPlannerWinForms.Properties.Settings.Default.eventPlannerAccessDBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT itemToRetailAssociation_ID, itemFK, retailFK, retailLocation_ID, retailNam" +
+                "e, retailAddress FROM itemJoinedToRetail";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(eventPlannerAccessDBDataSet.itemJoinedToRetailDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual eventPlannerAccessDBDataSet.itemJoinedToRetailDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            eventPlannerAccessDBDataSet.itemJoinedToRetailDataTable dataTable = new eventPlannerAccessDBDataSet.itemJoinedToRetailDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
