@@ -317,6 +317,44 @@ namespace EventPlannerWinForms
 
         }
 
+        /*
+         * Events I'm Invited to Stuff
+         */
+
+        private void refreshMyInvitationsTab()
+        {
+            clearandFillEventsInvitedToDataGridView();
+        }
+
+        private void clearandFillEventsInvitedToDataGridView()
+        {
+            eventsInvitedToDataGridView.Rows.Clear();
+            eventsInvitedToDataGridView.Columns.Clear();
+            eventsInvitedToDataGridView.AllowUserToAddRows = false;
+            eventsInvitedToDataGridView.AllowUserToDeleteRows = false;
+            eventsInvitedToDataGridView.ShowEditingIcon = false;
+            eventsInvitedToDataGridView.RowHeadersVisible = false;
+
+            eventsInvitedToDataGridView.Columns.Add("PK", "PK");
+            eventsInvitedToDataGridView.Columns[0].Visible = false;
+            eventsInvitedToDataGridView.Columns.Add("", "");
+            eventsInvitedToDataGridView.Columns.Add("Event Name", "Event Name");
+            eventsInvitedToDataGridView.Columns[2].Width = 200;
+            eventsInvitedToDataGridView.Columns.Add("Start", "Start");
+            eventsInvitedToDataGridView.Columns[3].Width = 200;
+            eventsInvitedToDataGridView.Columns.Add("End", "End");
+            eventsInvitedToDataGridView.Columns[4].Width = 200;
+
+
+            List<Invitation> myInvitations = Invitation.getInvitationsForUser(ownerPK);
+
+            foreach (Invitation myInvitation in myInvitations)
+            {
+                Event myEvent = new Event(myInvitation.eventFK);
+                eventsInvitedToDataGridView.Rows.Add(myInvitation.invitationPK, "Remove", myEvent.eventName, myEvent.eventStart, myEvent.eventEnd);
+            }
+        }
+
 
         /*
          * Wishlist Tab Stuff
@@ -426,6 +464,24 @@ namespace EventPlannerWinForms
                 refreshOwnedInvitationTab();
             }
             
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedIndex == 0)
+            {
+                eventsOwnedTabControl_SelectedIndexChanged(this, EventArgs.Empty);
+            }
+
+            if (tabControl.SelectedIndex == 1)
+            {
+                refreshMyInvitationsTab();
+            }
+
+            if (tabControl.SelectedIndex == 2)
+            {
+
+            }
         }
 
  

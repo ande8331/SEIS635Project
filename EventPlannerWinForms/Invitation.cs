@@ -37,6 +37,30 @@ namespace EventPlannerWinForms
             return returnVar;
         }
 
+        public static List<Invitation> getInvitationsForUser(int userPK)
+        {
+            List<Invitation> returnVar = new List<Invitation>();
+
+            eventPlannerAccessDBDataSetTableAdapters.eventsJoinedInvitationAndUserTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.eventsJoinedInvitationAndUserTableAdapter();
+            eventPlannerAccessDBDataSet.eventsJoinedInvitationAndUserDataTable data = new eventPlannerAccessDBDataSet.eventsJoinedInvitationAndUserDataTable();
+            myadapter.Fill(data);
+
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                if (data.Rows[i]["user_ID"].Equals(userPK))
+                {
+                    //Invitation myVendor = new Invitation (Convert.ToInt32(data.Rows[i]["invitation_ID"]));
+                    Invitation myInvitation = new Invitation();
+                    myInvitation.invitationPK = Convert.ToInt32(data.Rows[i]["invitation_ID"]);
+                    myInvitation.eventFK = Convert.ToInt32(data.Rows[i]["eventFK"]);
+                    myInvitation.userFK = Convert.ToInt32(data.Rows[i]["user_ID"]);
+                    myInvitation.invitationText = Convert.ToString(data.Rows[i]["invitationText"]);
+                    returnVar.Add(myInvitation);
+                }
+            }
+            return returnVar;
+        }
+
         public Invitation()
         {
         }
