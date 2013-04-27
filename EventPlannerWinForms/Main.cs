@@ -428,17 +428,44 @@ namespace EventPlannerWinForms
 
         private void myWishListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            changeDisplayedWishlist();
+            changeDisplayedWishlist(e.RowIndex);
         }
 
         private void myWishListDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            changeDisplayedWishlist();
+            changeDisplayedWishlist(e.RowIndex);
         }
 
-        private void changeDisplayedWishlist()
+        private void changeDisplayedWishlist(int rowIndex)
         {
-            //TODO
+            displayedOwnedEvent = new Event(Convert.ToInt32(ownedEventDataGrid[0, rowIndex].Value));
+
+            wishListItemsDataGridView.Rows.Clear();
+            wishListItemsDataGridView.Columns.Clear();
+            wishListItemsDataGridView.AllowUserToAddRows = false;
+            wishListItemsDataGridView.AllowUserToDeleteRows = false;
+            wishListItemsDataGridView.ShowEditingIcon = false;
+            //myWishListDataGridView.RowHeadersVisible = false;
+            wishListItemsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            wishListItemsDataGridView.Columns.Add("PK", "PK");
+            wishListItemsDataGridView.Columns[0].Visible = false;
+            wishListItemsDataGridView.Columns.Add("Edit", "");
+            wishListItemsDataGridView.Columns.Add("Item Name", "Name");
+            wishListItemsDataGridView.Columns["Item Name"].Width = 150;
+            wishListItemsDataGridView.Columns.Add("Item UPC", "UPC");
+            wishListItemsDataGridView.Columns["Item UPC"].Width = 150;
+            wishListItemsDataGridView.Columns.Add("Item Cost", "Cost");
+            wishListItemsDataGridView.Columns["Item Cost"].Width = 80;
+
+            List<GiftItem> wishlistItems = GiftItem.getGiftItemsBelongingToWishList(rowIndex);
+
+            foreach (GiftItem item in wishlistItems)
+            {
+                int rowNumber = wishListItemsDataGridView.Rows.Add(item.giftItemPK, "Edit", item.giftItemName);
+                wishListItemsDataGridView["Edit", rowNumber].Style.ForeColor = Color.Blue;
+                Font myFont = new Font(wishListItemsDataGridView.DefaultCellStyle.Font, FontStyle.Underline);
+            }
         }
 
         private void eventsOwnedTabControl_SelectedIndexChanged(object sender, EventArgs e)
