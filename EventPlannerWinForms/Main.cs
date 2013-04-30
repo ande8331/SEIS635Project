@@ -91,7 +91,7 @@ namespace EventPlannerWinForms
 
         private void ownedEventDataGrid_SelectionChanged(object sender, EventArgs e)
         {
-            ownedEventDataGrid.CurrentRow.Selected = false;
+
         }
 
         private void eventsIOwnPage_Enter(object sender, EventArgs e)
@@ -156,6 +156,7 @@ namespace EventPlannerWinForms
         private void refreshLocationTab()
         {
             clearAndFillownedEventLocationsDataGridView();
+            clearAndFillAvailableEventLocationsDataGridView();
         }
 
         private void clearAndFillownedEventLocationsDataGridView()
@@ -170,14 +171,38 @@ namespace EventPlannerWinForms
             ownedEventLocationsDataGridView.Columns.Add("PK", "PK");
             ownedEventLocationsDataGridView.Columns[0].Visible = false;
             ownedEventLocationsDataGridView.Columns.Add("", "");
+            ownedEventLocationsDataGridView.Columns[1].Width = 100;
             ownedEventLocationsDataGridView.Columns.Add("Location Name", "Location Name");
+            ownedEventLocationsDataGridView.Columns[2].Width = 250;
             ownedEventLocationsDataGridView.Columns.Add("Address", "Address");
+            ownedEventLocationsDataGridView.Columns[3].Width = 300;
 
             List<EventLocation> myLocations = EventLocation.getLocationsBelongingToEvent(displayedOwnedEvent.eventPK);
 
             foreach (EventLocation myLocation in myLocations)
             {
                 ownedEventLocationsDataGridView.Rows.Add(myLocation.locationPK, "Remove", myLocation.locationName, myLocation.locationAddress);
+            }
+        }
+
+        private void clearAndFillAvailableEventLocationsDataGridView()
+        {
+            availableEventDataGridView.Columns.Clear();
+            availableEventDataGridView.AllowUserToAddRows = false;
+            availableEventDataGridView.AllowUserToDeleteRows = false;
+            availableEventDataGridView.ShowEditingIcon = false;
+            availableEventDataGridView.RowHeadersVisible = false;
+
+            availableEventDataGridView.Columns.Add("PK", "PK");
+            availableEventDataGridView.Columns[0].Visible = false;
+            availableEventDataGridView.Columns.Add("Location Name", "Location Name");
+            availableEventDataGridView.Columns[1].Width = 250;
+
+            List<EventLocation> myLocations = EventLocation.getLocationsNotBelongingToEvent(displayedOwnedEvent.eventPK);
+
+            foreach (EventLocation myLocation in myLocations)
+            {
+                ownedEventLocationsDataGridView.Rows.Add(myLocation.locationPK, myLocation.locationName);
             }
         }
 
@@ -235,7 +260,13 @@ namespace EventPlannerWinForms
             {
                 availableVendorsDataGridView.Rows.Add(myVendor.vendorPK, myVendor.vendorName);
             }
-            availableVendorsDataGridView.Columns[1].Width = availableVendorsDataGridView.Width - 60;
+            availableVendorsDataGridView.Columns[1].Width = availableVendorsDataGridView.Width - 45;
+
+            if ((myVendors.Count > 0) && (displayedVendor == null))
+            {
+                displayedVendor = myVendors[0];
+            }
+            updateDisplayedVendorData();
         }
 
         private void updateDisplayedVendorData()
@@ -252,11 +283,6 @@ namespace EventPlannerWinForms
             }
         }
 
-        private void addNewVendorLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            addNewVendorLinkLabel.Visible = false;
-            refreshVendorTab();
-        }
         private void addVendorButton_Click(object sender, EventArgs e)
         {
             displayedVendor.AddVendorToEvent(displayedOwnedEvent.eventPK);
@@ -267,18 +293,29 @@ namespace EventPlannerWinForms
         private void createNewVendorButton_Click(object sender, EventArgs e)
         {
             displayedVendor = new Vendor();
-            refreshVendorTab();
+            int temp = availableVendorsDataGridView.Rows.Add();
+            availableVendorsDataGridView.ClearSelection();
+            availableVendorsDataGridView.Rows[temp].Selected = true;
+            updateDisplayedVendorData();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             displayedVendor = new Vendor(Convert.ToInt32(availableVendorsDataGridView[0, e.RowIndex].Value));
-            refreshVendorTab();
+            updateDisplayedVendorData();
         }
 
         private void availableVendorsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             displayedVendor = new Vendor(Convert.ToInt32(availableVendorsDataGridView[0, e.RowIndex].Value));
+            updateDisplayedVendorData();
+        }
+
+        private void saveVendorBtn_Click(object sender, EventArgs e)
+        {
+            displayedVendor.vendorName = vendorNameTextBox.Text;
+            displayedVendor.vendorRole = vendorRoleTextBox.Text;
+            displayedVendor.SaveVendorChanges();
             refreshVendorTab();
         }
 
@@ -510,6 +547,15 @@ namespace EventPlannerWinForms
 
             }
         }
+
+        private void ownedEventVendorsPage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
 
  
     }

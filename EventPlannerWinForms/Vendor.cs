@@ -91,6 +91,25 @@ namespace EventPlannerWinForms
 
         public Vendor()
         {
+
+        }
+
+        public void SaveVendorChanges()
+        {
+            eventPlannerAccessDBDataSetTableAdapters.vendorTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.vendorTableAdapter();
+            eventPlannerAccessDBDataSet.vendorDataTable data = new eventPlannerAccessDBDataSet.vendorDataTable();
+            myadapter.Fill(data);
+            if (vendorPK != 0)
+            {
+                eventPlannerAccessDBDataSet.vendorRow temp = data.FindByID(vendorPK);
+                temp["vendorName"] = vendorName;
+                temp["vendorRole"] = vendorRole;
+                myadapter.Update(temp);
+            }
+            else
+            {
+                myadapter.Insert(vendorName, vendorRole);
+            }
         }
 
         public void AddVendorToEvent(int eventPK)

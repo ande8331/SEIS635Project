@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ownedEventDataGrid = new System.Windows.Forms.DataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.eventsIOwnPage = new System.Windows.Forms.TabPage();
+            this.saveVendorButton = new System.Windows.Forms.TabPage();
             this.eventsOwnedTabControl = new System.Windows.Forms.TabControl();
             this.ownedEventDetailsPage = new System.Windows.Forms.TabPage();
             this.saveOwnedEventDetailButton = new System.Windows.Forms.Button();
@@ -45,6 +45,7 @@
             this.ownedEventVendorsPage = new System.Windows.Forms.TabPage();
             this.addNewVendorPanel = new System.Windows.Forms.Panel();
             this.vendorDetailPanel = new System.Windows.Forms.Panel();
+            this.saveVendorBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.createNewVendorButton = new System.Windows.Forms.Button();
             this.vendorRoleTextBox = new System.Windows.Forms.TextBox();
@@ -52,10 +53,8 @@
             this.vendorNameTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.availableVendorsDataGridView = new System.Windows.Forms.DataGridView();
-            this.addNewVendorLinkLabel = new System.Windows.Forms.LinkLabel();
             this.ownedEventVendorsDataGridView = new System.Windows.Forms.DataGridView();
             this.ownedEventLocationsPage = new System.Windows.Forms.TabPage();
-            this.addNewLocationLinkLabel = new System.Windows.Forms.LinkLabel();
             this.ownedEventLocationsDataGridView = new System.Windows.Forms.DataGridView();
             this.ownedEventInvitationsPage = new System.Windows.Forms.TabPage();
             this.addNewInvitationLinkLabel = new System.Windows.Forms.LinkLabel();
@@ -71,9 +70,10 @@
             this.wishListItemsDataGridView = new System.Windows.Forms.DataGridView();
             this.addNewWishlistLinkLabel = new System.Windows.Forms.LinkLabel();
             this.myWishListDataGridView = new System.Windows.Forms.DataGridView();
+            this.availableEventDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventDataGrid)).BeginInit();
             this.tabControl.SuspendLayout();
-            this.eventsIOwnPage.SuspendLayout();
+            this.saveVendorButton.SuspendLayout();
             this.eventsOwnedTabControl.SuspendLayout();
             this.ownedEventDetailsPage.SuspendLayout();
             this.ownedEventVendorsPage.SuspendLayout();
@@ -93,23 +93,24 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wishListItemsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myWishListDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.availableEventDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // ownedEventDataGrid
             // 
             this.ownedEventDataGrid.AllowUserToAddRows = false;
             this.ownedEventDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.ownedEventDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.ownedEventDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ownedEventDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ownedEventDataGrid.Location = new System.Drawing.Point(6, 15);
             this.ownedEventDataGrid.MultiSelect = false;
@@ -123,7 +124,7 @@
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.eventsIOwnPage);
+            this.tabControl.Controls.Add(this.saveVendorButton);
             this.tabControl.Controls.Add(this.eventInvitedToPage);
             this.tabControl.Controls.Add(this.wishlistPage);
             this.tabControl.Location = new System.Drawing.Point(2, 12);
@@ -133,18 +134,18 @@
             this.tabControl.TabIndex = 2;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
-            // eventsIOwnPage
+            // saveVendorButton
             // 
-            this.eventsIOwnPage.Controls.Add(this.eventsOwnedTabControl);
-            this.eventsIOwnPage.Controls.Add(this.ownedEventDataGrid);
-            this.eventsIOwnPage.Location = new System.Drawing.Point(4, 22);
-            this.eventsIOwnPage.Name = "eventsIOwnPage";
-            this.eventsIOwnPage.Padding = new System.Windows.Forms.Padding(3);
-            this.eventsIOwnPage.Size = new System.Drawing.Size(765, 709);
-            this.eventsIOwnPage.TabIndex = 0;
-            this.eventsIOwnPage.Text = "Events I Own";
-            this.eventsIOwnPage.UseVisualStyleBackColor = true;
-            this.eventsIOwnPage.Enter += new System.EventHandler(this.eventsIOwnPage_Enter);
+            this.saveVendorButton.Controls.Add(this.eventsOwnedTabControl);
+            this.saveVendorButton.Controls.Add(this.ownedEventDataGrid);
+            this.saveVendorButton.Location = new System.Drawing.Point(4, 22);
+            this.saveVendorButton.Name = "saveVendorButton";
+            this.saveVendorButton.Padding = new System.Windows.Forms.Padding(3);
+            this.saveVendorButton.Size = new System.Drawing.Size(765, 709);
+            this.saveVendorButton.TabIndex = 0;
+            this.saveVendorButton.Text = "Events I Own";
+            this.saveVendorButton.UseVisualStyleBackColor = true;
+            this.saveVendorButton.Enter += new System.EventHandler(this.eventsIOwnPage_Enter);
             // 
             // eventsOwnedTabControl
             // 
@@ -241,7 +242,6 @@
             // ownedEventVendorsPage
             // 
             this.ownedEventVendorsPage.Controls.Add(this.addNewVendorPanel);
-            this.ownedEventVendorsPage.Controls.Add(this.addNewVendorLinkLabel);
             this.ownedEventVendorsPage.Controls.Add(this.ownedEventVendorsDataGridView);
             this.ownedEventVendorsPage.Location = new System.Drawing.Point(4, 22);
             this.ownedEventVendorsPage.Name = "ownedEventVendorsPage";
@@ -250,6 +250,7 @@
             this.ownedEventVendorsPage.TabIndex = 1;
             this.ownedEventVendorsPage.Text = "Vendors";
             this.ownedEventVendorsPage.UseVisualStyleBackColor = true;
+            this.ownedEventVendorsPage.Click += new System.EventHandler(this.ownedEventVendorsPage_Click);
             // 
             // addNewVendorPanel
             // 
@@ -262,6 +263,7 @@
             // 
             // vendorDetailPanel
             // 
+            this.vendorDetailPanel.Controls.Add(this.saveVendorBtn);
             this.vendorDetailPanel.Controls.Add(this.label4);
             this.vendorDetailPanel.Controls.Add(this.createNewVendorButton);
             this.vendorDetailPanel.Controls.Add(this.vendorRoleTextBox);
@@ -272,6 +274,16 @@
             this.vendorDetailPanel.Name = "vendorDetailPanel";
             this.vendorDetailPanel.Size = new System.Drawing.Size(322, 208);
             this.vendorDetailPanel.TabIndex = 7;
+            // 
+            // saveVendorBtn
+            // 
+            this.saveVendorBtn.Location = new System.Drawing.Point(190, 182);
+            this.saveVendorBtn.Name = "saveVendorBtn";
+            this.saveVendorBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveVendorBtn.TabIndex = 7;
+            this.saveVendorBtn.Text = "Save";
+            this.saveVendorBtn.UseVisualStyleBackColor = true;
+            this.saveVendorBtn.Click += new System.EventHandler(this.saveVendorBtn_Click);
             // 
             // label4
             // 
@@ -284,7 +296,7 @@
             // 
             // createNewVendorButton
             // 
-            this.createNewVendorButton.Location = new System.Drawing.Point(94, 168);
+            this.createNewVendorButton.Location = new System.Drawing.Point(109, 182);
             this.createNewVendorButton.Name = "createNewVendorButton";
             this.createNewVendorButton.Size = new System.Drawing.Size(75, 23);
             this.createNewVendorButton.TabIndex = 2;
@@ -301,11 +313,11 @@
             // 
             // addVendorButton
             // 
-            this.addVendorButton.Location = new System.Drawing.Point(3, 168);
+            this.addVendorButton.Location = new System.Drawing.Point(6, 182);
             this.addVendorButton.Name = "addVendorButton";
-            this.addVendorButton.Size = new System.Drawing.Size(75, 23);
+            this.addVendorButton.Size = new System.Drawing.Size(97, 23);
             this.addVendorButton.TabIndex = 1;
-            this.addVendorButton.Text = "Add";
+            this.addVendorButton.Text = "Add To Event";
             this.addVendorButton.UseVisualStyleBackColor = true;
             this.addVendorButton.Click += new System.EventHandler(this.addVendorButton_Click);
             // 
@@ -335,17 +347,6 @@
             this.availableVendorsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.availableVendorsDataGridView_CellClick);
             this.availableVendorsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // addNewVendorLinkLabel
-            // 
-            this.addNewVendorLinkLabel.AutoSize = true;
-            this.addNewVendorLinkLabel.Location = new System.Drawing.Point(6, 159);
-            this.addNewVendorLinkLabel.Name = "addNewVendorLinkLabel";
-            this.addNewVendorLinkLabel.Size = new System.Drawing.Size(51, 13);
-            this.addNewVendorLinkLabel.TabIndex = 7;
-            this.addNewVendorLinkLabel.TabStop = true;
-            this.addNewVendorLinkLabel.Text = "Add New";
-            this.addNewVendorLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addNewVendorLinkLabel_LinkClicked);
-            // 
             // ownedEventVendorsDataGridView
             // 
             this.ownedEventVendorsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -356,7 +357,7 @@
             // 
             // ownedEventLocationsPage
             // 
-            this.ownedEventLocationsPage.Controls.Add(this.addNewLocationLinkLabel);
+            this.ownedEventLocationsPage.Controls.Add(this.availableEventDataGridView);
             this.ownedEventLocationsPage.Controls.Add(this.ownedEventLocationsDataGridView);
             this.ownedEventLocationsPage.Location = new System.Drawing.Point(4, 22);
             this.ownedEventLocationsPage.Name = "ownedEventLocationsPage";
@@ -365,23 +366,12 @@
             this.ownedEventLocationsPage.Text = "Locations";
             this.ownedEventLocationsPage.UseVisualStyleBackColor = true;
             // 
-            // addNewLocationLinkLabel
-            // 
-            this.addNewLocationLinkLabel.AutoSize = true;
-            this.addNewLocationLinkLabel.Location = new System.Drawing.Point(318, 211);
-            this.addNewLocationLinkLabel.Name = "addNewLocationLinkLabel";
-            this.addNewLocationLinkLabel.Size = new System.Drawing.Size(51, 13);
-            this.addNewLocationLinkLabel.TabIndex = 10;
-            this.addNewLocationLinkLabel.TabStop = true;
-            this.addNewLocationLinkLabel.Text = "Add New";
-            this.addNewLocationLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addNewLocationLinkLabel_LinkClicked);
-            // 
             // ownedEventLocationsDataGridView
             // 
             this.ownedEventLocationsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ownedEventLocationsDataGridView.Location = new System.Drawing.Point(18, 12);
             this.ownedEventLocationsDataGridView.Name = "ownedEventLocationsDataGridView";
-            this.ownedEventLocationsDataGridView.Size = new System.Drawing.Size(332, 150);
+            this.ownedEventLocationsDataGridView.Size = new System.Drawing.Size(653, 150);
             this.ownedEventLocationsDataGridView.TabIndex = 9;
             // 
             // ownedEventInvitationsPage
@@ -520,6 +510,14 @@
             this.myWishListDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myWishListDataGridView_CellClick);
             this.myWishListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myWishListDataGridView_CellContentClick);
             // 
+            // availableEventDataGridView
+            // 
+            this.availableEventDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.availableEventDataGridView.Location = new System.Drawing.Point(18, 201);
+            this.availableEventDataGridView.Name = "availableEventDataGridView";
+            this.availableEventDataGridView.Size = new System.Drawing.Size(349, 212);
+            this.availableEventDataGridView.TabIndex = 10;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,19 +530,17 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventDataGrid)).EndInit();
             this.tabControl.ResumeLayout(false);
-            this.eventsIOwnPage.ResumeLayout(false);
+            this.saveVendorButton.ResumeLayout(false);
             this.eventsOwnedTabControl.ResumeLayout(false);
             this.ownedEventDetailsPage.ResumeLayout(false);
             this.ownedEventDetailsPage.PerformLayout();
             this.ownedEventVendorsPage.ResumeLayout(false);
-            this.ownedEventVendorsPage.PerformLayout();
             this.addNewVendorPanel.ResumeLayout(false);
             this.vendorDetailPanel.ResumeLayout(false);
             this.vendorDetailPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.availableVendorsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventVendorsDataGridView)).EndInit();
             this.ownedEventLocationsPage.ResumeLayout(false);
-            this.ownedEventLocationsPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventLocationsDataGridView)).EndInit();
             this.ownedEventInvitationsPage.ResumeLayout(false);
             this.ownedEventInvitationsPage.PerformLayout();
@@ -559,6 +555,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wishListItemsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myWishListDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.availableEventDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -567,7 +564,7 @@
 
         private System.Windows.Forms.DataGridView ownedEventDataGrid;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage eventsIOwnPage;
+        private System.Windows.Forms.TabPage saveVendorButton;
         private System.Windows.Forms.DataGridView ownedEventLocationsDataGridView;
         private System.Windows.Forms.DataGridView ownedEventVendorsDataGridView;
         private System.Windows.Forms.DateTimePicker eventEndDateTimePicker;
@@ -588,8 +585,6 @@
         private System.Windows.Forms.DataGridView eventsInvitedToWishListDataGridView;
         private System.Windows.Forms.Panel eventsInvitedToInvitationPanel;
         private System.Windows.Forms.DataGridView eventsInvitedToDataGridView;
-        private System.Windows.Forms.LinkLabel addNewVendorLinkLabel;
-        private System.Windows.Forms.LinkLabel addNewLocationLinkLabel;
         private System.Windows.Forms.LinkLabel addNewInvitationLinkLabel;
         private System.Windows.Forms.TabPage wishlistPage;
         private System.Windows.Forms.DataGridView myWishListDataGridView;
@@ -606,6 +601,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel vendorDetailPanel;
+        private System.Windows.Forms.Button saveVendorBtn;
+        private System.Windows.Forms.DataGridView availableEventDataGridView;
     }
 }
 

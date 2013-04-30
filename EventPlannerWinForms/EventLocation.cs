@@ -31,6 +31,43 @@ namespace EventPlannerWinForms
             return returnVar;
         }
 
+        public static List<EventLocation> getLocationsNotBelongingToEvent(int eventPK)
+        {
+            List<EventLocation> returnVar = new List<EventLocation>();
+
+            eventPlannerAccessDBDataSetTableAdapters.locationTableAdapter vendorAdapter = new eventPlannerAccessDBDataSetTableAdapters.locationTableAdapter();
+            eventPlannerAccessDBDataSet.locationDataTable locationData = new eventPlannerAccessDBDataSet.locationDataTable();
+            vendorAdapter.Fill(locationData);
+
+            for (int i = 0; i < locationData.Rows.Count; i++)
+            {
+                EventLocation myLocation = new EventLocation(Convert.ToInt32(locationData.Rows[i]["ID"]));
+                returnVar.Add(myLocation);
+            }
+
+            eventPlannerAccessDBDataSetTableAdapters.eventsJoinedLocationsTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.eventsJoinedLocationsTableAdapter();
+            eventPlannerAccessDBDataSet.eventsJoinedLocationsDataTable data = new eventPlannerAccessDBDataSet.eventsJoinedLocationsDataTable();
+            myadapter.Fill(data);
+
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                if (data.Rows[i]["eventFK"].Equals(eventPK))
+                {
+                    for (int j = 0; j < returnVar.Count; j++)
+                    {
+                        if (returnVar[j].locationPK == Convert.ToInt32(data.Rows[i]["locationFK"]))
+                        {
+                            returnVar.RemoveAt(j);
+                            break;
+                        }
+                    }
+                }
+            }
+
+
+            return returnVar;
+        }
+
         public EventLocation(eventPlannerAccessDBDataSet.locationRow row)
         {
             locationPK = Convert.ToInt32(row["ID"]);
