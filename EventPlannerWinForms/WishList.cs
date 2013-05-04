@@ -10,7 +10,7 @@ namespace EventPlannerWinForms
     {
         public int userFK {get; set;}
         public String wishlistName { get; set; }
-        public int wishlistPK { get; set; }
+        public int wishlistPK { get; private set; }
 
         public static List<WishList> getWishlistsForOwner(int ownerPK)
         {
@@ -29,6 +29,28 @@ namespace EventPlannerWinForms
                 }
             }
             return returnVar;
+        }
+
+        public void SaveWishListChanges()
+        {
+            eventPlannerAccessDBDataSetTableAdapters.wishlistTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.wishlistTableAdapter();
+            eventPlannerAccessDBDataSet.wishlistDataTable data = new eventPlannerAccessDBDataSet.wishlistDataTable();
+            myadapter.Fill(data);
+            if (wishlistPK != 0)
+            {
+                eventPlannerAccessDBDataSet.wishlistRow temp = data.FindByID(wishlistPK);
+                temp["wishlistName"] = wishlistName;
+                temp["userFK"] = userFK;
+                myadapter.Update(temp);
+            }
+            else
+            {
+                myadapter.Insert(userFK, wishlistName);
+            }
+        }
+
+        public WishList()
+        {
         }
 
         public WishList(eventPlannerAccessDBDataSet.locationRow row)

@@ -14,7 +14,7 @@ namespace EventPlannerWinForms
     {
         private Event displayedOwnedEvent;
         private int ownerPK = 1;
-        
+
 
         public Main()
         {
@@ -22,7 +22,7 @@ namespace EventPlannerWinForms
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {            
+        {
             clearAndLoadEventsIOwn();
             clearAndLoadMyWishlists();
         }
@@ -65,7 +65,7 @@ namespace EventPlannerWinForms
             eventPlannerAccessDBDataSetTableAdapters.eventTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.eventTableAdapter();
             eventPlannerAccessDBDataSet.eventDataTable data = new eventPlannerAccessDBDataSet.eventDataTable();
             myadapter.Fill(data);
-            
+
             DataGridViewCellStyle myStyle = new DataGridViewCellStyle();
             List<Event> myEvents = Event.getEventsBelongingToOwner(ownerPK);
 
@@ -73,7 +73,7 @@ namespace EventPlannerWinForms
             {
                 int rowNumber = ownedEventDataGrid.Rows.Add(myEvent.eventPK, "Edit", myEvent.eventName, myEvent.eventStart, myEvent.eventEnd);
                 ownedEventDataGrid["Edit", rowNumber].Style.ForeColor = Color.Blue;
-                Font myFont = new Font(ownedEventDataGrid.DefaultCellStyle.Font, FontStyle.Underline);                
+                Font myFont = new Font(ownedEventDataGrid.DefaultCellStyle.Font, FontStyle.Underline);
             }
 
             ownedEventDataGrid.ClearSelection();
@@ -142,27 +142,6 @@ namespace EventPlannerWinForms
                 eventNameTextBox.Text = displayedOwnedEvent.eventName;
                 eventStartDateTimePicker.Value = displayedOwnedEvent.eventStart;
                 eventEndDateTimePicker.Value = displayedOwnedEvent.eventEnd;
-
-                var dataSource = WishList.getWishlistsForOwner(ownerPK);
-                
-                //Setup data binding
-                eventWishListComboBox.DataSource = dataSource;
-                eventWishListComboBox.DisplayMember = "wishlistName";
-                //eventWishListComboBox.ValueMember = "wishlistPK";
-
-                //foreach (WishList myWishlist in eventWishListComboBox.Items)
-                for (int i = 0; i < eventWishListComboBox.Items.Count; i++)
-			    {
-                    WishList myWishlist = (WishList) eventWishListComboBox.Items[i];
-                    if (myWishlist.wishlistPK == displayedOwnedEvent.wishlistFK)
-                    {
-                        eventWishListComboBox.SelectedIndex = i;
-                        break;
-                    }
-                }
-
-                // make it readonly
-                eventWishListComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             }
             else
             {
@@ -170,18 +149,6 @@ namespace EventPlannerWinForms
             }
         }
 
-        private void eventWishListComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (eventWishListComboBox.SelectedIndex >= 0)
-            {
-                if (displayedOwnedEvent != null)
-                {
-                    //displayedOwnedEvent.wishlistFK = (int)eventWishListComboBox.SelectedValue;
-                    WishList temp = (WishList)eventWishListComboBox.SelectedValue;
-                    displayedOwnedEvent.wishlistFK = temp.wishlistPK ;
-                }
-            }
-        }
 
         /*
          * Locations Tab Stuff
@@ -252,7 +219,7 @@ namespace EventPlannerWinForms
             else
             {
                 //vendorDetailPanel.Visible = false;
-                locationNameTextBox.Text = "" ;
+                locationNameTextBox.Text = "";
                 locationAddressTextBox.Text = "";
             }
         }
@@ -417,7 +384,7 @@ namespace EventPlannerWinForms
         }
 
         private void clearAndFillOwnedEventInvitationDataGridView()
-        {           
+        {
             ownedEventInvitationsDataGridView.Rows.Clear();
             ownedEventInvitationsDataGridView.Columns.Clear();
             ownedEventInvitationsDataGridView.AllowUserToAddRows = false;
@@ -492,10 +459,6 @@ namespace EventPlannerWinForms
 
         private void addInvitationButton_Click(object sender, EventArgs e)
         {
-            displayedUser.firstName = userFirstNameTextBox.Text;
-            displayedUser.lastName = userLastNameTextBox.Text;
-            displayedUser.email = userEmailTextBox.Text;
-            displayedUser.SaveUserChanges();
             displayedUser.AddUserToEvent(displayedOwnedEvent.eventPK, messageToUserTextBox.Text);
             displayedUser = null;
             refreshOwnedInvitationTab();
@@ -573,6 +536,9 @@ namespace EventPlannerWinForms
         /*
          * Wishlist Tab Stuff
          */
+
+        private WishList displayedWishlist;
+
         private void clearAndLoadMyWishlists()
         {
             myWishListDataGridView.Rows.Clear();
@@ -597,24 +563,12 @@ namespace EventPlannerWinForms
                 myWishListDataGridView["Edit", rowNumber].Style.ForeColor = Color.Blue;
                 Font myFont = new Font(myWishListDataGridView.DefaultCellStyle.Font, FontStyle.Underline);
             }
+
+            // default to first row
+            displayedWishlist = new WishList(Convert.ToInt32(myWishListDataGridView[0, 0].Value));
+
         }
 
-        private void addNewWishListItemLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-        
         private void addNewInvitationLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
@@ -625,19 +579,9 @@ namespace EventPlannerWinForms
 
         }
 
-        private void addNewWishlistLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void addNewWishlistItemLinkLabel_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
         private void wishlistPage_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void myWishListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -650,9 +594,24 @@ namespace EventPlannerWinForms
             changeDisplayedWishlist(e.RowIndex);
         }
 
+        private void createNewWishlistButton_Click_1(object sender, EventArgs e)
+        {
+            saveNewWishlist(wishlistTextBox.Text);
+            wishlistTextBox.Clear();
+            clearAndLoadMyWishlists();
+        }
+
+        private void saveNewWishlist(String wishlistName)
+        {
+            WishList newWl = new WishList();
+            newWl.wishlistName = wishlistName;
+            newWl.userFK = ownerPK;
+            newWl.SaveWishListChanges();
+        }
+
         private void changeDisplayedWishlist(int rowIndex)
         {
-            displayedOwnedEvent = new Event(Convert.ToInt32(ownedEventDataGrid[0, rowIndex].Value));
+            displayedWishlist = new WishList(Convert.ToInt32(myWishListDataGridView[0, rowIndex].Value));
 
             wishListItemsDataGridView.Rows.Clear();
             wishListItemsDataGridView.Columns.Clear();
@@ -682,6 +641,31 @@ namespace EventPlannerWinForms
             }
         }
 
+        private void addWishlistItemButton_Click(object sender, EventArgs e)
+        {
+            saveNewWishlistItem(wishlistItemTextBox.Text, displayedWishlist.wishlistPK
+                , Convert.ToDouble(wishlistItemPriceTextBox.Text), wishlistItemUpcTextBox.Text
+                , Convert.ToInt16(wishlistItemRqstedQtyTextBox.Text));
+            wishlistItemTextBox.Clear();
+            wishlistItemPriceTextBox.Clear();
+            wishlistItemUpcTextBox.Clear();
+            wishlistItemRqstedQtyTextBox.Clear();
+            changeDisplayedWishlist(displayedWishlist.wishlistPK);
+        }
+
+        private void saveNewWishlistItem(String itemName, int wishlistPK, double cost, String upc, int rqstdQty)
+        {
+            GiftItem item = new GiftItem();
+            item.giftItemCost = cost;
+            item.giftItemName = itemName;
+            item.giftItemUPC = upc;
+            int itemId = item.SaveChanges();
+
+            // add to wishlist
+            GiftItem.addToWishlist(itemId, wishlistPK, rqstdQty, 0);
+
+        }
+
         private void eventsOwnedTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (eventsOwnedTabControl.SelectedIndex == 0)
@@ -704,7 +688,7 @@ namespace EventPlannerWinForms
             {
                 refreshOwnedInvitationTab();
             }
-            
+
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -739,17 +723,5 @@ namespace EventPlannerWinForms
         {
 
         }
-
-
-
-
-
-
-
-
-
-
-
- 
     }
 }
