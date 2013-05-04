@@ -10,7 +10,7 @@ namespace EventPlannerWinForms
     {
         public int userFK {get; set;}
         public String wishlistName { get; set; }
-        public int wishlistPK { get; private set; }
+        public int wishlistPK { get; set; }
 
         public static List<WishList> getWishlistsForOwner(int ownerPK)
         {

@@ -142,6 +142,27 @@ namespace EventPlannerWinForms
                 eventNameTextBox.Text = displayedOwnedEvent.eventName;
                 eventStartDateTimePicker.Value = displayedOwnedEvent.eventStart;
                 eventEndDateTimePicker.Value = displayedOwnedEvent.eventEnd;
+
+                var dataSource = WishList.getWishlistsForOwner(ownerPK);
+                
+                //Setup data binding
+                eventWishListComboBox.DataSource = dataSource;
+                eventWishListComboBox.DisplayMember = "wishlistName";
+                //eventWishListComboBox.ValueMember = "wishlistPK";
+
+                //foreach (WishList myWishlist in eventWishListComboBox.Items)
+                for (int i = 0; i < eventWishListComboBox.Items.Count; i++)
+			    {
+                    WishList myWishlist = (WishList) eventWishListComboBox.Items[i];
+                    if (myWishlist.wishlistPK == displayedOwnedEvent.wishlistFK)
+                    {
+                        eventWishListComboBox.SelectedIndex = i;
+                        break;
+                    }
+                }
+
+                // make it readonly
+                eventWishListComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             }
             else
             {
@@ -149,6 +170,18 @@ namespace EventPlannerWinForms
             }
         }
 
+        private void eventWishListComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (eventWishListComboBox.SelectedIndex >= 0)
+            {
+                if (displayedOwnedEvent != null)
+                {
+                    //displayedOwnedEvent.wishlistFK = (int)eventWishListComboBox.SelectedValue;
+                    WishList temp = (WishList)eventWishListComboBox.SelectedValue;
+                    displayedOwnedEvent.wishlistFK = temp.wishlistPK ;
+                }
+            }
+        }
 
         /*
          * Locations Tab Stuff
@@ -459,6 +492,10 @@ namespace EventPlannerWinForms
 
         private void addInvitationButton_Click(object sender, EventArgs e)
         {
+            displayedUser.firstName = userFirstNameTextBox.Text;
+            displayedUser.lastName = userLastNameTextBox.Text;
+            displayedUser.email = userEmailTextBox.Text;
+            displayedUser.SaveUserChanges();
             displayedUser.AddUserToEvent(displayedOwnedEvent.eventPK, messageToUserTextBox.Text);
             displayedUser = null;
             refreshOwnedInvitationTab();

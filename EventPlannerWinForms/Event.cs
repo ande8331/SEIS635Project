@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace EventPlannerWinForms
 {
-    class Events
-    {
-
-    }
-
     class Event
     {
         public DateTime eventStart { get; set; }
         public DateTime eventEnd { get; set; }
         public String eventName { get; set; }
         public int eventPK { get; private set; }
+        public int wishlistFK { get; set; }
 
         public static List<Event> getEventsBelongingToOwner(int ownerPK)
         {
@@ -43,6 +39,7 @@ namespace EventPlannerWinForms
             eventName = Convert.ToString(row["eventName"]);
             eventStart = Convert.ToDateTime(row["start"]);
             eventEnd = Convert.ToDateTime(row["end"]);
+            wishlistFK = Convert.ToInt32(row["wishlistFK"]);
         }
 
         public Event(int _eventPK)
@@ -57,6 +54,7 @@ namespace EventPlannerWinForms
                 eventName = Convert.ToString(row["eventName"]);
                 eventStart = Convert.ToDateTime(row["start"]);
                 eventEnd = Convert.ToDateTime(row["end"]);
+                wishlistFK = Convert.ToInt32(row["wishlistFK"]);
             }
         }
 
@@ -71,6 +69,7 @@ namespace EventPlannerWinForms
                 myRow.eventName = eventName;
                 myRow.start = eventStart;
                 myRow.end = eventEnd;
+                myRow.wishlistFK = wishlistFK;
                 myadapter.Update(myRow);
             }
         }

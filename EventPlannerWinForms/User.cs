@@ -11,6 +11,7 @@ namespace EventPlannerWinForms
         public String firstName { get; set; }
         public String lastName { get; set; }
         public String email { get; set; }
+        public String userName { get; set; }
         public int userPK { get; private set; }
 
         public User()
@@ -49,18 +50,15 @@ namespace EventPlannerWinForms
             }
             else
             {
-                myadapter.Insert(firstName, lastName, email);
+                myadapter.Insert(firstName, lastName, email, userName);
+                eventPlannerAccessDBDataSet.userDataTable userData = new eventPlannerAccessDBDataSet.userDataTable();
+                myadapter.Fill(userData);
+                this.userPK = Convert.ToInt32(userData.Rows[userData.Rows.Count - 1]["ID"]);
             }
         }
 
         public void AddUserToEvent(int eventPK, string invitationText)
         {
-            if (this.userPK == null)
-            {
-                eventPlannerAccessDBDataSetTableAdapters.userTableAdapter vendorAdapter = new eventPlannerAccessDBDataSetTableAdapters.userTableAdapter();
-                this.userPK = vendorAdapter.Insert(firstName, lastName, email);
-            }
-
             eventPlannerAccessDBDataSetTableAdapters.invitationTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.invitationTableAdapter();
             eventPlannerAccessDBDataSet.invitationDataTable data = new eventPlannerAccessDBDataSet.invitationDataTable();
             myadapter.Insert(eventPK, invitationText, userPK);
