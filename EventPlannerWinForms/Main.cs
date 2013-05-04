@@ -606,6 +606,16 @@ namespace EventPlannerWinForms
 
         }
 
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 
