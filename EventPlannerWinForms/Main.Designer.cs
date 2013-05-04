@@ -37,7 +37,7 @@
             this.saveVendorButton = new System.Windows.Forms.TabPage();
             this.eventsOwnedTabControl = new System.Windows.Forms.TabControl();
             this.ownedEventDetailsPage = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.eventWishListComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.saveOwnedEventDetailButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -212,7 +212,7 @@
             // 
             // ownedEventDetailsPage
             // 
-            this.ownedEventDetailsPage.Controls.Add(this.comboBox1);
+            this.ownedEventDetailsPage.Controls.Add(this.eventWishListComboBox);
             this.ownedEventDetailsPage.Controls.Add(this.label10);
             this.ownedEventDetailsPage.Controls.Add(this.saveOwnedEventDetailButton);
             this.ownedEventDetailsPage.Controls.Add(this.label1);
@@ -229,13 +229,14 @@
             this.ownedEventDetailsPage.Text = "Details";
             this.ownedEventDetailsPage.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // eventWishListComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(84, 85);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 21);
-            this.comboBox1.TabIndex = 8;
+            this.eventWishListComboBox.FormattingEnabled = true;
+            this.eventWishListComboBox.Location = new System.Drawing.Point(84, 85);
+            this.eventWishListComboBox.Name = "eventWishListComboBox";
+            this.eventWishListComboBox.Size = new System.Drawing.Size(250, 21);
+            this.eventWishListComboBox.TabIndex = 8;
+            this.eventWishListComboBox.SelectedIndexChanged += new System.EventHandler(this.eventWishListComboBox_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -982,7 +983,7 @@
         private System.Windows.Forms.TextBox wishlistItemUpcTextBox;
         private System.Windows.Forms.TextBox wishlistItemPriceTextBox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox eventWishListComboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox messageToUserTextBox;
         private System.Windows.Forms.TextBox userEmailTextBox;
@@ -1001,4 +1002,3 @@
         private System.Windows.Forms.Label label18;
     }
 }
-
