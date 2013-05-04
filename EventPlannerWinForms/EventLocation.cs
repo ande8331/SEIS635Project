@@ -88,5 +88,43 @@ namespace EventPlannerWinForms
                 locationAddress = Convert.ToString(row["locationAddress"]);
             }
         }
+
+        public EventLocation()
+        {
+
+        }
+
+        public void SaveLocationChanges()
+        {
+            eventPlannerAccessDBDataSetTableAdapters.locationTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.locationTableAdapter();
+            eventPlannerAccessDBDataSet.locationDataTable data = new eventPlannerAccessDBDataSet.locationDataTable();
+            myadapter.Fill(data);
+            if (locationPK != 0)
+            {
+                eventPlannerAccessDBDataSet.locationRow temp = data.FindByID(locationPK);
+                temp["locationName"] = locationName;
+                temp["locationAddress"] = locationAddress;
+                myadapter.Update(temp);
+            }
+            else
+            {
+                myadapter.Insert(locationName, locationAddress);
+            }
+        
+        }
+
+        public void AddLocationToEvent(int eventPK)
+        {
+            if (this.locationPK == null)
+            {
+                eventPlannerAccessDBDataSetTableAdapters.locationTableAdapter vendorAdapter = new eventPlannerAccessDBDataSetTableAdapters.locationTableAdapter();
+                this.locationPK = vendorAdapter.Insert(this.locationName, this.locationAddress);
+            }
+
+            eventPlannerAccessDBDataSetTableAdapters.eventToLocationAssociationTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.eventToLocationAssociationTableAdapter();
+            eventPlannerAccessDBDataSet.eventsJoinedLocationsDataTable data = new eventPlannerAccessDBDataSet.eventsJoinedLocationsDataTable();
+            myadapter.Insert(eventPK, this.locationPK);
+        }
+
     }
 }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ownedEventDataGrid = new System.Windows.Forms.DataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.saveVendorButton = new System.Windows.Forms.TabPage();
@@ -70,7 +70,14 @@
             this.wishListItemsDataGridView = new System.Windows.Forms.DataGridView();
             this.addNewWishlistLinkLabel = new System.Windows.Forms.LinkLabel();
             this.myWishListDataGridView = new System.Windows.Forms.DataGridView();
-            this.availableEventDataGridView = new System.Windows.Forms.DataGridView();
+            this.availableEventLocationDataGridView = new System.Windows.Forms.DataGridView();
+            this.addLocationToEventButton = new System.Windows.Forms.Button();
+            this.createNewLocationButton = new System.Windows.Forms.Button();
+            this.saveLocationButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.locationNameTextBox = new System.Windows.Forms.TextBox();
+            this.locationAddressTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventDataGrid)).BeginInit();
             this.tabControl.SuspendLayout();
             this.saveVendorButton.SuspendLayout();
@@ -93,24 +100,24 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wishListItemsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myWishListDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.availableEventDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.availableEventLocationDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // ownedEventDataGrid
             // 
             this.ownedEventDataGrid.AllowUserToAddRows = false;
             this.ownedEventDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.ownedEventDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.ownedEventDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.ownedEventDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ownedEventDataGrid.Location = new System.Drawing.Point(6, 15);
             this.ownedEventDataGrid.MultiSelect = false;
@@ -357,7 +364,14 @@
             // 
             // ownedEventLocationsPage
             // 
-            this.ownedEventLocationsPage.Controls.Add(this.availableEventDataGridView);
+            this.ownedEventLocationsPage.Controls.Add(this.locationAddressTextBox);
+            this.ownedEventLocationsPage.Controls.Add(this.locationNameTextBox);
+            this.ownedEventLocationsPage.Controls.Add(this.label7);
+            this.ownedEventLocationsPage.Controls.Add(this.label6);
+            this.ownedEventLocationsPage.Controls.Add(this.saveLocationButton);
+            this.ownedEventLocationsPage.Controls.Add(this.createNewLocationButton);
+            this.ownedEventLocationsPage.Controls.Add(this.addLocationToEventButton);
+            this.ownedEventLocationsPage.Controls.Add(this.availableEventLocationDataGridView);
             this.ownedEventLocationsPage.Controls.Add(this.ownedEventLocationsDataGridView);
             this.ownedEventLocationsPage.Location = new System.Drawing.Point(4, 22);
             this.ownedEventLocationsPage.Name = "ownedEventLocationsPage";
@@ -510,13 +524,77 @@
             this.myWishListDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myWishListDataGridView_CellClick);
             this.myWishListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myWishListDataGridView_CellContentClick);
             // 
-            // availableEventDataGridView
+            // availableEventLocationDataGridView
             // 
-            this.availableEventDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.availableEventDataGridView.Location = new System.Drawing.Point(18, 201);
-            this.availableEventDataGridView.Name = "availableEventDataGridView";
-            this.availableEventDataGridView.Size = new System.Drawing.Size(349, 212);
-            this.availableEventDataGridView.TabIndex = 10;
+            this.availableEventLocationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.availableEventLocationDataGridView.Location = new System.Drawing.Point(18, 201);
+            this.availableEventLocationDataGridView.Name = "availableEventLocationDataGridView";
+            this.availableEventLocationDataGridView.Size = new System.Drawing.Size(349, 212);
+            this.availableEventLocationDataGridView.TabIndex = 10;
+            this.availableEventLocationDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.availableEventLocationDataGridView_CellClick);
+            this.availableEventLocationDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.availableEventLocationDataGridView_CellContentClick);
+            // 
+            // addLocationToEventButton
+            // 
+            this.addLocationToEventButton.Location = new System.Drawing.Point(373, 389);
+            this.addLocationToEventButton.Name = "addLocationToEventButton";
+            this.addLocationToEventButton.Size = new System.Drawing.Size(83, 23);
+            this.addLocationToEventButton.TabIndex = 11;
+            this.addLocationToEventButton.Text = "Add To Event";
+            this.addLocationToEventButton.UseVisualStyleBackColor = true;
+            this.addLocationToEventButton.Click += new System.EventHandler(this.addLocationToEventButton_Click);
+            // 
+            // createNewLocationButton
+            // 
+            this.createNewLocationButton.Location = new System.Drawing.Point(462, 389);
+            this.createNewLocationButton.Name = "createNewLocationButton";
+            this.createNewLocationButton.Size = new System.Drawing.Size(75, 23);
+            this.createNewLocationButton.TabIndex = 12;
+            this.createNewLocationButton.Text = "Create New";
+            this.createNewLocationButton.UseVisualStyleBackColor = true;
+            this.createNewLocationButton.Click += new System.EventHandler(this.createNewLocationButton_Click);
+            // 
+            // saveLocationButton
+            // 
+            this.saveLocationButton.Location = new System.Drawing.Point(543, 389);
+            this.saveLocationButton.Name = "saveLocationButton";
+            this.saveLocationButton.Size = new System.Drawing.Size(75, 23);
+            this.saveLocationButton.TabIndex = 13;
+            this.saveLocationButton.Text = "Save";
+            this.saveLocationButton.UseVisualStyleBackColor = true;
+            this.saveLocationButton.Click += new System.EventHandler(this.saveLocationButton_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(374, 201);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Location Name:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(374, 231);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Location Address:";
+            // 
+            // locationNameTextBox
+            // 
+            this.locationNameTextBox.Location = new System.Drawing.Point(462, 201);
+            this.locationNameTextBox.Name = "locationNameTextBox";
+            this.locationNameTextBox.Size = new System.Drawing.Size(190, 20);
+            this.locationNameTextBox.TabIndex = 16;
+            // 
+            // locationAddressTextBox
+            // 
+            this.locationAddressTextBox.Location = new System.Drawing.Point(462, 228);
+            this.locationAddressTextBox.Name = "locationAddressTextBox";
+            this.locationAddressTextBox.Size = new System.Drawing.Size(190, 20);
+            this.locationAddressTextBox.TabIndex = 17;
             // 
             // Main
             // 
@@ -541,6 +619,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.availableVendorsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventVendorsDataGridView)).EndInit();
             this.ownedEventLocationsPage.ResumeLayout(false);
+            this.ownedEventLocationsPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventLocationsDataGridView)).EndInit();
             this.ownedEventInvitationsPage.ResumeLayout(false);
             this.ownedEventInvitationsPage.PerformLayout();
@@ -555,7 +634,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wishListItemsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myWishListDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.availableEventDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.availableEventLocationDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -602,7 +681,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel vendorDetailPanel;
         private System.Windows.Forms.Button saveVendorBtn;
-        private System.Windows.Forms.DataGridView availableEventDataGridView;
+        private System.Windows.Forms.DataGridView availableEventLocationDataGridView;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button saveLocationButton;
+        private System.Windows.Forms.Button createNewLocationButton;
+        private System.Windows.Forms.Button addLocationToEventButton;
+        private System.Windows.Forms.TextBox locationAddressTextBox;
+        private System.Windows.Forms.TextBox locationNameTextBox;
     }
 }
 

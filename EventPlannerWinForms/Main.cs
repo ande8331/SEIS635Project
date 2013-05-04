@@ -153,10 +153,12 @@ namespace EventPlannerWinForms
         /*
          * Locations Tab Stuff
          */
+        private EventLocation displayedLocation;
         private void refreshLocationTab()
         {
             clearAndFillownedEventLocationsDataGridView();
             clearAndFillAvailableEventLocationsDataGridView();
+            updateDisplayedLocationData();
         }
 
         private void clearAndFillownedEventLocationsDataGridView()
@@ -187,23 +189,74 @@ namespace EventPlannerWinForms
 
         private void clearAndFillAvailableEventLocationsDataGridView()
         {
-            availableEventDataGridView.Columns.Clear();
-            availableEventDataGridView.AllowUserToAddRows = false;
-            availableEventDataGridView.AllowUserToDeleteRows = false;
-            availableEventDataGridView.ShowEditingIcon = false;
-            availableEventDataGridView.RowHeadersVisible = false;
+            availableEventLocationDataGridView.Columns.Clear();
+            availableEventLocationDataGridView.AllowUserToAddRows = false;
+            availableEventLocationDataGridView.AllowUserToDeleteRows = false;
+            availableEventLocationDataGridView.ShowEditingIcon = false;
+            availableEventLocationDataGridView.RowHeadersVisible = false;
 
-            availableEventDataGridView.Columns.Add("PK", "PK");
-            availableEventDataGridView.Columns[0].Visible = false;
-            availableEventDataGridView.Columns.Add("Location Name", "Location Name");
-            availableEventDataGridView.Columns[1].Width = 250;
+            availableEventLocationDataGridView.Columns.Add("PK", "PK");
+            availableEventLocationDataGridView.Columns[0].Visible = false;
+            availableEventLocationDataGridView.Columns.Add("Location Name", "Location Name");
+            availableEventLocationDataGridView.Columns[1].Width = 250;
 
             List<EventLocation> myLocations = EventLocation.getLocationsNotBelongingToEvent(displayedOwnedEvent.eventPK);
 
             foreach (EventLocation myLocation in myLocations)
             {
-                ownedEventLocationsDataGridView.Rows.Add(myLocation.locationPK, myLocation.locationName);
+                availableEventLocationDataGridView.Rows.Add(myLocation.locationPK, myLocation.locationName);
             }
+        }
+
+        private void updateDisplayedLocationData()
+        {
+            if (displayedLocation != null)
+            {
+                //vendorDetailPanel.Visible = true;
+                locationNameTextBox.Text = displayedLocation.locationName;
+                locationAddressTextBox.Text = displayedLocation.locationAddress;
+            }
+            else
+            {
+                //vendorDetailPanel.Visible = false;
+                locationNameTextBox.Text = "" ;
+                locationAddressTextBox.Text = "";
+            }
+        }
+        private void addLocationToEventButton_Click(object sender, EventArgs e)
+        {
+            displayedLocation.AddLocationToEvent(displayedOwnedEvent.eventPK);
+            displayedLocation = null;
+            refreshLocationTab();
+        }
+
+        private void createNewLocationButton_Click(object sender, EventArgs e)
+        {
+            displayedLocation = new EventLocation();
+            int temp = availableEventLocationDataGridView.Rows.Add();
+            availableEventLocationDataGridView.ClearSelection();
+            availableEventLocationDataGridView.Rows[temp].Selected = true;
+            updateDisplayedLocationData();
+        }
+
+        private void saveLocationButton_Click(object sender, EventArgs e)
+        {
+            displayedLocation.locationName = locationNameTextBox.Text;
+            displayedLocation.locationAddress = locationAddressTextBox.Text;
+            displayedLocation.SaveLocationChanges();
+            refreshLocationTab();
+        }
+
+        private void availableEventLocationDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            displayedLocation = new EventLocation(Convert.ToInt32(availableEventLocationDataGridView[0, e.RowIndex].Value));
+            updateDisplayedLocationData();
+        }
+
+        private void availableEventLocationDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            displayedLocation = new EventLocation(Convert.ToInt32(availableEventLocationDataGridView[0, e.RowIndex].Value));
+            updateDisplayedLocationData();
         }
 
         /*
@@ -552,6 +605,8 @@ namespace EventPlannerWinForms
         {
 
         }
+
+
 
 
 
