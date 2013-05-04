@@ -375,9 +375,12 @@ namespace EventPlannerWinForms
         /*
          * Events I Own - Invitations Stuff
          */
+        private User displayedUser;
         private void refreshOwnedInvitationTab()
         {
             clearAndFillOwnedEventInvitationDataGridView();
+            clearAndFillAvailableUsers();
+            updateDisplayedUserData();
         }
 
         private void clearAndFillOwnedEventInvitationDataGridView()
@@ -405,6 +408,90 @@ namespace EventPlannerWinForms
                 ownedEventInvitationsDataGridView.Rows.Add(myInvitation.invitationPK, "Remove", myUser.lastName + ", " + myUser.firstName, myInvitation.invitationText);
             }
 
+        }
+
+        private void clearAndFillAvailableUsers()
+        {
+            //displayedUser.addNewVendorPanel.Visible = true;
+            availableUsersToInviteDataGridView.Rows.Clear();
+            availableUsersToInviteDataGridView.Columns.Clear();
+            availableUsersToInviteDataGridView.AllowUserToAddRows = false;
+            availableUsersToInviteDataGridView.AllowUserToDeleteRows = false;
+            availableUsersToInviteDataGridView.ShowEditingIcon = false;
+
+            availableUsersToInviteDataGridView.Columns.Add("PK", "PK");
+            availableUsersToInviteDataGridView.Columns[0].Visible = false;
+            availableUsersToInviteDataGridView.Columns.Add("User Name", "User Name");
+
+            List<User> myUsers = User.getUsersNotBelongingToEvent(displayedOwnedEvent.eventPK);
+
+            foreach (User myUser in myUsers)
+            {
+                availableUsersToInviteDataGridView.Rows.Add(myUser.userPK, myUser.lastName + ", " + myUser.firstName);
+            }
+            availableUsersToInviteDataGridView.Columns[1].Width = availableVendorsDataGridView.Width - 45;
+
+            if ((myUsers.Count > 0) && (displayedUser == null))
+            {
+                displayedUser = myUsers[0];
+            }
+            updateDisplayedUserData();
+        }
+
+        private void updateDisplayedUserData()
+        {
+            if (displayedUser != null)
+            {
+                //vendorDetailPanel.Visible = true;
+                userFirstNameTextBox.Text = displayedUser.firstName;
+                userLastNameTextBox.Text = displayedUser.lastName;
+                userEmailTextBox.Text = displayedUser.email;
+            }
+            else
+            {
+                //vendorDetailPanel.Visible = false;
+                userFirstNameTextBox.Text = "";
+                userLastNameTextBox.Text = "";
+                userEmailTextBox.Text = "";
+            }
+            messageToUserTextBox.Text = "";
+        }
+
+        private void addInvitationButton_Click(object sender, EventArgs e)
+        {
+            displayedUser.AddUserToEvent(displayedOwnedEvent.eventPK, messageToUserTextBox.Text);
+            displayedUser = null;
+            refreshOwnedInvitationTab();
+        }
+
+        private void createNewUserButton_Click(object sender, EventArgs e)
+        {
+            displayedUser = new User();
+            int temp = availableUsersToInviteDataGridView.Rows.Add();
+            availableUsersToInviteDataGridView.ClearSelection();
+            availableUsersToInviteDataGridView.Rows[temp].Selected = true;
+            updateDisplayedUserData();
+        }
+
+        private void saveUserButton_Click(object sender, EventArgs e)
+        {
+            displayedUser.firstName = userFirstNameTextBox.Text;
+            displayedUser.lastName = userLastNameTextBox.Text;
+            displayedUser.email = userEmailTextBox.Text;
+            displayedUser.SaveUserChanges();
+            refreshOwnedInvitationTab();
+        }
+
+        private void availableUsersToInviteDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            displayedUser = new User(Convert.ToInt32(availableUsersToInviteDataGridView[0, e.RowIndex].Value));
+            updateDisplayedUserData();
+        }
+
+        private void availableUsersToInviteDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            displayedUser = new User(Convert.ToInt32(availableUsersToInviteDataGridView[0, e.RowIndex].Value));
+            updateDisplayedUserData();
         }
 
         /*
@@ -615,6 +702,10 @@ namespace EventPlannerWinForms
         {
 
         }
+
+
+
+
 
 
 

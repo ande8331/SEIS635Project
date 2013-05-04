@@ -64,7 +64,6 @@ namespace EventPlannerWinForms
                 }
             }
 
-
             return returnVar;
         }
 

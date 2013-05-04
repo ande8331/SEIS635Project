@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ownedEventDataGrid = new System.Windows.Forms.DataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.saveVendorButton = new System.Windows.Forms.TabPage();
             this.eventsOwnedTabControl = new System.Windows.Forms.TabControl();
             this.ownedEventDetailsPage = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.saveOwnedEventDetailButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.eventNameTextBox = new System.Windows.Forms.TextBox();
@@ -65,7 +67,18 @@
             this.availableEventLocationDataGridView = new System.Windows.Forms.DataGridView();
             this.ownedEventLocationsDataGridView = new System.Windows.Forms.DataGridView();
             this.ownedEventInvitationsPage = new System.Windows.Forms.TabPage();
-            this.addNewInvitationLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.messageToUserTextBox = new System.Windows.Forms.TextBox();
+            this.userEmailTextBox = new System.Windows.Forms.TextBox();
+            this.userLastNameTextBox = new System.Windows.Forms.TextBox();
+            this.userFirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.saveUserButton = new System.Windows.Forms.Button();
+            this.createNewUserButton = new System.Windows.Forms.Button();
+            this.addInvitationButton = new System.Windows.Forms.Button();
+            this.availableUsersToInviteDataGridView = new System.Windows.Forms.DataGridView();
             this.ownedEventInvitationsDataGridView = new System.Windows.Forms.DataGridView();
             this.eventInvitedToPage = new System.Windows.Forms.TabPage();
             this.eventsInvitedToDetailPanel = new System.Windows.Forms.Panel();
@@ -74,6 +87,10 @@
             this.eventsInvitedToDataGridView = new System.Windows.Forms.DataGridView();
             this.wishlistPage = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.addWishlistItemButton = new System.Windows.Forms.Button();
             this.wishlistItemTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -84,12 +101,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.wishListItemsDataGridView = new System.Windows.Forms.DataGridView();
             this.myWishListDataGridView = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventDataGrid)).BeginInit();
             this.tabControl.SuspendLayout();
             this.saveVendorButton.SuspendLayout();
@@ -104,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.availableEventLocationDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventLocationsDataGridView)).BeginInit();
             this.ownedEventInvitationsPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.availableUsersToInviteDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventInvitationsDataGridView)).BeginInit();
             this.eventInvitedToPage.SuspendLayout();
             this.eventsInvitedToDetailPanel.SuspendLayout();
@@ -121,17 +133,17 @@
             // 
             this.ownedEventDataGrid.AllowUserToAddRows = false;
             this.ownedEventDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.Black;
-            this.ownedEventDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.ownedEventDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.ownedEventDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ownedEventDataGrid.Location = new System.Drawing.Point(6, 15);
             this.ownedEventDataGrid.MultiSelect = false;
@@ -200,6 +212,23 @@
             this.ownedEventDetailsPage.TabIndex = 0;
             this.ownedEventDetailsPage.Text = "Details";
             this.ownedEventDetailsPage.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(84, 85);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(250, 21);
+            this.comboBox1.TabIndex = 8;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(9, 94);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(46, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Wishlist:";
             // 
             // saveOwnedEventDetailButton
             // 
@@ -478,7 +507,18 @@
             // 
             // ownedEventInvitationsPage
             // 
-            this.ownedEventInvitationsPage.Controls.Add(this.addNewInvitationLinkLabel);
+            this.ownedEventInvitationsPage.Controls.Add(this.messageToUserTextBox);
+            this.ownedEventInvitationsPage.Controls.Add(this.userEmailTextBox);
+            this.ownedEventInvitationsPage.Controls.Add(this.userLastNameTextBox);
+            this.ownedEventInvitationsPage.Controls.Add(this.userFirstNameTextBox);
+            this.ownedEventInvitationsPage.Controls.Add(this.label16);
+            this.ownedEventInvitationsPage.Controls.Add(this.label15);
+            this.ownedEventInvitationsPage.Controls.Add(this.label14);
+            this.ownedEventInvitationsPage.Controls.Add(this.label13);
+            this.ownedEventInvitationsPage.Controls.Add(this.saveUserButton);
+            this.ownedEventInvitationsPage.Controls.Add(this.createNewUserButton);
+            this.ownedEventInvitationsPage.Controls.Add(this.addInvitationButton);
+            this.ownedEventInvitationsPage.Controls.Add(this.availableUsersToInviteDataGridView);
             this.ownedEventInvitationsPage.Controls.Add(this.ownedEventInvitationsDataGridView);
             this.ownedEventInvitationsPage.Location = new System.Drawing.Point(4, 22);
             this.ownedEventInvitationsPage.Name = "ownedEventInvitationsPage";
@@ -487,16 +527,109 @@
             this.ownedEventInvitationsPage.Text = "Invitations";
             this.ownedEventInvitationsPage.UseVisualStyleBackColor = true;
             // 
-            // addNewInvitationLinkLabel
+            // messageToUserTextBox
             // 
-            this.addNewInvitationLinkLabel.AutoSize = true;
-            this.addNewInvitationLinkLabel.Location = new System.Drawing.Point(318, 211);
-            this.addNewInvitationLinkLabel.Name = "addNewInvitationLinkLabel";
-            this.addNewInvitationLinkLabel.Size = new System.Drawing.Size(51, 13);
-            this.addNewInvitationLinkLabel.TabIndex = 8;
-            this.addNewInvitationLinkLabel.TabStop = true;
-            this.addNewInvitationLinkLabel.Text = "Add New";
-            this.addNewInvitationLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.addNewInvitationLinkLabel_LinkClicked);
+            this.messageToUserTextBox.Location = new System.Drawing.Point(468, 266);
+            this.messageToUserTextBox.Name = "messageToUserTextBox";
+            this.messageToUserTextBox.Size = new System.Drawing.Size(179, 20);
+            this.messageToUserTextBox.TabIndex = 12;
+            // 
+            // userEmailTextBox
+            // 
+            this.userEmailTextBox.Location = new System.Drawing.Point(468, 240);
+            this.userEmailTextBox.Name = "userEmailTextBox";
+            this.userEmailTextBox.Size = new System.Drawing.Size(179, 20);
+            this.userEmailTextBox.TabIndex = 11;
+            // 
+            // userLastNameTextBox
+            // 
+            this.userLastNameTextBox.Location = new System.Drawing.Point(468, 213);
+            this.userLastNameTextBox.Name = "userLastNameTextBox";
+            this.userLastNameTextBox.Size = new System.Drawing.Size(179, 20);
+            this.userLastNameTextBox.TabIndex = 10;
+            // 
+            // userFirstNameTextBox
+            // 
+            this.userFirstNameTextBox.Location = new System.Drawing.Point(468, 189);
+            this.userFirstNameTextBox.Name = "userFirstNameTextBox";
+            this.userFirstNameTextBox.Size = new System.Drawing.Size(179, 20);
+            this.userFirstNameTextBox.TabIndex = 9;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(372, 269);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(90, 13);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Message to User:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(372, 243);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(60, 13);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "User Email:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(372, 216);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(81, 13);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "User Lastname:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(372, 192);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(80, 13);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "User Firstname:";
+            // 
+            // saveUserButton
+            // 
+            this.saveUserButton.Location = new System.Drawing.Point(551, 397);
+            this.saveUserButton.Name = "saveUserButton";
+            this.saveUserButton.Size = new System.Drawing.Size(75, 23);
+            this.saveUserButton.TabIndex = 4;
+            this.saveUserButton.Text = "Save";
+            this.saveUserButton.UseVisualStyleBackColor = true;
+            this.saveUserButton.Click += new System.EventHandler(this.saveUserButton_Click);
+            // 
+            // createNewUserButton
+            // 
+            this.createNewUserButton.Location = new System.Drawing.Point(444, 397);
+            this.createNewUserButton.Name = "createNewUserButton";
+            this.createNewUserButton.Size = new System.Drawing.Size(101, 23);
+            this.createNewUserButton.TabIndex = 3;
+            this.createNewUserButton.Text = "Add New User";
+            this.createNewUserButton.UseVisualStyleBackColor = true;
+            this.createNewUserButton.Click += new System.EventHandler(this.createNewUserButton_Click);
+            // 
+            // addInvitationButton
+            // 
+            this.addInvitationButton.Location = new System.Drawing.Point(362, 397);
+            this.addInvitationButton.Name = "addInvitationButton";
+            this.addInvitationButton.Size = new System.Drawing.Size(75, 23);
+            this.addInvitationButton.TabIndex = 2;
+            this.addInvitationButton.Text = "Invite User";
+            this.addInvitationButton.UseVisualStyleBackColor = true;
+            this.addInvitationButton.Click += new System.EventHandler(this.addInvitationButton_Click);
+            // 
+            // availableUsersToInviteDataGridView
+            // 
+            this.availableUsersToInviteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.availableUsersToInviteDataGridView.Location = new System.Drawing.Point(3, 196);
+            this.availableUsersToInviteDataGridView.Name = "availableUsersToInviteDataGridView";
+            this.availableUsersToInviteDataGridView.Size = new System.Drawing.Size(353, 224);
+            this.availableUsersToInviteDataGridView.TabIndex = 1;
+            this.availableUsersToInviteDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.availableUsersToInviteDataGridView_CellClick);
+            this.availableUsersToInviteDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.availableUsersToInviteDataGridView_CellContentClick);
             // 
             // ownedEventInvitationsDataGridView
             // 
@@ -577,6 +710,38 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(264, 120);
             this.panel3.TabIndex = 13;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(18, 60);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(29, 13);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "UPC";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(63, 57);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(182, 20);
+            this.textBox2.TabIndex = 5;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(63, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(66, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(18, 37);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(31, 13);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Price";
             // 
             // addWishlistItemButton
             // 
@@ -665,55 +830,6 @@
             this.myWishListDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myWishListDataGridView_CellClick);
             this.myWishListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myWishListDataGridView_CellContentClick);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(18, 37);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 13);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Price";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(63, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(66, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(63, 57);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 20);
-            this.textBox2.TabIndex = 5;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(18, 60);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(29, 13);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "UPC";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(9, 94);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Wishlist:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(84, 85);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 21);
-            this.comboBox1.TabIndex = 8;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,6 +858,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventLocationsDataGridView)).EndInit();
             this.ownedEventInvitationsPage.ResumeLayout(false);
             this.ownedEventInvitationsPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.availableUsersToInviteDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventInvitationsDataGridView)).EndInit();
             this.eventInvitedToPage.ResumeLayout(false);
             this.eventsInvitedToDetailPanel.ResumeLayout(false);
@@ -784,7 +901,6 @@
         private System.Windows.Forms.DataGridView eventsInvitedToWishListDataGridView;
         private System.Windows.Forms.Panel eventsInvitedToInvitationPanel;
         private System.Windows.Forms.DataGridView eventsInvitedToDataGridView;
-        private System.Windows.Forms.LinkLabel addNewInvitationLinkLabel;
         private System.Windows.Forms.TabPage wishlistPage;
         private System.Windows.Forms.DataGridView myWishListDataGridView;
         private System.Windows.Forms.Panel panel1;
@@ -821,6 +937,18 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox messageToUserTextBox;
+        private System.Windows.Forms.TextBox userEmailTextBox;
+        private System.Windows.Forms.TextBox userLastNameTextBox;
+        private System.Windows.Forms.TextBox userFirstNameTextBox;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button saveUserButton;
+        private System.Windows.Forms.Button createNewUserButton;
+        private System.Windows.Forms.Button addInvitationButton;
+        private System.Windows.Forms.DataGridView availableUsersToInviteDataGridView;
     }
 }
 
