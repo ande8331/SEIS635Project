@@ -236,7 +236,6 @@
             this.eventWishListComboBox.Name = "eventWishListComboBox";
             this.eventWishListComboBox.Size = new System.Drawing.Size(250, 21);
             this.eventWishListComboBox.TabIndex = 8;
-            this.eventWishListComboBox.SelectedIndexChanged += new System.EventHandler(this.eventWishListComboBox_SelectedIndexChanged);
             // 
             // label10
             // 

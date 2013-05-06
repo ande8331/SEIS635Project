@@ -101,6 +101,8 @@ namespace EventPlannerWinForms
 
         private void saveOwnedEventDetailButton_Click(object sender, EventArgs e)
         {
+            WishList temp = (WishList)eventWishListComboBox.SelectedValue;
+            displayedOwnedEvent.wishlistFK = temp.wishlistPK; 
             displayedOwnedEvent.saveEvent();
             clearAndLoadEventsIOwn();
         }
@@ -156,7 +158,8 @@ namespace EventPlannerWinForms
                     WishList myWishlist = (WishList)eventWishListComboBox.Items[i];
                     if (myWishlist.wishlistPK == displayedOwnedEvent.wishlistFK)
                     {
-                        eventWishListComboBox.SelectedIndex = i;
+                        eventWishListComboBox.SelectedItem = myWishlist;
+                        //eventWishListComboBox.SelectedIndex = i;
                         break;
                     }
                 }
@@ -170,18 +173,6 @@ namespace EventPlannerWinForms
             }
         }
 
-        private void eventWishListComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (eventWishListComboBox.SelectedIndex >= 0)
-            {
-                if (displayedOwnedEvent != null)
-                {
-                    //displayedOwnedEvent.wishlistFK = (int)eventWishListComboBox.SelectedValue;
-                    WishList temp = (WishList)eventWishListComboBox.SelectedValue;
-                    displayedOwnedEvent.wishlistFK = temp.wishlistPK;
-                }
-            }
-        }
 
         /*
          * Locations Tab Stuff
