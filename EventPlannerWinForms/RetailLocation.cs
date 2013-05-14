@@ -8,5 +8,13 @@ namespace EventPlannerWinForms
 {
     class RetailLocation
     {
+        public String retailLocationName { get; set; }
+        public String retailLocationAddress { get; set; }
+        public int retailLocationPK { get; private set; }
+
+        public RetailLocation()
+        {
+        }
+
     }
 }
