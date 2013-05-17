@@ -2976,57 +2976,6 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="e7105643-2181-4054-9fe3-c92d5b63c36e" name="User" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <referencesInternal>
-              <reference Id="c96cc40a-5774-4dc1-a635-52adcad0dbe5" handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DUser Member%3D.ctor" tag="ViewCode">
-                <elementDefinition Id="ea50f6c1-6fab-44a4-9e40-6809602b89ac" />
-              </reference>
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance Id="decf08dd-0844-4de6-bfb7-1161ac292851" name="method" profile="CSharpProfile">
-                <elementDefinition Id="8d6da253-0068-440d-9386-0009db65f122" />
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="3875a9dc-2552-4c8a-9bc0-7cd01fa6ecd6">
-                    <propertyInstance Id="91a55dcd-167a-4e1a-812a-5afef0bed0ed" name="ClrAttributes">
-                      <elementDefinition Id="45f8b128-de83-495c-9e13-4bed4b664d3d" />
-                    </propertyInstance>
-                    <elementDefinition Id="8542b479-b1b6-4ed8-9a59-cb8aa0dc090d" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="f3ed8188-ec95-45e2-b14a-c77c6c20fb96">
-                    <propertyInstance Id="bf26ac45-5f5b-4cc8-8887-9ca89c666877" name="IsPartial" value="false">
-                      <elementDefinition Id="3772accb-0ea4-4b6f-9413-b60ef27a6bd2" />
-                    </propertyInstance>
-                    <elementDefinition Id="284bdcbe-0679-4f50-a0f4-7f62e6b5a5a5" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="829e3d34-7e82-4399-9db6-ed4f6aa8ec7a">
-                    <propertyInstance Id="61cd5f6e-e21c-45c9-86cf-3b61cafd8163" name="IsUnsafe" value="false">
-                      <elementDefinition Id="d3dfaac2-6b8d-4ab8-bca9-dc36590c2ee6" />
-                    </propertyInstance>
-                    <elementDefinition Id="5c066bdf-da20-4dd7-babb-e9ee6b85d02a" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="b6e35254-cbda-4e61-a32a-c4273a889b49">
-                    <propertyInstance Id="efa7f4b2-bc8b-48fb-8925-2bc0545e547b" name="Inheritance" value="none">
-                      <elementDefinition Id="15ebd96d-cfd9-4f8c-bb24-6ef061a156f8" />
-                    </propertyInstance>
-                    <elementDefinition Id="6a585c0c-a352-4c7a-af03-56755d7944b1" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="de9ad66e-0961-41f5-a4c5-456d9934977a">
-                    <propertyInstance Id="2d36be31-1498-4909-b288-9976e2a53a9b" name="PackageVisibility" value="internal">
-                      <elementDefinition Id="1fb593d8-292b-48c6-9937-bda9649de116" />
-                    </propertyInstance>
-                    <elementDefinition Id="f56742d7-28d4-4815-b759-afd86ea01d0f" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="9efa3000-d6c0-4dd6-9845-02a919e06429">
-                    <propertyInstance Id="6c3ecceb-c3ac-461d-b010-98ba4824d4fa" name="params" value="false">
-                      <elementDefinition Id="77d2b96c-d3e8-4d37-8840-5e7009f4f5bf" />
-                    </propertyInstance>
-                    <elementDefinition Id="f56259b0-45c3-476c-a9a5-96445098ef2b" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <elementDefinition Id="63edcd60-db1f-46fb-af19-7a9cdfbf2e7b" />
-          </operation>
           <operation Id="dc083156-6511-4ed6-b341-46a027669026" name="User" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <referencesInternal>
               <reference Id="83ea0320-0a62-436d-97ff-55c0f756f0df" handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DUser Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])" tag="ViewCode">
@@ -3296,6 +3245,57 @@
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
+          </operation>
+          <operation Id="bb5c015d-98bd-4eac-bd26-737f8f41bde8" name="User" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="a67b2d48-6487-47b5-9900-005d4b9d37df" handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DUser Member%3D.ctor" tag="ViewCode">
+                <elementDefinition Id="79d0beee-9022-455b-8766-7c11a91370e7" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="907571ea-1a72-437c-b422-64da33a9558a" name="method" profile="CSharpProfile">
+                <elementDefinition Id="b913a62e-7ade-49f5-a30f-419acf374acc" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c5abb7f3-b2ad-4d33-a814-ac72bbebd788">
+                    <propertyInstance Id="28a979a2-1f65-4a7e-a91c-859d1658702c" name="ClrAttributes">
+                      <elementDefinition Id="6358f7e5-4746-4447-8fd7-7e0d28996d22" />
+                    </propertyInstance>
+                    <elementDefinition Id="01c8ccb1-e624-461d-a944-405526bfe7c5" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7d40e99b-6a09-4e57-9022-45a2d589afe8">
+                    <propertyInstance Id="d3f1c98a-4f42-45df-8822-b330dbbd2449" name="IsPartial" value="false">
+                      <elementDefinition Id="8b837da7-45f6-452c-815f-b02452680a64" />
+                    </propertyInstance>
+                    <elementDefinition Id="620d7139-0c14-426c-82cf-1fc161a77080" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="23b405f9-3be6-44ee-9f14-9d2ee6b39c5e">
+                    <propertyInstance Id="dad41919-3af2-4547-bff5-eece13d90187" name="IsUnsafe" value="false">
+                      <elementDefinition Id="cb8ec624-1b4a-418d-99e6-be7c5b950efc" />
+                    </propertyInstance>
+                    <elementDefinition Id="03722d40-0e97-4a37-b048-d0b89bb8842b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="90a3787b-8db9-4822-9ad9-d47dadd8cef7">
+                    <propertyInstance Id="812ac6e4-830a-4ba5-930b-02e5e30e8661" name="Inheritance" value="none">
+                      <elementDefinition Id="dc1435e2-3f39-4836-b95a-130e0eb130c6" />
+                    </propertyInstance>
+                    <elementDefinition Id="d6c986f1-6f4d-480e-a42d-bc8fb50d31e4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c59eefd0-6d63-4334-9dd3-4bfab3c32c6f">
+                    <propertyInstance Id="14903b80-fd56-41eb-89b7-63e8fb0ede79" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="a9375985-2afa-4e84-bc24-af337458bbf5" />
+                    </propertyInstance>
+                    <elementDefinition Id="c515dc1e-b72b-4040-9a62-941b8f396256" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d0c77e7f-23a3-4c15-a8cb-8d6953bb5cd6">
+                    <propertyInstance Id="c2a9403e-c4ad-44db-ad26-eaa903e76cb0" name="params" value="false">
+                      <elementDefinition Id="f118f31e-971e-4e95-9217-6c365a341c8a" />
+                    </propertyInstance>
+                    <elementDefinition Id="0d277877-ca15-4273-843f-a3c6394e0eb6" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="afc05390-bacb-4419-a6e3-5d986d72bc81" />
           </operation>
         </ownedOperationsInternal>
       </class>

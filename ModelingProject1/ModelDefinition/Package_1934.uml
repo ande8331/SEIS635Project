@@ -5253,71 +5253,6 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="63edcd60-db1f-46fb-af19-7a9cdfbf2e7b"
-            name="User"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <referencesInternal>
-              <reference
-                Id="ea50f6c1-6fab-44a4-9e40-6809602b89ac"
-                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DUser Member%3D.ctor"
-                tag="ViewCode" />
-            </referencesInternal>
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="8d6da253-0068-440d-9386-0009db65f122"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="8542b479-b1b6-4ed8-9a59-cb8aa0dc090d">
-                    <propertyInstance
-                      Id="45f8b128-de83-495c-9e13-4bed4b664d3d"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="284bdcbe-0679-4f50-a0f4-7f62e6b5a5a5">
-                    <propertyInstance
-                      Id="3772accb-0ea4-4b6f-9413-b60ef27a6bd2"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="5c066bdf-da20-4dd7-babb-e9ee6b85d02a">
-                    <propertyInstance
-                      Id="d3dfaac2-6b8d-4ab8-bca9-dc36590c2ee6"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="6a585c0c-a352-4c7a-af03-56755d7944b1">
-                    <propertyInstance
-                      Id="15ebd96d-cfd9-4f8c-bb24-6ef061a156f8"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="f56742d7-28d4-4815-b759-afd86ea01d0f">
-                    <propertyInstance
-                      Id="1fb593d8-292b-48c6-9937-bda9649de116"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="f56259b0-45c3-476c-a9a5-96445098ef2b">
-                    <propertyInstance
-                      Id="77d2b96c-d3e8-4d37-8840-5e7009f4f5bf"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-          </operation>
-          <operation
             Id="cfd1a4cd-2037-4950-9d7c-9afb47f80a15"
             name="User"
             isLeaf="false"
@@ -5670,6 +5605,71 @@
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
+          </operation>
+          <operation
+            Id="afc05390-bacb-4419-a6e3-5d986d72bc81"
+            name="User"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="79d0beee-9022-455b-8766-7c11a91370e7"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DUser Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b913a62e-7ade-49f5-a30f-419acf374acc"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01c8ccb1-e624-461d-a944-405526bfe7c5">
+                    <propertyInstance
+                      Id="6358f7e5-4746-4447-8fd7-7e0d28996d22"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="620d7139-0c14-426c-82cf-1fc161a77080">
+                    <propertyInstance
+                      Id="8b837da7-45f6-452c-815f-b02452680a64"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="03722d40-0e97-4a37-b048-d0b89bb8842b">
+                    <propertyInstance
+                      Id="cb8ec624-1b4a-418d-99e6-be7c5b950efc"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d6c986f1-6f4d-480e-a42d-bc8fb50d31e4">
+                    <propertyInstance
+                      Id="dc1435e2-3f39-4836-b95a-130e0eb130c6"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c515dc1e-b72b-4040-9a62-941b8f396256">
+                    <propertyInstance
+                      Id="a9375985-2afa-4e84-bc24-af337458bbf5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0d277877-ca15-4273-843f-a3c6394e0eb6">
+                    <propertyInstance
+                      Id="f118f31e-971e-4e95-9217-6c365a341c8a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
           </operation>
         </ownedOperationsInternal>
       </class>

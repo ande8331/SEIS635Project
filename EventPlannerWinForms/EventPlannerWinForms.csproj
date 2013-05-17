@@ -65,6 +65,7 @@
     <Compile Include="User.cs" />
     <Compile Include="Vendor.cs" />
     <Compile Include="WishList.cs" />
+    <Compile Include="WishlistItem.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

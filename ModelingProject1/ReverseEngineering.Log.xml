@@ -6,15 +6,31 @@
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2013-05-13T19:46:39" Importance="High" Text="Reverse Engineering Started." />
-  <Message Timestamp="2013-05-13T19:46:41" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Integer' -  (PrimitiveType)" />
-  <Message Timestamp="2013-05-13T19:46:41" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms' -  (Package)" />
-  <Message Timestamp="2013-05-13T19:46:41" Importance="Medium" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::RetailLocation' -  (Class)" />
-  <Message Timestamp="2013-05-13T19:46:41" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::RetailLocation::RetailLocation' -  (Operation)" />
-  <Message Timestamp="2013-05-13T19:46:41" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::RetailLocation::retailLocationAddress' -  (Property)" />
-  <Message Timestamp="2013-05-13T19:46:41" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::RetailLocation::retailLocationName' -  (Property)" />
-  <Message Timestamp="2013-05-13T19:46:41" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::RetailLocation::retailLocationPK' -  (Property)" />
-  <Message Timestamp="2013-05-13T19:46:41" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
-  <Message Timestamp="2013-05-13T19:46:41" Importance="High" Text="(1) type(s) fully reverse engineered." />
-  <Message Timestamp="2013-05-13T19:46:41" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+  <Message Timestamp="2013-05-13T19:51:54" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: '3fa9c3a8-760f-4014-9705-73d5446aee24' -  (ClassifierTemplateParameter)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Integer' -  (PrimitiveType)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms' -  (Package)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Medium" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User' -  (Class)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::AddUserToEvent' -  (Operation)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::AddUserToEvent::eventPK' -  (Parameter)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::AddUserToEvent::invitationText' -  (Parameter)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::email' -  (Property)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::firstName' -  (Property)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::getUsersNotBelongingToEvent' -  (Operation)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::getUsersNotBelongingToEvent::eventPK' -  (Parameter)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::lastName' -  (Property)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::SaveUserChanges' -  (Operation)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::User' -  (Operation)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::User::_userPK' -  (Parameter)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::userName' -  (Property)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::EventPlannerWinForms::User::userPK' -  (Property)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::System' -  (Package)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::System::Collections' -  (Package)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::System::Collections::Generic' -  (Package)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::System::Collections::Generic::List' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'ModelingProject1::System::Collections::Generic::List&lt;User‎&gt;' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="High" Text="(1) type(s) fully reverse engineered." />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="High" Text="(2) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2013-05-13T19:51:56" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
 </Log>
