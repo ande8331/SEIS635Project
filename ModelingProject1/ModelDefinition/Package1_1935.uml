@@ -867,5 +867,83 @@
         </signatures>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b04fbe7a-afcd-44d7-8b0d-216d5213f547"
+        name="List&lt;WishlistItem‎&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="896a7811-9b91-4103-9142-6de0f3194541"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1cd3792c-9efa-4d8b-9b18-fafecb302846">
+                <propertyInstance
+                  Id="40ced26b-976e-40e6-b658-635b06b290e5"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bb798019-9ebd-4332-bc8f-ea98fbda1bf9">
+                <propertyInstance
+                  Id="160c4cc1-fa03-4f29-8c61-ff136b5b4b6a"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2610a65f-9362-4c2c-9c31-484fe98e7a88">
+                <propertyInstance
+                  Id="7745aa26-51c8-4614-bf25-9d69a5c2295a"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f17f490f-95be-4f58-9182-d16276f0b095">
+                <propertyInstance
+                  Id="b8df0f2d-b362-4102-acf2-a8f80900da64"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8b037034-bab4-45d8-9d45-bbccb1dbe63e">
+                <propertyInstance
+                  Id="5bc7e253-6e67-4ac4-8230-598aed30f639"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <signatures>
+          <templateBinding
+            Id="f716f76a-b199-45d9-83dd-484b3c3a1722">
+            <redefinableTemplateSignatureMoniker
+              Id="33c57677-206a-466c-aaa5-aeee0cb0f10d"
+              LastKnownLocation="Package1_1935.uml" />
+            <relationshipOwnedElementsInternal>
+              <templateBindingHasTemplateParameterSubstitution>
+                <templateParameterSubstitution
+                  Id="6b96b177-d474-472e-877d-0f4f23309b36">
+                  <actuals>
+                    <classMoniker
+                      Id="15e8b954-dd86-472a-90a2-3e271146e172"
+                      LastKnownName="WishlistItem"
+                      LastKnownLocation="Package_1934.uml" />
+                  </actuals>
+                  <formal>
+                    <classifierTemplateParameterMoniker
+                      Id="3fa9c3a8-760f-4014-9705-73d5446aee24"
+                      LastKnownLocation="Package1_1935.uml" />
+                  </formal>
+                </templateParameterSubstitution>
+              </templateBindingHasTemplateParameterSubstitution>
+            </relationshipOwnedElementsInternal>
+          </templateBinding>
+        </signatures>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
 </package>

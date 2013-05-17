@@ -525,10 +525,12 @@ namespace EventPlannerWinForms
         /*
          * Events I'm Invited to Stuff
          */
-
+        Event eventInvitedTo;
+        WishlistItem displayedWishlistItem;
         private void refreshMyInvitationsTab()
         {
             clearandFillEventsInvitedToDataGridView();
+            clearandFillInvitedWishlistDataGridView();
         }
 
         private void clearandFillEventsInvitedToDataGridView()
@@ -542,13 +544,15 @@ namespace EventPlannerWinForms
 
             eventsInvitedToDataGridView.Columns.Add("PK", "PK");
             eventsInvitedToDataGridView.Columns[0].Visible = false;
+            eventsInvitedToDataGridView.Columns.Add("Event PK", "Event PK");
+            eventsInvitedToDataGridView.Columns[1].Visible = false;
             eventsInvitedToDataGridView.Columns.Add("", "");
             eventsInvitedToDataGridView.Columns.Add("Event Name", "Event Name");
-            eventsInvitedToDataGridView.Columns[2].Width = 200;
-            eventsInvitedToDataGridView.Columns.Add("Start", "Start");
             eventsInvitedToDataGridView.Columns[3].Width = 200;
-            eventsInvitedToDataGridView.Columns.Add("End", "End");
+            eventsInvitedToDataGridView.Columns.Add("Start", "Start");
             eventsInvitedToDataGridView.Columns[4].Width = 200;
+            eventsInvitedToDataGridView.Columns.Add("End", "End");
+            eventsInvitedToDataGridView.Columns[5].Width = 200;
 
 
             List<Invitation> myInvitations = Invitation.getInvitationsForUser(ownerPK);
@@ -556,10 +560,75 @@ namespace EventPlannerWinForms
             foreach (Invitation myInvitation in myInvitations)
             {
                 Event myEvent = new Event(myInvitation.eventFK);
-                eventsInvitedToDataGridView.Rows.Add(myInvitation.invitationPK, "Remove", myEvent.eventName, myEvent.eventStart, myEvent.eventEnd);
+                eventsInvitedToDataGridView.Rows.Add(myInvitation.invitationPK, myInvitation.eventFK, "Remove", myEvent.eventName, myEvent.eventStart, myEvent.eventEnd);
+            }
+            eventsInvitedToInvitationPanel.Visible = false;
+        }
+
+        private void clearandFillInvitedWishlistDataGridView()
+        {
+            eventsInvitedToWishListDataGridView.Rows.Clear();
+            eventsInvitedToWishListDataGridView.Columns.Clear();
+            eventsInvitedToWishListDataGridView.AllowUserToAddRows = false;
+            eventsInvitedToWishListDataGridView.AllowUserToDeleteRows = false;
+            eventsInvitedToWishListDataGridView.ShowEditingIcon = false;
+            eventsInvitedToWishListDataGridView.RowHeadersVisible = false;
+
+            eventsInvitedToWishListDataGridView.Columns.Add("PK", "PK");
+            eventsInvitedToWishListDataGridView.Columns[0].Visible = false;
+            eventsInvitedToWishListDataGridView.Columns.Add("Item", "Item");
+            eventsInvitedToWishListDataGridView.Columns[1].Width = 100;
+            eventsInvitedToWishListDataGridView.Columns.Add("UPC", "UPC");
+            eventsInvitedToWishListDataGridView.Columns[2].Width = 100;
+
+            if (eventInvitedTo != null)
+            {
+                List<WishlistItem> myGifts = WishlistItem.getWishlistEntries(eventInvitedTo.wishlistFK);
+
+                foreach (WishlistItem gift in myGifts)
+                {
+                    eventsInvitedToWishListDataGridView.Rows.Add(gift.wishlistItemPK, gift.giftItem.giftItemName, gift.giftItem.giftItemUPC);
+                }
             }
         }
 
+        private void eventsInvitedToDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            eventInvitedTo = new Event(Convert.ToInt32(eventsInvitedToDataGridView[1, e.RowIndex].Value));
+            clearandFillInvitedWishlistDataGridView();
+        }
+
+        private void eventsInvitedToDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            eventInvitedTo = new Event(Convert.ToInt32(eventsInvitedToDataGridView[1, e.RowIndex].Value));
+            clearandFillInvitedWishlistDataGridView();
+        }
+
+        private void eventsInvitedToWishListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            displayedWishlistItem = new WishlistItem(Convert.ToInt32(eventsInvitedToWishListDataGridView[0, e.RowIndex].Value));
+            RefreshSelectedGiftItemData();
+        }
+
+        private void eventsInvitedToWishListDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            displayedWishlistItem = new WishlistItem(Convert.ToInt32(eventsInvitedToWishListDataGridView[0, e.RowIndex].Value));
+            RefreshSelectedGiftItemData();
+        }
+
+        private void RefreshSelectedGiftItemData()
+        {
+            if (displayedWishlistItem != null)
+            {
+                qtyDesiredTextBox.Text = displayedWishlistItem.requestedQty.ToString();
+                qtyPurchasedtextBox.Text = displayedWishlistItem.purchasedQty.ToString();
+                eventsInvitedToInvitationPanel.Visible = true;
+            }
+            else
+            {
+                eventsInvitedToInvitationPanel.Visible = false;
+            }
+        }
 
         /*
          * Wishlist Tab Stuff

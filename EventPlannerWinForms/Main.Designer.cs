@@ -30,8 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ownedEventDataGrid = new System.Windows.Forms.DataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.saveVendorButton = new System.Windows.Forms.TabPage();
@@ -90,6 +88,8 @@
             this.wishlistPage = new System.Windows.Forms.TabPage();
             this.label17 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.wishlistItemRqstedQtyTextBox = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.wishlistItemUpcTextBox = new System.Windows.Forms.TextBox();
             this.wishlistItemPriceTextBox = new System.Windows.Forms.TextBox();
@@ -104,8 +104,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.wishListItemsDataGridView = new System.Windows.Forms.DataGridView();
             this.myWishListDataGridView = new System.Windows.Forms.DataGridView();
-            this.label18 = new System.Windows.Forms.Label();
-            this.wishlistItemRqstedQtyTextBox = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.qtyDesiredTextBox = new System.Windows.Forms.TextBox();
+            this.qtyPurchasedtextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ownedEventDataGrid)).BeginInit();
             this.tabControl.SuspendLayout();
             this.saveVendorButton.SuspendLayout();
@@ -125,6 +127,7 @@
             this.eventInvitedToPage.SuspendLayout();
             this.eventsInvitedToDetailPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventsInvitedToWishListDataGridView)).BeginInit();
+            this.eventsInvitedToInvitationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventsInvitedToDataGridView)).BeginInit();
             this.wishlistPage.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -149,17 +152,6 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.ownedEventDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ownedEventDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.ownedEventDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ownedEventDataGrid.Location = new System.Drawing.Point(6, 15);
             this.ownedEventDataGrid.MultiSelect = false;
@@ -679,16 +671,22 @@
             // eventsInvitedToWishListDataGridView
             // 
             this.eventsInvitedToWishListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.eventsInvitedToWishListDataGridView.Location = new System.Drawing.Point(371, 4);
+            this.eventsInvitedToWishListDataGridView.Location = new System.Drawing.Point(3, 0);
             this.eventsInvitedToWishListDataGridView.Name = "eventsInvitedToWishListDataGridView";
             this.eventsInvitedToWishListDataGridView.Size = new System.Drawing.Size(334, 369);
             this.eventsInvitedToWishListDataGridView.TabIndex = 1;
+            this.eventsInvitedToWishListDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.eventsInvitedToWishListDataGridView_CellClick);
+            this.eventsInvitedToWishListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.eventsInvitedToWishListDataGridView_CellContentClick);
             // 
             // eventsInvitedToInvitationPanel
             // 
-            this.eventsInvitedToInvitationPanel.Location = new System.Drawing.Point(4, 4);
+            this.eventsInvitedToInvitationPanel.Controls.Add(this.qtyPurchasedtextBox);
+            this.eventsInvitedToInvitationPanel.Controls.Add(this.qtyDesiredTextBox);
+            this.eventsInvitedToInvitationPanel.Controls.Add(this.label20);
+            this.eventsInvitedToInvitationPanel.Controls.Add(this.label19);
+            this.eventsInvitedToInvitationPanel.Location = new System.Drawing.Point(343, 4);
             this.eventsInvitedToInvitationPanel.Name = "eventsInvitedToInvitationPanel";
-            this.eventsInvitedToInvitationPanel.Size = new System.Drawing.Size(360, 369);
+            this.eventsInvitedToInvitationPanel.Size = new System.Drawing.Size(365, 369);
             this.eventsInvitedToInvitationPanel.TabIndex = 0;
             // 
             // eventsInvitedToDataGridView
@@ -698,6 +696,8 @@
             this.eventsInvitedToDataGridView.Name = "eventsInvitedToDataGridView";
             this.eventsInvitedToDataGridView.Size = new System.Drawing.Size(708, 150);
             this.eventsInvitedToDataGridView.TabIndex = 0;
+            this.eventsInvitedToDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.eventsInvitedToDataGridView_CellClick);
+            this.eventsInvitedToDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.eventsInvitedToDataGridView_CellContentClick);
             // 
             // wishlistPage
             // 
@@ -740,6 +740,22 @@
             this.panel3.Size = new System.Drawing.Size(334, 168);
             this.panel3.TabIndex = 13;
             // 
+            // wishlistItemRqstedQtyTextBox
+            // 
+            this.wishlistItemRqstedQtyTextBox.Location = new System.Drawing.Point(111, 86);
+            this.wishlistItemRqstedQtyTextBox.Name = "wishlistItemRqstedQtyTextBox";
+            this.wishlistItemRqstedQtyTextBox.Size = new System.Drawing.Size(65, 20);
+            this.wishlistItemRqstedQtyTextBox.TabIndex = 8;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(19, 89);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(78, 13);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "Requested Qty";
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -748,6 +764,7 @@
             this.label12.Size = new System.Drawing.Size(29, 13);
             this.label12.TabIndex = 6;
             this.label12.Text = "UPC";
+            // 
             // wishlistItemUpcTextBox
             // 
             this.wishlistItemUpcTextBox.Location = new System.Drawing.Point(110, 57);
@@ -860,21 +877,37 @@
             this.myWishListDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myWishListDataGridView_CellClick);
             this.myWishListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myWishListDataGridView_CellContentClick);
             // 
-            // label18
+            // label19
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(19, 89);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(78, 13);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "Requested Qty";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(14, 20);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(88, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Quantity Desired:";
             // 
-            // wishlistItemRqstedQtyTextBox
+            // label20
             // 
-            this.wishlistItemRqstedQtyTextBox.Location = new System.Drawing.Point(111, 86);
-            this.wishlistItemRqstedQtyTextBox.Name = "wishlistItemRqstedQtyTextBox";
-            this.wishlistItemRqstedQtyTextBox.Size = new System.Drawing.Size(65, 20);
-            this.wishlistItemRqstedQtyTextBox.TabIndex = 8;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(14, 46);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(103, 13);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "Quantity Purchased:";
+            // 
+            // qtyDesiredTextBox
+            // 
+            this.qtyDesiredTextBox.Location = new System.Drawing.Point(123, 17);
+            this.qtyDesiredTextBox.Name = "qtyDesiredTextBox";
+            this.qtyDesiredTextBox.Size = new System.Drawing.Size(100, 20);
+            this.qtyDesiredTextBox.TabIndex = 2;
+            // 
+            // qtyPurchasedtextBox
+            // 
+            this.qtyPurchasedtextBox.Location = new System.Drawing.Point(123, 43);
+            this.qtyPurchasedtextBox.Name = "qtyPurchasedtextBox";
+            this.qtyPurchasedtextBox.Size = new System.Drawing.Size(100, 20);
+            this.qtyPurchasedtextBox.TabIndex = 3;
             // 
             // Main
             // 
@@ -909,6 +942,8 @@
             this.eventInvitedToPage.ResumeLayout(false);
             this.eventsInvitedToDetailPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.eventsInvitedToWishListDataGridView)).EndInit();
+            this.eventsInvitedToInvitationPanel.ResumeLayout(false);
+            this.eventsInvitedToInvitationPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventsInvitedToDataGridView)).EndInit();
             this.wishlistPage.ResumeLayout(false);
             this.wishlistPage.PerformLayout();
@@ -999,5 +1034,9 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox wishlistItemRqstedQtyTextBox;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox qtyPurchasedtextBox;
+        private System.Windows.Forms.TextBox qtyDesiredTextBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
     }
 }
