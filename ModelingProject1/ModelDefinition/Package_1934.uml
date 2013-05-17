@@ -7690,5 +7690,865 @@
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="15e8b954-dd86-472a-90a2-3e271146e172"
+        name="WishlistItem"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8ac10bce-1e92-447c-9ac9-c697bf5fbd3c"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b6881dd0-f358-4bb2-b185-6ed87fef8479"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b8b577f1-bf7b-4ac1-ac28-32d3ec1d2896">
+                <propertyInstance
+                  Id="3cf2c46e-256b-48d3-b076-569ce104d13a"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="aea525ec-4f44-426b-8344-0bb7052dce17">
+                <propertyInstance
+                  Id="f8b88025-98a8-4403-8de1-d538ebcdbd15"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4b6de4ac-7a4e-492c-af23-67edc1dac525">
+                <propertyInstance
+                  Id="64d3114d-6753-4595-b217-70cbe6792af3"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b11dc5ff-634e-435a-89c3-3c95444b3866">
+                <propertyInstance
+                  Id="c6f8b91e-c338-4ba8-bfd9-ca434d1ccb48"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="08304524-98ad-459a-b5a2-dc7e59e90c6b">
+                <propertyInstance
+                  Id="2ae6ec20-c345-439b-9779-82db5f7df9ce"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="8ad67b74-97c5-4272-9a10-0feefeba1dcd"
+            isDerived="false"
+            sourceEndRoleName="WishlistItem"
+            targetEndRoleName="giftItem"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1d3661ca-00de-45fa-a4ce-dc71fb7b0fcb"
+              LastKnownName="GiftItem"
+              LastKnownLocation="Package_1934.uml" />
+            <description>Property giftItem references type GiftItem.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9eca0b23-6b35-4fbb-a1ce-4249c18c270e"
+                  name="WishlistItem"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="aae1b044-13b2-4679-9a90-9e54a4c83d14"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a905348e-0033-421c-a012-1527e2b8b1ce"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="338ad057-7501-49aa-b982-0338aaae605d"
+                  name="giftItem"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="9ce84676-733f-49bb-96c9-f516f10eddfd"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="64f46b07-266d-48c1-a7ef-1d84b10c7b33"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="2f2e30f2-f3aa-43e0-a8f3-46003dbb69f0"
+            name="giftItem"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="18090aaf-54da-4c5b-8a5d-a09ce3d74d20"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem Member%3DgiftItem"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6d9e312b-da01-4289-b35e-dd944f124dc9"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="95d92e90-b9c9-4709-a4ab-6745ef83c42a">
+                    <propertyInstance
+                      Id="6d123c45-171d-4775-9b00-5f8c6b7b1810"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2cc58a80-9c4c-497c-a4b2-2c2d3ca7ccfe">
+                    <propertyInstance
+                      Id="e93d2ca6-143e-49aa-88cd-323eb0fa9550"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="38cae7bf-fcf3-4d20-b1d4-29c101d0701e">
+                    <propertyInstance
+                      Id="6427eb3f-255c-473c-a422-c30a3f060f03"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bc95bf15-bc4c-4c22-a95f-2e0256044ff7">
+                    <propertyInstance
+                      Id="5720bdab-1959-40e8-bbf2-10226ef9e8a6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8b53a6a1-921f-43ef-8d57-e936fdc8b890">
+                    <propertyInstance
+                      Id="3983d130-66b0-4b67-921e-6253cf833e37"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a2248b93-f7ef-4f05-a379-46bfdc393163">
+                    <propertyInstance
+                      Id="ffe214d6-85c2-43d0-8604-e78b074c57a5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3499690e-42df-4ad1-95fb-3258e15a5179">
+                    <propertyInstance
+                      Id="c97de5ea-be86-4d43-a2b7-36837108bc53"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="1d3661ca-00de-45fa-a4ce-dc71fb7b0fcb"
+                LastKnownName="GiftItem"
+                LastKnownLocation="Package_1934.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5c438f23-3abf-4d4e-ac54-d9f038085e32"
+            name="itemFK"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="47c1df35-ae1c-4297-85e0-cdff7ad98a71"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem Member%3DitemFK"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d71d8407-8d34-4756-864a-087d014c2a79"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f17d870a-bb41-4983-ae10-64437b2a8b40">
+                    <propertyInstance
+                      Id="5552e8ac-c140-403e-807b-5e5a64958dbe"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a857347-86c6-4d80-9d33-06df3847d019">
+                    <propertyInstance
+                      Id="b86b7e0a-a49a-4308-a1a0-d406d2fcca75"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e4ff213-fc1d-461a-816d-c3b038f050c8">
+                    <propertyInstance
+                      Id="001ebb67-5940-47d3-bf62-86cfa271d2ba"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a24c6212-2b28-4267-85ec-d70b3df64978">
+                    <propertyInstance
+                      Id="c0db984a-9001-4a7a-acc5-ca06b18c4ac5"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="99a5a33f-f2c3-4620-8f14-88220aac0dff">
+                    <propertyInstance
+                      Id="d8179d66-984a-4d64-b329-896e580f7fd4"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="726d01d3-c086-4884-9876-8b4bb27150a7">
+                    <propertyInstance
+                      Id="0f184aaa-b4de-43fa-9bd9-6ba64e8a07f0"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d0cbad0-e96b-43d8-8ca4-a15c20544ac6">
+                    <propertyInstance
+                      Id="d0de4e2f-d139-4be9-a02c-a75dc1b4fbe8"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="99bd106d-a251-4c3b-bd61-54bbe304bc54"
+            name="purchasedQty"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="a150a0f2-9696-4853-a1bd-f1933795e124"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem Member%3DpurchasedQty"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9fcf73e8-e1a7-4563-a17f-55e6bca9665d"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="37c48d22-f3c3-40bf-a229-fab5751b7529">
+                    <propertyInstance
+                      Id="c6743a4f-0d68-4ad0-8f3a-f9ec02927fe5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="366941bc-73d2-4148-bf0e-24eca3609a2f">
+                    <propertyInstance
+                      Id="de4ea542-3de1-4013-9d33-784bd1a39052"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="76e56c8e-fb6a-4f5b-b42a-367756ccbe79">
+                    <propertyInstance
+                      Id="169918c9-9605-4524-bbaf-5bdb7441dd5a"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0370e03a-bc99-4079-ac3e-c464c747989b">
+                    <propertyInstance
+                      Id="714c6878-0f40-4c9c-b422-fa8f3abe31b2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cfa8f1a4-e78f-484a-a281-c9f15c58b65f">
+                    <propertyInstance
+                      Id="82da650e-891f-43f4-b001-de8be5869ae3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="db76cf74-7cb6-45cd-8b1f-9da3ce75140f">
+                    <propertyInstance
+                      Id="812a13aa-1ae0-4d40-9818-75e8214accee"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bffabfa6-780a-45bd-9db2-b3fbaf5aaca3">
+                    <propertyInstance
+                      Id="a0265040-38cd-4642-9b0a-cfc895fc8f4e"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="7e21dca9-b89b-4948-b9a9-c1773e04e7b8"
+            name="requestedQty"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e1807159-9e34-4d76-a9b7-61d9ecb6526d"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem Member%3DrequestedQty"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="819284e6-d745-41e7-ba81-0b73362364d7"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83141123-f1d8-4704-aa76-71e10bbf5ea1">
+                    <propertyInstance
+                      Id="39460fc3-eb90-4b6a-807a-06ff3cc2f20a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="592bb82a-9759-4671-9793-65ddf3a9d150">
+                    <propertyInstance
+                      Id="852c2938-b05d-46ac-a2fd-711ee77261d7"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30818b94-af6a-4685-bbd1-9778f5ef7136">
+                    <propertyInstance
+                      Id="dba82f14-062b-4cff-909f-4da8a0936f28"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="338bcc16-a43a-44c0-933f-6c33f1899ef4">
+                    <propertyInstance
+                      Id="1b3f9c6d-016b-4232-83b1-5583fd8d08ba"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f6cd64b8-6cfb-4242-a79d-883ea1a7b187">
+                    <propertyInstance
+                      Id="7bb25766-d127-4b43-9601-fdf8c5c5f8be"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="36825717-fac6-411e-a734-744e2589e12d">
+                    <propertyInstance
+                      Id="3a10fa99-cb4a-448c-a02b-59ced1497ce8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="16d2bd79-c81e-4c36-a59d-ad1f6bb908da">
+                    <propertyInstance
+                      Id="4b54f33a-1103-440a-bc9d-b1f7e3d33444"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ec4494a7-7616-4d17-bd49-9424e274c913"
+            name="wishlistFK"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e89738e8-dec2-469d-b9ea-e4a27fa23885"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem Member%3DwishlistFK"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c2aea983-b496-4561-b498-88756620c32c"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b9d72218-baa1-470a-82db-08f48590cdbc">
+                    <propertyInstance
+                      Id="18f226e7-2a12-4471-817d-222c1df0703b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d132acba-d704-4029-9fe8-11c368360936">
+                    <propertyInstance
+                      Id="37f452f9-0e59-439f-8f17-e59b841b7765"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4c6e0534-c058-416e-aade-50e86f916892">
+                    <propertyInstance
+                      Id="845126cf-e8f2-4a8a-89de-5e8e63c80b74"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f67b4044-02d2-48d6-901b-271dd9684459">
+                    <propertyInstance
+                      Id="08328c40-b892-4d55-aab1-5349e33fd81d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="191f25cd-e8d3-4909-921a-7e8c582fe1e3">
+                    <propertyInstance
+                      Id="d18d461b-79cb-427d-8cf3-bb5dc0a88ec1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="abf4b505-8fa8-41fd-8d09-6443831f249a">
+                    <propertyInstance
+                      Id="95167487-4501-474d-b021-99425f3c69e6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="74bd414d-fa75-4d74-99e0-0f6629b6f7b1">
+                    <propertyInstance
+                      Id="5311d7a9-2bb9-46cd-af2b-93e661b45be5"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f52fb2c1-3c40-4c2e-a226-64e960a7d8b4"
+            name="wishlistItemPK"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="7820e915-3cb5-47ee-98f7-1804fa64395c"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem Member%3DwishlistItemPK"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="99639d03-dd16-455d-be39-a6ddcfef39ca"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="84f4c827-20e1-446e-839f-91194d2ab549">
+                    <propertyInstance
+                      Id="cb727258-55d2-4247-97c2-bb680cc86d93"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15b74333-701f-4709-8ecd-42075133e2f4">
+                    <propertyInstance
+                      Id="f9c63379-8083-43b0-8480-116eb999ace2"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca26ca91-3685-41ae-9cbb-c96db79d16ff">
+                    <propertyInstance
+                      Id="f052442b-a1b3-4780-9c91-5c28e498aa0d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="87993b73-28e2-451c-b082-b9a722831e5f">
+                    <propertyInstance
+                      Id="6df61c95-7ffd-42ce-853d-9cfbb85c70ed"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a904ee33-cdfa-4a73-ba24-d8a2168d4842">
+                    <propertyInstance
+                      Id="c4e87bc7-a0c4-42e8-ad22-e87e263e6c53"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61ac9757-c5ca-4205-85f3-2e2e1727e494">
+                    <propertyInstance
+                      Id="a9502dfe-2c54-4662-9368-b0a9e2ca789b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="36fc53ba-3740-45d9-86eb-94bcea4205d2">
+                    <propertyInstance
+                      Id="2250a455-ce71-4bc2-81e2-2650a83527bf"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7bb5eecb-a1e2-42ee-b088-0d3785ac001c"
+            name="WishlistItem"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="f09ae267-d5ec-41fa-8730-c57599c3d82a"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e93b68ab-510e-4fac-a608-6f1d0be016f5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04ea0b82-32bb-4ead-a8d5-364c87e08581">
+                    <propertyInstance
+                      Id="60d3afc9-5d63-4fa8-ba7a-010bc56117e0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="de313414-a5bc-4926-99ae-b2c00c410d59">
+                    <propertyInstance
+                      Id="0aab09f4-5ea5-4ef2-9d7c-bdc03c2131d3"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2b033660-a327-42d0-8465-7e7879c69b4c">
+                    <propertyInstance
+                      Id="e9e89f9a-7c8c-40bb-b087-650aa89f4950"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5261568e-5bbd-420e-b0ea-8129c7df06f1">
+                    <propertyInstance
+                      Id="5670b7ec-f45c-4649-ab97-23729715dc85"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6f45c489-d477-4383-9f65-a3d14b944d7f">
+                    <propertyInstance
+                      Id="370e63c7-cf6e-42ed-9c21-f06bbf674fdf"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dcee1cf9-5a10-4cf2-8908-06acf1c27358">
+                    <propertyInstance
+                      Id="04738758-4705-42b5-88e3-f35a23ab4750"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="050e578d-9fb5-4009-ab6a-635ec5595ad5"
+                  name="_wishlistItemPK"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="0181ac25-9006-4506-a997-d3a6a8f1f39e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3D_wishlistItemPK"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e65e73a8-61d5-498b-bf8a-f069c63a358a"
+            name="getWishlistEntries"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="175776f3-5760-44da-806b-05cebc2d0c17"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem Member%3D(Name%3DgetWishlistEntries OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="99aa7f16-2823-465d-a9d6-cdb9dc3877c0"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9cda11ca-36f7-46ab-a046-2cf76e0e1ed0">
+                    <propertyInstance
+                      Id="eb6651f6-8673-436c-a3bf-7e6507c63a61"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3cb8f4f0-8728-4094-86ce-13f395f31a12">
+                    <propertyInstance
+                      Id="10fcca0c-b4b2-401a-9083-ffacec0b7958"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b9d23048-2268-4c93-b974-84139e9dd71e">
+                    <propertyInstance
+                      Id="0e7678c2-93dd-4c44-afcb-c2be44d3a84a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f54f4a08-7c28-4b9c-b55a-8a5c0f60725a">
+                    <propertyInstance
+                      Id="90b5356a-f7e9-47b0-90a9-cfa2234a72bd"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7cf7e8b5-eaff-4e6b-9bf9-88af9cf9557f">
+                    <propertyInstance
+                      Id="5f8fe039-b39b-4a8f-a61e-26744083d6c6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="40f1c4c8-4738-48ab-ba74-c1ae59dacc8f">
+                    <propertyInstance
+                      Id="f8945ccb-f1be-4b68-8249-01b3b078a152"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a7c62b02-420d-4131-a338-08ad534c7fde"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b04fbe7a-afcd-44d7-8b0d-216d5213f547"
+                      LastKnownName="List&lt;WishlistItem‎&gt;"
+                      LastKnownLocation="Package1_1935.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="51e3ad41-fcd4-47a9-a41e-562bee2040fe"
+                  name="wishlistPK"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="7b7aab56-f1a4-4331-8e26-ea55de0ffaf6"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem Member%3D(Name%3DgetWishlistEntries OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DwishlistPK"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e77399ce-3146-4636-a16e-f981f33f89e4"
+            name="WishlistItem"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="73d4fca3-720e-438e-994e-bfb6b3d244dc"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FRoss Anderson%2FDocuments%2FVisual Studio 2012%2FProjects%2FEventPlannerWinForms%2FEventPlannerWinForms%2Fbin%2FDebug%2FEventPlannerWinForms.exe&quot; Namespace%3DEventPlannerWinForms Type%3DWishlistItem Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7feb9f7f-2655-40c6-887f-001bb244ad28"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a8c4a171-ffdb-4c41-9755-4a049c2eb648">
+                    <propertyInstance
+                      Id="97aefc89-6679-4a77-a393-9895fff164b1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a20bbd3e-ac06-456e-be9b-9d9bb0bd17aa">
+                    <propertyInstance
+                      Id="876283b4-2ff6-449c-b372-fce55877327d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="290d380d-b553-476f-95b7-5738c878ac41">
+                    <propertyInstance
+                      Id="b98be9c5-ccae-432b-ac45-c071c817d3ea"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bf3bdcef-3dd7-465f-85c8-a6758b5d1245">
+                    <propertyInstance
+                      Id="87040584-adac-47e5-9767-9c5082b3270a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bdaba9e5-af9a-49a0-8ba8-44cf76276d7a">
+                    <propertyInstance
+                      Id="96e696e9-80a3-458b-b424-1e43cc80735e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83fd1c79-f402-4278-b537-1b3b34cc10c5">
+                    <propertyInstance
+                      Id="614923ab-0a64-4661-827c-6ca02d8d9b08"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
 </package>
