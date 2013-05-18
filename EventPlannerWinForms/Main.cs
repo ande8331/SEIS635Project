@@ -580,6 +580,8 @@ namespace EventPlannerWinForms
             eventsInvitedToWishListDataGridView.Columns[1].Width = 100;
             eventsInvitedToWishListDataGridView.Columns.Add("UPC", "UPC");
             eventsInvitedToWishListDataGridView.Columns[2].Width = 100;
+            eventsInvitedToWishListDataGridView.Columns.Add("Cost", "Cost");
+            eventsInvitedToWishListDataGridView.Columns[3].Width = 100;
 
             if (eventInvitedTo != null)
             {
@@ -587,7 +589,7 @@ namespace EventPlannerWinForms
 
                 foreach (WishlistItem gift in myGifts)
                 {
-                    eventsInvitedToWishListDataGridView.Rows.Add(gift.wishlistItemPK, gift.giftItem.giftItemName, gift.giftItem.giftItemUPC);
+                    eventsInvitedToWishListDataGridView.Rows.Add(gift.wishlistItemPK, gift.giftItem.giftItemName, gift.giftItem.giftItemUPC, gift.giftItem.giftItemCost);
                 }
             }
         }
@@ -683,12 +685,12 @@ namespace EventPlannerWinForms
 
         private void myWishListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            changeDisplayedWishlist(e.RowIndex);
+            changeDisplayedWishlist(Convert.ToInt32(myWishListDataGridView[0, e.RowIndex].Value));
         }
 
         private void myWishListDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            changeDisplayedWishlist(e.RowIndex);
+            changeDisplayedWishlist(Convert.ToInt32(myWishListDataGridView[0, e.RowIndex].Value));
         }
 
         private void createNewWishlistButton_Click_1(object sender, EventArgs e)
@@ -706,9 +708,9 @@ namespace EventPlannerWinForms
             newWl.SaveWishListChanges();
         }
 
-        private void changeDisplayedWishlist(int rowIndex)
+        private void changeDisplayedWishlist(int wishlistPK)
         {
-            displayedWishlist = new WishList(Convert.ToInt32(myWishListDataGridView[0, rowIndex].Value));
+            displayedWishlist = new WishList(wishlistPK);
 
             wishListItemsDataGridView.Rows.Clear();
             wishListItemsDataGridView.Columns.Clear();
@@ -728,11 +730,11 @@ namespace EventPlannerWinForms
             wishListItemsDataGridView.Columns.Add("Item Cost", "Cost");
             wishListItemsDataGridView.Columns["Item Cost"].Width = 80;
 
-            List<GiftItem> wishlistItems = GiftItem.getGiftItemsBelongingToWishList(rowIndex);
+            List<GiftItem> wishlistItems = GiftItem.getGiftItemsBelongingToWishList(displayedWishlist.wishlistPK);
 
             foreach (GiftItem item in wishlistItems)
             {
-                int rowNumber = wishListItemsDataGridView.Rows.Add(item.giftItemPK, "Edit", item.giftItemName);
+                int rowNumber = wishListItemsDataGridView.Rows.Add(item.giftItemPK, "Edit", item.giftItemName, item.giftItemUPC, item.giftItemCost);
                 wishListItemsDataGridView["Edit", rowNumber].Style.ForeColor = Color.Blue;
                 Font myFont = new Font(wishListItemsDataGridView.DefaultCellStyle.Font, FontStyle.Underline);
             }
@@ -760,7 +762,6 @@ namespace EventPlannerWinForms
 
             // add to wishlist
             GiftItem.addToWishlist(itemId, wishlistPK, rqstdQty, 0);
-
         }
 
         private void eventsOwnedTabControl_SelectedIndexChanged(object sender, EventArgs e)

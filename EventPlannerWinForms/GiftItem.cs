@@ -34,11 +34,7 @@ namespace EventPlannerWinForms
 
         public static void addToWishlist(int itemPK, int wishlistPK, int requestedQty, int purchasedQty) {
             eventPlannerAccessDBDataSetTableAdapters.wishlistToItemAssociationTableAdapter myadapter = new eventPlannerAccessDBDataSetTableAdapters.wishlistToItemAssociationTableAdapter();
-            eventPlannerAccessDBDataSet.wishlistToItemAssociationDataTable data = new eventPlannerAccessDBDataSet.wishlistToItemAssociationDataTable();
-            myadapter.Fill(data);
-
-            myadapter.Insert(itemPK, wishlistPK, requestedQty, purchasedQty);
-
+            myadapter.Insert(wishlistPK, itemPK, requestedQty, purchasedQty);
         }
 
 
@@ -62,10 +58,7 @@ namespace EventPlannerWinForms
 
                 for (int i = 0; i < data.Rows.Count; i++)
                 {
-                    if (
-                        //data.Rows[i]["itemName"].Equals(giftItemName)
-                        //&& Convert.ToDouble(data.Rows[i]["itemCost"]).Equals(giftItemCost) && 
-                        data.Rows[i]["itemUPC"].Equals(giftItemUPC))
+                    if (data.Rows[i]["itemUPC"].Equals(giftItemUPC))
                     {
                         return Convert.ToInt32(data.Rows[i]["ID"]);
                     }
